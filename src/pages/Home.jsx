@@ -7,6 +7,7 @@ import ProjectsSection from "../components/ProjectsSection";
 import AcademicContributions from "../components/AcademicContributions";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <AcademicContributions />
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

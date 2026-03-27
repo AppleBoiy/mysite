@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { FileText, Users, ExternalLink, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const publications = [
   {
+    id: "kg-rag-jaist",
     title: "KG-Augmented RAG Pipeline for Automated Test Scenario Generation",
     journal: "JAIST×CMU Joint Research",
     year: "2025",
@@ -11,8 +13,10 @@ const publications = [
     status: "Extended",
     link: null,
     downloadable: false,
+    hasPreview: true,
   },
   {
+    id: "ontology-phsrs",
     title: "Ontology-Augmented Thai Public Health Service Recommendation System",
     journal: "Knowledge Engineering Project",
     year: "2024",
@@ -22,8 +26,11 @@ const publications = [
     link: "https://github.com/AppleBoiy/onto-augmented-PHSRS",
     downloadable: true,
     downloadUrl: "/documents/ontology-phsrs.pdf",
+    documentLanguage: "Thai",
+    hasPreview: true,
   },
   {
+    id: "cs-setup-guide",
     title: "CS Student Setup Guide - Comprehensive Software Installation Documentation",
     journal: "Chiang Mai University - Teaching Resource",
     year: "2022-2025",
@@ -32,6 +39,7 @@ const publications = [
     status: "Active",
     link: "https://kiwis.vercel.app/",
     downloadable: false,
+    hasPreview: false,
   },
 ];
 
@@ -75,7 +83,13 @@ export default function AcademicContributions() {
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
-                      {pub.title}
+                      {pub.hasPreview ? (
+                        <Link to={`/publication/${pub.id}`} className="hover:underline">
+                          {pub.title}
+                        </Link>
+                      ) : (
+                        pub.title
+                      )}
                       {pub.link && (
                         <a
                           href={pub.link}
@@ -99,6 +113,9 @@ export default function AcademicContributions() {
                         >
                           <Download size={12} />
                           Download
+                          {pub.documentLanguage && (
+                            <span className="ml-1">({pub.documentLanguage})</span>
+                          )}
                         </a>
                       )}
                     </div>

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink, Star, GitFork, Lock } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
+    id: "ags",
     title: "AGS - Automated Grading System",
     description:
       "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability.",
@@ -13,8 +15,10 @@ const projects = [
     stars: null,
     forks: null,
     isPrivate: true,
+    hasPreview: true,
   },
   {
+    id: "eza-alias",
     title: "Eza Alias Configuration",
     description:
       "Popular Gist providing a comprehensive alias setup for eza (modern ls replacement). Includes color schemes, icons, and productivity-enhancing shortcuts for better terminal file navigation. Used by developers worldwide.",
@@ -24,8 +28,10 @@ const projects = [
     stars: 62,
     forks: 6,
     isPrivate: false,
+    hasPreview: true,
   },
   {
+    id: "neovim",
     title: "Neovim",
     description:
       "Contributor to Neovim - Vim-fork focused on extensibility and usability. Open source text editor with modern features and plugin ecosystem.",
@@ -35,8 +41,10 @@ const projects = [
     stars: 97500,
     forks: 6700,
     isPrivate: false,
+    hasPreview: false,
   },
   {
+    id: "flask-security",
     title: "Flask-Security",
     description:
       "Contributor to Flask-Security - Quick and simple security for Flask applications. Provides common security patterns for authentication and authorization.",
@@ -46,6 +54,7 @@ const projects = [
     stars: 696,
     forks: 162,
     isPrivate: false,
+    hasPreview: false,
   },
 ];
 
@@ -140,7 +149,13 @@ export default function ProjectsSection() {
                   ? 'text-foreground group-hover:text-primary' 
                   : 'text-foreground group-hover:text-accent'
               }`}>
-                {project.title}
+                {project.hasPreview ? (
+                  <Link to={`/project/${project.id}`} className="hover:underline">
+                    {project.title}
+                  </Link>
+                ) : (
+                  project.title
+                )}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-5">
                 {project.description}
