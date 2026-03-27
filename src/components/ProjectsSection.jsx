@@ -1,7 +1,19 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star, GitFork } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Lock } from "lucide-react";
+import { toast } from "sonner";
 
 const projects = [
+  {
+    title: "AGS - Automated Grading System",
+    description:
+      "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability.",
+    tags: ["Flask", "AWS (ECS, Aurora, S3)", "Docker", "GPT-3.5", "SQLAlchemy", "CI/CD"],
+    github: "https://github.com/AGS-CMU/ags",
+    demo: "https://ags.cs.science.cmu.ac.th",
+    stars: null,
+    forks: null,
+    isPrivate: true,
+  },
   {
     title: "Eza Alias Configuration",
     description:
@@ -11,16 +23,7 @@ const projects = [
     demo: "",
     stars: 62,
     forks: 6,
-  },
-  {
-    title: "Ontology-Augmented Thai Public Health Service Recommendation System",
-    description:
-      "Built a health-domain knowledge base with 85 classes, 411 individuals, and 22 data properties modeling Thai public health services, patient rights, and insurance coverage as a queryable recommendation layer. Authored 38 SWRL reasoning rules and 40 SPARQL queries across 4 competency scopes.",
-    tags: ["OWL", "SPARQL", "SWRL", "Protégé", "Python"],
-    github: "https://github.com/AppleBoiy/onto-augmented-PHSRS",
-    demo: "",
-    stars: 0,
-    forks: 0,
+    isPrivate: false,
   },
   {
     title: "Neovim",
@@ -31,6 +34,7 @@ const projects = [
     demo: "",
     stars: 97500,
     forks: 6700,
+    isPrivate: false,
   },
   {
     title: "Flask-Security",
@@ -41,10 +45,18 @@ const projects = [
     demo: "",
     stars: 696,
     forks: 162,
+    isPrivate: false,
   },
 ];
 
 export default function ProjectsSection() {
+  const handlePrivateDemoClick = (e) => {
+    e.preventDefault();
+    toast.info("Live demo for private projects is only available for reserved users. Please contact me to schedule a demo.", {
+      duration: 5000,
+    });
+  };
+
   return (
     <section id="projects" className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
@@ -88,23 +100,46 @@ export default function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-lg transition-all duration-300 group flex flex-col"
+              className={`bg-card border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group flex flex-col ${
+                project.isPrivate 
+                  ? 'border-primary/40 hover:border-primary/60' 
+                  : 'border-border hover:border-accent/30'
+              }`}
             >
               <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center shrink-0">
-                  <Github size={20} className="text-foreground" />
+                <div className="flex items-center gap-2">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                    project.isPrivate ? 'bg-primary/10' : 'bg-muted'
+                  }`}>
+                    {project.isPrivate ? (
+                      <Lock size={20} className="text-primary" />
+                    ) : (
+                      <Github size={20} className="text-foreground" />
+                    )}
+                  </div>
+                  {project.isPrivate && (
+                    <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
+                      Private
+                    </span>
+                  )}
                 </div>
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Star size={13} /> {project.stars}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <GitFork size={13} /> {project.forks}
-                  </span>
-                </div>
+                {!project.isPrivate && (
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Star size={13} /> {project.stars}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <GitFork size={13} /> {project.forks}
+                    </span>
+                  </div>
+                )}
               </div>
 
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors mb-2">
+              <h3 className={`text-lg font-semibold mb-2 transition-colors ${
+                project.isPrivate 
+                  ? 'text-foreground group-hover:text-primary' 
+                  : 'text-foreground group-hover:text-accent'
+              }`}>
                 {project.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-5">
@@ -127,19 +162,32 @@ export default function ProjectsSection() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors"
+                  className={`flex items-center gap-1.5 text-sm transition-colors ${
+                    project.isPrivate
+                      ? 'text-foreground hover:text-primary'
+                      : 'text-foreground hover:text-accent'
+                  }`}
                 >
-                  <Github size={15} /> Code
+                  <Github size={15} /> {project.isPrivate ? 'Private Repo' : 'Code'}
                 </a>
                 {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors"
-                  >
-                    <ExternalLink size={15} /> Live Demo
-                  </a>
+                  project.isPrivate ? (
+                    <button
+                      onClick={handlePrivateDemoClick}
+                      className="flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-colors"
+                    >
+                      <Lock size={15} /> Request Demo
+                    </button>
+                  ) : (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors"
+                    >
+                      <ExternalLink size={15} /> Live Demo
+                    </a>
+                  )
                 )}
               </div>
             </motion.div>

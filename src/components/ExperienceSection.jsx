@@ -29,8 +29,8 @@ const experiences = [
     location: "Chiang Mai, Thailand",
     period: "Jun 2024 — Dec 2024",
     description:
-      "Developed an AI-driven system to automate assignment grading using LLM-based evaluation, reducing grading turnaround time by 80% (from 5 days to 1 day). Designed and deployed a backend with a Flask-based API server and robust database integration. Implemented CI/CD pipelines and automated testing using GitHub Actions to streamline development and deployment.",
-    tags: ["Flask", "AWS (ECS, RDS, S3)", "Docker", "SQLAlchemy", "CI/CD"],
+      "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy for structured data querying; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability.",
+    tags: ["Flask", "AWS (ECS, Aurora, S3)", "Docker", "GPT-3.5", "SQLAlchemy", "CI/CD"],
   },
   {
     type: "work",

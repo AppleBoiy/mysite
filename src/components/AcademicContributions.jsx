@@ -1,24 +1,37 @@
 import { motion } from "framer-motion";
-import { FileText, Users, ExternalLink } from "lucide-react";
+import { FileText, Users, ExternalLink, Download } from "lucide-react";
 
 const publications = [
   {
     title: "KG-Augmented RAG Pipeline for Automated Test Scenario Generation",
-    journal: "JAIST×CMU Joint Research (Under Publication Embargo)",
+    journal: "JAIST×CMU Joint Research",
     year: "2025",
-    authors: "Chaipat Jainan, et al.",
+    authors: "C Jainan, et al.",
     type: "Research Paper",
-    status: "Under Embargo",
+    status: "Extended",
     link: null,
+    downloadable: false,
+  },
+  {
+    title: "Ontology-Augmented Thai Public Health Service Recommendation System",
+    journal: "Knowledge Engineering Project",
+    year: "2024",
+    authors: "C Jainan, K Saelee",
+    type: "Research Project",
+    status: "Completed",
+    link: "https://github.com/AppleBoiy/onto-augmented-PHSRS",
+    downloadable: true,
+    downloadUrl: "/documents/ontology-phsrs.pdf",
   },
   {
     title: "CS Student Setup Guide - Comprehensive Software Installation Documentation",
     journal: "Chiang Mai University - Teaching Resource",
     year: "2022-2025",
-    authors: "Chaipat Jainan",
+    authors: "C Jainan",
     type: "Educational Resource",
     status: "Active",
     link: "https://kiwis.vercel.app/",
+    downloadable: false,
   },
 ];
 
@@ -74,9 +87,21 @@ export default function AcademicContributions() {
                         </a>
                       )}
                     </h3>
-                    <span className="shrink-0 px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
-                      {pub.year}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="shrink-0 px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
+                        {pub.year}
+                      </span>
+                      {pub.downloadable && (
+                        <a
+                          href={pub.downloadUrl}
+                          download
+                          className="shrink-0 px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
+                        >
+                          <Download size={12} />
+                          Download
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <p className="text-accent text-sm font-medium mb-2">{pub.journal}</p>
                   <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
@@ -85,9 +110,11 @@ export default function AcademicContributions() {
                     </span>
                     <span className="px-2 py-0.5 text-xs bg-muted rounded-full">{pub.type}</span>
                     <span className={`px-2 py-0.5 text-xs rounded-full ${
-                      pub.status === 'Under Embargo' 
-                        ? 'bg-yellow-100 text-yellow-700' 
-                        : 'bg-green-100 text-green-700'
+                      pub.status === 'Extended' 
+                        ? 'bg-blue-100 text-blue-700' 
+                        : pub.status === 'Active'
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-yellow-100 text-yellow-700'
                     }`}>{pub.status}</span>
                   </div>
                 </div>

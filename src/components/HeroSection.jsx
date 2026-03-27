@@ -49,7 +49,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="#experience"
                 className="px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
@@ -61,6 +61,13 @@ export default function HeroSection() {
                 className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors"
               >
                 Contact Me
+              </a>
+              <a
+                href="/cv.pdf"
+                download
+                className="px-7 py-3 border border-accent text-accent rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                Download CV
               </a>
             </div>
           </motion.div>
