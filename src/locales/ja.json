@@ -135,12 +135,6 @@
     "messageSent": "送信されました！折り返しご連絡いたします。",
     "messageFailed": "送信に失敗しました。もう一度お試しいただくか、メールで直接ご連絡ください。"
   },
-  "timeline": {
-    "title": "経歴",
-    "heading": "キャリア",
-    "headingItalic": "タイムライン",
-    "ongoing": "進行中"
-  },
   "availability": {
     "banner": "現在、新しいオポチュニティを募集中です！応用LLMエンジニアの職を探しています。",
     "bannerShort": "求職中！応用LLMエンジニアのポジションを探しています。",
