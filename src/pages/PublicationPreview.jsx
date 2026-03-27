@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import SEOHead from "../components/SEOHead";
 
 const publicationsData = {
   "ontology-phsrs": {
@@ -267,6 +268,12 @@ export default function PublicationPreview() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={`${publication.title} | Chaipat Jainan`}
+        description={publication.abstract}
+        keywords={publication.tags.join(", ")}
+        ogType="article"
+      />
       <Navbar />
       
       <div className="pt-32 pb-20">

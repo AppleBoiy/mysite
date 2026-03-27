@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import SEOHead from "../components/SEOHead";
 
 const projectsData = {
   "ags": {
@@ -105,6 +106,12 @@ export default function ProjectPreview() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={`${project.title} | Chaipat Jainan`}
+        description={project.description}
+        keywords={project.tags.join(", ")}
+        ogType="article"
+      />
       <Navbar />
       
       <div className="pt-32 pb-20">

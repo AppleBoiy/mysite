@@ -8,20 +8,24 @@ import AcademicContributions from "../components/AcademicContributions";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import SEOHead from "../components/SEOHead";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <AcademicContributions />
-      <ContactSection />
-      <Footer />
-      <ScrollToTop />
-    </div>
+    <>
+      <SEOHead />
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <AcademicContributions />
+        <ContactSection />
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </>
   );
 }
