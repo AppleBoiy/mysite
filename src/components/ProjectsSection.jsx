@@ -4,12 +4,9 @@ import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const projects = [
+const projectsData = [
   {
     id: "ags",
-    title: "AGS - Automated Grading System",
-    description:
-      "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability.",
     tags: ["Flask", "AWS (ECS, Aurora, S3)", "Docker", "GPT-3.5", "SQLAlchemy", "CI/CD"],
     github: "https://github.com/AGS-CMU/ags",
     demo: "https://ags.cs.science.cmu.ac.th",
@@ -19,10 +16,7 @@ const projects = [
     hasPreview: true,
   },
   {
-    id: "eza-alias",
-    title: "Eza Alias Configuration",
-    description:
-      "Popular Gist providing a comprehensive alias setup for eza (modern ls replacement). Includes color schemes, icons, and productivity-enhancing shortcuts for better terminal file navigation. Used by developers worldwide.",
+    id: "ezaAlias",
     tags: ["Shell", "CLI", "Productivity", "Gist"],
     github: "https://gist.github.com/AppleBoiy/04a249b6f64fd0fe1744aff759a0563b",
     demo: "",
@@ -33,9 +27,6 @@ const projects = [
   },
   {
     id: "neovim",
-    title: "Neovim",
-    description:
-      "Contributor to Neovim - Vim-fork focused on extensibility and usability. Open source text editor with modern features and plugin ecosystem.",
     tags: ["Vim Script", "Open Source", "Editor"],
     github: "https://github.com/neovim/neovim",
     demo: "",
@@ -45,10 +36,7 @@ const projects = [
     hasPreview: false,
   },
   {
-    id: "flask-security",
-    title: "Flask-Security",
-    description:
-      "Contributor to Flask-Security - Quick and simple security for Flask applications. Provides common security patterns for authentication and authorization.",
+    id: "flaskSecurity",
     tags: ["Python", "Flask", "Security", "Open Source"],
     github: "https://github.com/pallets-eco/flask-security",
     demo: "",
@@ -68,6 +56,12 @@ export default function ProjectsSection() {
       duration: 5000,
     });
   };
+
+  const projects = projectsData.map(proj => ({
+    ...proj,
+    title: t(`projects.items.${proj.id}.title`),
+    description: t(`projects.items.${proj.id}.description`),
+  }));
 
   return (
     <section id="projects" className="py-24 lg:py-32">

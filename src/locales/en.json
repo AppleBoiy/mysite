@@ -38,7 +38,41 @@
     "work": "Work",
     "research": "Research",
     "showMore": "Show More Details",
-    "showLess": "Show Less"
+    "showLess": "Show Less",
+    "items": {
+      "jaist": {
+        "title": "AI/ML Research Intern",
+        "organization": "KnOWLab Research Lab, JAIST",
+        "location": "Nomi, Ishikawa, Japan",
+        "period": "Apr 2025 — Sep 2025",
+        "summary": "Built a prompt engineering pipeline (DoC) for LLM-based information extraction with 68% improvement over state-of-the-art, achieving 100% accuracy.",
+        "description": "CSCMU × KnOWLab-JAIST × Formal Methods Lab-JAIST Collaboration — Built a prompt engineering pipeline (DoC) for LLM-based information extraction from unstructured documents, automating structured data population with 68% improvement over state-of-the-art. Tested and debugged LLM outputs at scale; applied domain constraints to filter implausible AI responses, achieving 100% accuracy."
+      },
+      "french": {
+        "title": "Backend Developer (Contract)",
+        "organization": "Chiang Mai University, Dept. of Western Languages (French)",
+        "location": "Chiang Mai, Thailand",
+        "period": "Apr 2024 — Mar 2025",
+        "summary": "Developed a platform integrating French language learning with interactive lessons and personalized guidance.",
+        "description": "Developed a platform integrating French language learning with interactive lessons and personalized guidance. Built backend infrastructure, including database management, API endpoints, and server configuration."
+      },
+      "ags": {
+        "title": "DevOps (Contract)",
+        "organization": "Chiang Mai University, Dept. of Computer Science",
+        "location": "Chiang Mai, Thailand",
+        "period": "Jun 2024 — Dec 2024",
+        "summary": "Built production LLM application using GPT-3.5, reducing grading turnaround time by 80% (5 days → 1 day) for 80+ students.",
+        "description": "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy for structured data querying; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability."
+      },
+      "ta": {
+        "title": "Teaching Assistant",
+        "organization": "Chiang Mai University",
+        "location": "Chiang Mai, Thailand",
+        "period": "Aug 2022 — Mar 2025",
+        "summary": "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices.",
+        "description": "Mentored 50+ undergraduate students in Python programming, focusing on core programming concepts and best practices. Authored comprehensive software setup guides for students to ensure smooth access to the necessary tools for the course."
+      }
+    }
   },
   "projects": {
     "title": "Projects",
@@ -50,7 +84,25 @@
     "privateRepo": "Private Repo",
     "liveDemo": "Live Demo",
     "requestDemo": "Request Demo",
-    "requestDemoMessage": "Live demo for private projects is only available for reserved users. Please contact me to schedule a demo."
+    "requestDemoMessage": "Live demo for private projects is only available for reserved users. Please contact me to schedule a demo.",
+    "items": {
+      "ags": {
+        "title": "AGS - Automated Grading System",
+        "description": "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability."
+      },
+      "ezaAlias": {
+        "title": "Eza Alias Configuration",
+        "description": "Popular Gist providing a comprehensive alias setup for eza (modern ls replacement). Includes color schemes, icons, and productivity-enhancing shortcuts for better terminal file navigation. Used by developers worldwide."
+      },
+      "neovim": {
+        "title": "Neovim",
+        "description": "Contributor to Neovim - Vim-fork focused on extensibility and usability. Open source text editor with modern features and plugin ecosystem."
+      },
+      "flaskSecurity": {
+        "title": "Flask-Security",
+        "description": "Contributor to Flask-Security - Quick and simple security for Flask applications. Provides common security patterns for authentication and authorization."
+      }
+    }
   },
   "publications": {
     "title": "Academic Contributions",

@@ -3,49 +3,25 @@ import { Calendar, MapPin, Briefcase, FlaskConical, ChevronDown, ChevronUp } fro
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const experiences = [
+const experiencesData = [
   {
+    id: "jaist",
     type: "research",
-    title: "AI/ML Research Intern",
-    organization: "KnOWLab Research Lab, JAIST",
-    location: "Nomi, Ishikawa, Japan",
-    period: "Apr 2025 — Sep 2025",
-    summary: "Built a prompt engineering pipeline (DoC) for LLM-based information extraction with 68% improvement over state-of-the-art, achieving 100% accuracy.",
-    description:
-      "CSCMU × KnOWLab-JAIST × Formal Methods Lab-JAIST Collaboration — Built a prompt engineering pipeline (DoC) for LLM-based information extraction from unstructured documents, automating structured data population with 68% improvement over state-of-the-art. Tested and debugged LLM outputs at scale; applied domain constraints to filter implausible AI responses, achieving 100% accuracy.",
     tags: ["LLM", "Prompt Engineering", "Information Extraction", "Python", "Research"],
   },
   {
+    id: "french",
     type: "work",
-    title: "Backend Developer (Contract)",
-    organization: "Chiang Mai University, Dept. of Western Languages (French)",
-    location: "Chiang Mai, Thailand",
-    period: "Apr 2024 — Mar 2025",
-    summary: "Developed a platform integrating French language learning with interactive lessons and personalized guidance.",
-    description:
-      "Developed a platform integrating French language learning with interactive lessons and personalized guidance. Built backend infrastructure, including database management, API endpoints, and server configuration.",
     tags: ["Flask", "Flask-RESTX", "SQLAlchemy", "Gunicorn", "smtplib"],
   },
   {
+    id: "ags",
     type: "work",
-    title: "DevOps (Contract)",
-    organization: "Chiang Mai University, Dept. of Computer Science",
-    location: "Chiang Mai, Thailand",
-    period: "Jun 2024 — Dec 2024",
-    summary: "Built production LLM application using GPT-3.5, reducing grading turnaround time by 80% (5 days → 1 day) for 80+ students.",
-    description:
-      "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy for structured data querying; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability.",
     tags: ["Flask", "AWS (ECS, Aurora, S3)", "Docker", "GPT-3.5", "SQLAlchemy", "CI/CD"],
   },
   {
+    id: "ta",
     type: "work",
-    title: "Teaching Assistant",
-    organization: "Chiang Mai University",
-    location: "Chiang Mai, Thailand",
-    period: "Aug 2022 — Mar 2025",
-    summary: "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices.",
-    description:
-      "Mentored 50+ undergraduate students in Python programming, focusing on core programming concepts and best practices. Authored comprehensive software setup guides for students to ensure smooth access to the necessary tools for the course.",
     tags: ["Python", "Teaching", "Mentoring", "Documentation"],
   },
 ];
@@ -57,6 +33,16 @@ export default function ExperienceSection() {
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
+
+  const experiences = experiencesData.map(exp => ({
+    ...exp,
+    title: t(`experience.items.${exp.id}.title`),
+    organization: t(`experience.items.${exp.id}.organization`),
+    location: t(`experience.items.${exp.id}.location`),
+    period: t(`experience.items.${exp.id}.period`),
+    summary: t(`experience.items.${exp.id}.summary`),
+    description: t(`experience.items.${exp.id}.description`),
+  }));
 
   return (
     <section id="experience" className="py-24 lg:py-32">

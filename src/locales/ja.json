@@ -1,91 +1,142 @@
 {
   "nav": {
-    "about": "について",
-    "experience": "経験",
-    "academic": "学術",
+    "about": "プロフィール",
+    "experience": "経歴",
+    "academic": "学歴・研究",
     "projects": "プロジェクト",
     "skills": "スキル",
     "contact": "お問い合わせ",
     "getInTouch": "連絡する"
   },
   "hero": {
-    "subtitle": "CS学生 & 応用LLMエンジニア",
-    "description": "LLMシステム、RAGパイプライン、バックエンドエンジニアリングの研究・実務経験を持つ最終学年のCS学生。CMUで本番システムを構築し、JAISTとの共同研究に貢献。",
+    "subtitle": "情報工学専攻 & 応用LLMエンジニア",
+    "description": "LLMシステム、RAGパイプライン、バックエンド開発の研究および実務経験を持つ、CS専攻の最終学年生。CMUでのシステム構築や、JAISTとの共同研究に従事。",
     "university": "チェンマイ大学",
-    "location": "チェンマイ、タイ",
-    "viewWork": "作品を見る",
+    "location": "タイ、チェンマイ",
+    "viewWork": "実績を見る",
     "contactMe": "お問い合わせ",
     "downloadCV": "履歴書をダウンロード"
   },
   "about": {
     "title": "私について",
-    "heading": "AIシステムを構築",
-    "headingItalic": "一つずつパイプライン",
-    "paragraph1": "チェンマイ大学のコンピュータサイエンス最終学年の学生で、LLMシステム、RAGパイプライン、バックエンドエンジニアリングの実践経験があります。CMUで本番システムを構築し、日本のJAISTで最先端の研究に貢献しました。",
-    "paragraph2": "私の仕事は、大規模言語モデルと知識グラフの交差点に焦点を当てており、特に複雑な非構造化データを理解し処理できるインテリジェントシステムの構築に取り組んでいます。実世界の問題を解決する実用的なAIソリューションの作成に情熱を持っています。",
-    "paragraph3": "革新的なAI製品の構築に貢献しながら、スキルを学び続け、成長できる初期段階のチームで応用LLMエンジニアとして成長することを目指しています。",
+    "heading": "AIシステムを構築する、",
+    "headingItalic": "一つひとつのパイプラインから",
+    "paragraph1": "チェンマイ大学でコンピュータサイエンスを専攻している最終学年の学生です。LLMシステム、RAGパイプライン、バックエンドエンジニアリングの実践的な経験があります。CMUで本番環境向けシステムを構築し、日本の北陸先端科学技術大学院大学（JAIST）での最先端の研究にも貢献しました。",
+    "paragraph2": "大規模言語モデル（LLM）とナレッジグラフの融合に焦点を当てており、特に複雑な非構造化データを理解・処理できるインテリジェントシステムの構築に取り組んでいます。実社会の問題を解決する実用的なAIソリューションの開発に情熱を注いでいます。",
+    "paragraph3": "現在、応用LLMエンジニアとして成長できるアーリーステージのチームを探しています。革新的なAI製品の開発に貢献しながら、継続的にスキルを磨いていきたいと考えています。",
     "certifications": "認定資格"
   },
   "skills": {
     "title": "専門知識",
-    "heading": "スキル &",
-    "headingItalic": "能力"
+    "heading": "スキルと",
+    "headingItalic": "コンピテンシー"
   },
   "experience": {
     "title": "経験",
-    "heading": "職務 & 研究",
-    "headingItalic": "経験",
-    "work": "職務",
-    "research": "研究",
+    "heading": "職務および研究の",
+    "headingItalic": "経歴",
+    "work": "職歴",
+    "research": "研究歴",
     "showMore": "詳細を表示",
-    "showLess": "表示を減らす"
+    "showLess": "表示を減らす",
+    "items": {
+      "jaist": {
+        "title": "AI/MLリサーチインターン",
+        "organization": "JAIST 知能機能化領域（KnOWLab）",
+        "location": "石川県能美市",
+        "period": "2025年4月 — 2025年9月",
+        "summary": "LLMベースの情報抽出用プロンプトエンジニアリング・パイプライン（DoC）を構築。従来手法を68%上回る精度向上を実現。",
+        "description": "チェンマイ大学・JAIST知能機能化領域・JAIST形式手法領域の共同研究。非構造化ドキュメントからLLMを用いて情報抽出を行うプロンプトエンジニアリング・パイプライン（DoC）を構築し、構造化データ入力を自動化。大規模なLLM出力のテストとデバッグを実施し、ドメイン制約を適用して不適切な回答をフィルタリングすることで、100%の精度を達成しました。"
+      },
+      "french": {
+        "title": "バックエンド開発者（業務委託）",
+        "organization": "チェンマイ大学 西洋言語学科（フランス語）",
+        "location": "タイ、チェンマイ",
+        "period": "2024年4月 — 2025年3月",
+        "summary": "インタラクティブなレッスンと個別指導を統合したフランス語学習プラットフォームを開発。",
+        "description": "フランス語学習とインタラクティブなレッスン、個別ガイダンスを統合したプラットフォームを開発。データベース管理、APIエンドポイント、サーバー設定を含むバックエンドインフラの構築を担当しました。"
+      },
+      "ags": {
+        "title": "DevOpsエンジニア（業務委託）",
+        "organization": "チェンマイ大学 コンピュータサイエンス学科",
+        "location": "タイ、チェンマイ",
+        "period": "2024年6月 — 2024年12月",
+        "summary": "GPT-3.5を活用したLLMアプリケーションを構築。80名以上の学生に対する採点時間を80%短縮（5日→1日）。",
+        "description": "GPT-3.5を活用した本番用LLMアプリケーション（ags.cs.science.cmu.ac.th）を構築。構造化プロンプトエンジニアリングとトークン予算管理により、推論コストを抑えつつ採点時間を80%短縮しました。FlaskとSQLAlchemyを用いたセキュアなREST APIの設計・デプロイ、Dockerによるコンテナ化、GitHub ActionsでのCI/CD自動化を実施。AWS（ECS, Aurora, S3）を活用してスケーラビリティを確保しました。"
+      },
+      "ta": {
+        "title": "ティーチングアシスタント",
+        "organization": "チェンマイ大学",
+        "location": "タイ、チェンマイ",
+        "period": "2022年8月 — 2025年3月",
+        "summary": "50名以上の学部生に対し、Pythonプログラミングの基礎概念やベストプラクティスを指導。",
+        "description": "50名以上の学部生を対象に、Pythonプログラミングの指導を担当。プログラミングの根幹となる概念やベストプラクティスに焦点を当てたメンタリングを行い、学習に必要なソフトウェアのセットアップガイドも執筆しました。"
+      }
+    }
   },
   "projects": {
     "title": "プロジェクト",
     "heading": "注目の",
     "headingItalic": "プロジェクト",
-    "description": "GitHubからのオープンソースプロジェクトと実験の選択。",
-    "viewAllGithub": "GitHubで全て見る",
+    "description": "GitHubで公開しているオープンソースプロジェクトや実験的な取り組みの選集。",
+    "viewAllGithub": "GitHubですべて見る",
     "code": "コード",
     "privateRepo": "プライベートリポジトリ",
     "liveDemo": "ライブデモ",
     "requestDemo": "デモをリクエスト",
-    "requestDemoMessage": "プライベートプロジェクトのライブデモは予約ユーザーのみ利用可能です。デモのスケジュールについてはお問い合わせください。"
+    "requestDemoMessage": "プライベートプロジェクトのライブデモは、許可されたユーザーのみ利用可能です。デモのご希望は直接ご連絡ください。",
+    "items": {
+      "ags": {
+        "title": "AGS - 自動採点システム",
+        "description": "GPT-3.5を活用した実用的なLLMアプリケーション。プロンプトエンジニアリングとトークン制御を最適化し、80名以上の学生に対する採点時間を5日から1日へ大幅短縮。Flask、SQLAlchemy、Docker、AWS、GitHub Actionsを用いたフルスタックな構築を実施。"
+      },
+      "ezaAlias": {
+        "title": "Eza Alias 設定ファイル",
+        "description": "モダンなlsの代替ツール「eza」向けの包括的なエイリアス設定。カラー表示、アイコン、生産性を高めるショートカットを含み、世界中の開発者に利用されているGistです。"
+      },
+      "neovim": {
+        "title": "Neovim",
+        "description": "拡張性と使いやすさに焦点を当てたVimフォーク「Neovim」へのコントリビューション。モダンな機能とエコシステムを備えたオープンソーステキストエディタ。"
+      },
+      "flaskSecurity": {
+        "title": "Flask-Security",
+        "description": "Flaskアプリケーションに迅速かつシンプルなセキュリティを追加するライブラリへのコントリビューション。認証および認可の一般的なセキュリティパターンを提供。"
+      }
+    }
   },
   "publications": {
-    "title": "学術貢献",
-    "heading": "出版物 &",
-    "headingItalic": "貢献",
+    "title": "研究業績",
+    "heading": "論文・",
+    "headingItalic": "業績",
     "download": "ダウンロード"
   },
   "contact": {
     "title": "お問い合わせ",
-    "heading": "つながり",
-    "headingItalic": "ましょう",
-    "description": "コラボレーションに興味がある、または質問がありますか？ぜひお聞かせください。",
-    "findMeOnline": "オンラインで見つける",
+    "heading": "ぜひ、",
+    "headingItalic": "つながりましょう",
+    "description": "コラボレーションのご提案やご質問など、お気軽にお問い合わせください。",
+    "findMeOnline": "各種リンク",
     "sendMessage": "メッセージを送る",
     "yourName": "お名前",
     "yourEmail": "メールアドレス",
-    "yourMessage": "メッセージ",
+    "yourMessage": "メッセージ内容",
     "sending": "送信中...",
-    "sendMessageBtn": "メッセージを送信",
-    "messageSent": "メッセージが送信されました！すぐにご連絡いたします。",
-    "messageFailed": "メッセージの送信に失敗しました。もう一度お試しいただくか、直接メールでご連絡ください。"
+    "messageSent": "送信されました！折り返しご連絡いたします。",
+    "messageFailed": "送信に失敗しました。もう一度お試しいただくか、メールで直接ご連絡ください。"
   },
   "availability": {
-    "banner": "現在、新しい機会を募集中！応用LLMエンジニアのポジションを探しています。",
-    "bannerShort": "募集中！応用LLMエンジニアのポジションを探しています。",
-    "badge": "新しい機会を募集中",
-    "badgeShort": "募集中"
+    "banner": "現在、新しいオポチュニティを募集中です！応用LLMエンジニアの職を探しています。",
+    "bannerShort": "求職中！応用LLMエンジニアのポジションを探しています。",
+    "badge": "お仕事募集中",
+    "badgeShort": "求職中"
   },
   "footer": {
-    "rights": "全著作権所有。",
+    "rights": "All rights reserved.",
     "builtWith": "React & Tailwind CSSで構築"
   },
   "notFound": {
     "title": "ページが見つかりません",
-    "description": "お探しのページは存在しないか、移動されました。元に戻りましょう。",
+    "description": "お探しのページは存在しないか、移動した可能性があります。トップページにお戻りください。",
     "goHome": "ホームページへ",
     "goBack": "戻る",
     "quickLinks": "クイックリンク"
