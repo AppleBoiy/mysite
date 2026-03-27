@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import SEOHead from "../components/SEOHead";
+import PageTransition from "../components/PageTransition";
 
 const publicationsData = {
   "ontology-phsrs": {
@@ -267,14 +268,15 @@ export default function PublicationPreview() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <SEOHead
-        title={`${publication.title} | Chaipat Jainan`}
-        description={publication.abstract}
-        keywords={publication.tags.join(", ")}
-        ogType="article"
-      />
-      <Navbar />
+    <PageTransition>
+      <div className="min-h-screen bg-background">
+        <SEOHead
+          title={`${publication.title} | Chaipat Jainan`}
+          description={publication.abstract}
+          keywords={publication.tags.join(", ")}
+          ogType="article"
+        />
+        <Navbar />
       
       <div className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">
@@ -590,5 +592,6 @@ export default function PublicationPreview() {
       <Footer />
       <ScrollToTop />
     </div>
+    </PageTransition>
   );
 }

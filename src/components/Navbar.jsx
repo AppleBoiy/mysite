@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ hasBanner = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -24,7 +24,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
+        hasBanner ? 'top-[52px]' : 'top-0'
+      } ${
         scrolled
           ? "bg-background/80 backdrop-blur-xl shadow-sm border-b border-border"
           : "bg-transparent"

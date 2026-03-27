@@ -109,7 +109,8 @@ export default function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`bg-card border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group flex flex-col ${
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className={`bg-card border rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group flex flex-col ${
                 project.isPrivate 
                   ? 'border-primary/40 hover:border-primary/60' 
                   : 'border-border hover:border-accent/30'

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Briefcase, FlaskConical } from "lucide-react";
+import { Calendar, MapPin, Briefcase, FlaskConical, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
 const experiences = [
   {
@@ -8,6 +9,7 @@ const experiences = [
     organization: "KnOWLab Research Lab, JAIST",
     location: "Nomi, Ishikawa, Japan",
     period: "Apr 2025 — Sep 2025",
+    summary: "Built a prompt engineering pipeline (DoC) for LLM-based information extraction with 68% improvement over state-of-the-art, achieving 100% accuracy.",
     description:
       "CSCMU × KnOWLab-JAIST × Formal Methods Lab-JAIST Collaboration — Built a prompt engineering pipeline (DoC) for LLM-based information extraction from unstructured documents, automating structured data population with 68% improvement over state-of-the-art. Tested and debugged LLM outputs at scale; applied domain constraints to filter implausible AI responses, achieving 100% accuracy.",
     tags: ["LLM", "Prompt Engineering", "Information Extraction", "Python", "Research"],
@@ -18,6 +20,7 @@ const experiences = [
     organization: "Chiang Mai University, Dept. of Western Languages (French)",
     location: "Chiang Mai, Thailand",
     period: "Apr 2024 — Mar 2025",
+    summary: "Developed a platform integrating French language learning with interactive lessons and personalized guidance.",
     description:
       "Developed a platform integrating French language learning with interactive lessons and personalized guidance. Built backend infrastructure, including database management, API endpoints, and server configuration.",
     tags: ["Flask", "Flask-RESTX", "SQLAlchemy", "Gunicorn", "smtplib"],
@@ -28,6 +31,7 @@ const experiences = [
     organization: "Chiang Mai University, Dept. of Computer Science",
     location: "Chiang Mai, Thailand",
     period: "Jun 2024 — Dec 2024",
+    summary: "Built production LLM application using GPT-3.5, reducing grading turnaround time by 80% (5 days → 1 day) for 80+ students.",
     description:
       "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy for structured data querying; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability.",
     tags: ["Flask", "AWS (ECS, Aurora, S3)", "Docker", "GPT-3.5", "SQLAlchemy", "CI/CD"],
@@ -38,6 +42,7 @@ const experiences = [
     organization: "Chiang Mai University",
     location: "Chiang Mai, Thailand",
     period: "Aug 2022 — Mar 2025",
+    summary: "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices.",
     description:
       "Mentored 50+ undergraduate students in Python programming, focusing on core programming concepts and best practices. Authored comprehensive software setup guides for students to ensure smooth access to the necessary tools for the course.",
     tags: ["Python", "Teaching", "Mentoring", "Documentation"],
@@ -45,6 +50,12 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <section id="experience" className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
@@ -86,6 +97,7 @@ export default function ExperienceSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ x: 8, transition: { duration: 0.3 } }}
                 className="sm:pl-14 relative"
               >
                 <div
@@ -128,14 +140,55 @@ export default function ExperienceSection() {
                       </span>
                     </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed mb-5">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
+
+                  {/* Summary - Visible when collapsed */}
+                  {expandedIndex !== i && (
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {exp.summary}
+                    </p>
+                  )}
+
+                  {/* Full Details - Visible when expanded */}
+                  {expandedIndex === i && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="mb-4"
+                    >
+                      <p className="text-muted-foreground leading-relaxed">
+                        {exp.description}
+                      </p>
+                    </motion.div>
+                  )}
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {exp.tags.map((tag) => (
                       <span key={tag} className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full">
                         {tag}
                       </span>
                     ))}
                   </div>
+
+                  {/* Expand/Collapse Button */}
+                  <button
+                    onClick={() => toggleExpand(i)}
+                    className="flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
+                  >
+                    {expandedIndex === i ? (
+                      <>
+                        <ChevronUp size={16} />
+                        Show Less
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown size={16} />
+                        Show More Details
+                      </>
+                    )}
+                  </button>
                 </div>
               </motion.div>
             ))}

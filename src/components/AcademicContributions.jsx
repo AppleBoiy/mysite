@@ -74,7 +74,8 @@ export default function AcademicContributions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 sm:p-8 hover:border-accent/30 transition-all duration-300 group"
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className="bg-card border border-border rounded-2xl p-6 sm:p-8 hover:border-accent/30 hover:shadow-xl transition-all duration-300 group"
             >
               <div className="flex items-start gap-4">
                 <div className="shrink-0 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">

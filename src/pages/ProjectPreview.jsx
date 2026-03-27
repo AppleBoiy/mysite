@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import SEOHead from "../components/SEOHead";
+import PageTransition from "../components/PageTransition";
 
 const projectsData = {
   "ags": {
@@ -105,14 +106,15 @@ export default function ProjectPreview() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <SEOHead
-        title={`${project.title} | Chaipat Jainan`}
-        description={project.description}
-        keywords={project.tags.join(", ")}
-        ogType="article"
-      />
-      <Navbar />
+    <PageTransition>
+      <div className="min-h-screen bg-background">
+        <SEOHead
+          title={`${project.title} | Chaipat Jainan`}
+          description={project.description}
+          keywords={project.tags.join(", ")}
+          ogType="article"
+        />
+        <Navbar />
       
       <div className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">
@@ -314,5 +316,6 @@ export default function ProjectPreview() {
       <Footer />
       <ScrollToTop />
     </div>
+    </PageTransition>
   );
 }
