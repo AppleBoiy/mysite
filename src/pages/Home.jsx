@@ -26,10 +26,10 @@ export default function Home() {
           <Navbar hasBanner={bannerVisible} />
           <HeroSection />
           <AboutSection />
-          <SkillsSection />
           <ExperienceSection />
-          <ProjectsSection />
           <AcademicContributions />
+          <ProjectsSection />
+          <SkillsSection />
           <ContactSection />
           <Footer />
           <ScrollToTop />

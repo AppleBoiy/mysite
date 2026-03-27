@@ -71,6 +71,12 @@
         "period": "Aug 2022 — Mar 2025",
         "summary": "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices.",
         "description": "Mentored 50+ undergraduate students in Python programming, focusing on core programming concepts and best practices. Authored comprehensive software setup guides for students to ensure smooth access to the necessary tools for the course."
+      },
+      "cmu": {
+        "title": "B.Sc. Computer Science",
+        "organization": "Chiang Mai University",
+        "location": "Chiang Mai, Thailand",
+        "period": "2021 — 2025"
       }
     }
   },
@@ -108,7 +114,12 @@
     "title": "Academic Contributions",
     "heading": "Publications &",
     "headingItalic": "Contributions",
-    "download": "Download"
+    "download": "Download",
+    "languages": {
+      "Thai": "Thai",
+      "English": "English",
+      "Japanese": "Japanese"
+    }
   },
   "contact": {
     "title": "Contact",
@@ -121,6 +132,7 @@
     "yourEmail": "Your Email",
     "yourMessage": "Your Message",
     "sending": "Sending...",
+    "sendMessageBtn": "Send Message",
     "messageSent": "Message sent! I'll get back to you soon.",
     "messageFailed": "Failed to send message. Please try again or email me directly."
   },

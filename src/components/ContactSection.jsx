@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Linkedin, Github, Send, Loader2, CheckCircle2, XCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,10 +36,12 @@ export default function ContactSection() {
     message: "",
   });
   const [sending, setSending] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
+    setSubmitStatus(null);
 
     try {
       // Using Web3Forms API (free service)
@@ -61,14 +63,26 @@ export default function ContactSection() {
       const result = await response.json();
 
       if (result.success) {
-        toast.success(t('contact.messageSent'));
+        setSubmitStatus('success');
+        toast.success(t('contact.messageSent'), {
+          icon: <CheckCircle2 className="text-green-500" />,
+        });
         setFormData({ name: "", email: "", message: "" });
+        
+        // Reset success state after 3 seconds
+        setTimeout(() => setSubmitStatus(null), 3000);
       } else {
         throw new Error(result.message || "Failed to send message");
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error(t('contact.messageFailed'));
+      setSubmitStatus('error');
+      toast.error(t('contact.messageFailed'), {
+        icon: <XCircle className="text-red-500" />,
+      });
+      
+      // Reset error state after 3 seconds
+      setTimeout(() => setSubmitStatus(null), 3000);
     } finally {
       setSending(false);
     }
@@ -172,17 +186,62 @@ export default function ContactSection() {
               />
               <Button
                 type="submit"
-                disabled={sending}
-                className="w-full h-12 rounded-xl bg-primary text-primary-foreground hover:opacity-90"
+                disabled={sending || submitStatus === 'success'}
+                className={`w-full h-12 rounded-xl transition-all duration-300 ${
+                  submitStatus === 'success' 
+                    ? 'bg-green-500 hover:bg-green-500' 
+                    : submitStatus === 'error'
+                    ? 'bg-red-500 hover:bg-red-500'
+                    : 'bg-primary hover:opacity-90'
+                } text-primary-foreground`}
               >
-                {sending ? (
-                  t('contact.sending')
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <Send size={16} />
-                    {t('contact.sendMessageBtn')}
-                  </span>
-                )}
+                <AnimatePresence mode="wait">
+                  {sending ? (
+                    <motion.span
+                      key="sending"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex items-center gap-2"
+                    >
+                      <Loader2 size={16} className="animate-spin" />
+                      {t('contact.sending')}
+                    </motion.span>
+                  ) : submitStatus === 'success' ? (
+                    <motion.span
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      className="flex items-center gap-2"
+                    >
+                      <CheckCircle2 size={16} />
+                      {t('contact.messageSent')}
+                    </motion.span>
+                  ) : submitStatus === 'error' ? (
+                    <motion.span
+                      key="error"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      className="flex items-center gap-2"
+                    >
+                      <XCircle size={16} />
+                      {t('contact.messageFailed')}
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="default"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex items-center gap-2"
+                    >
+                      <Send size={16} />
+                      {t('contact.sendMessageBtn')}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </Button>
             </form>
           </motion.div>

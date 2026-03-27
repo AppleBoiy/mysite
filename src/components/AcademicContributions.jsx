@@ -118,7 +118,7 @@ export default function AcademicContributions() {
                           <Download size={12} />
                           {t('publications.download')}
                           {pub.documentLanguage && (
-                            <span className="ml-1">({pub.documentLanguage})</span>
+                            <span className="ml-1">({t(`publications.languages.${pub.documentLanguage}`)})</span>
                           )}
                         </a>
                       )}
