@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 const socials = [
   {
@@ -28,6 +29,7 @@ const socials = [
 ];
 
 export default function ContactSection() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -59,14 +61,14 @@ export default function ContactSection() {
       const result = await response.json();
 
       if (result.success) {
-        toast.success("Message sent! I'll get back to you soon.");
+        toast.success(t('contact.messageSent'));
         setFormData({ name: "", email: "", message: "" });
       } else {
         throw new Error(result.message || "Failed to send message");
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Failed to send message. Please try again or email me directly.");
+      toast.error(t('contact.messageFailed'));
     } finally {
       setSending(false);
     }
@@ -85,16 +87,15 @@ export default function ContactSection() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="h-px w-10 bg-accent" />
             <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-              Contact
+              {t('contact.title')}
             </span>
             <div className="h-px w-10 bg-accent" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
-            Let's <span className="italic">Connect</span>
+            {t('contact.heading')} <span className="italic">{t('contact.headingItalic')}</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-md mx-auto">
-            Interested in collaboration or have a question? I'd love to hear
-            from you.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -108,7 +109,7 @@ export default function ContactSection() {
             className="space-y-6"
           >
             <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
-              Find Me Online
+              {t('contact.findMeOnline')}
             </h3>
             {socials.map((s) => (
               <a
@@ -137,11 +138,11 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
-              Send a Message
+              {t('contact.sendMessage')}
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                placeholder="Your Name"
+                placeholder={t('contact.yourName')}
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -151,7 +152,7 @@ export default function ContactSection() {
               />
               <Input
                 type="email"
-                placeholder="Your Email"
+                placeholder={t('contact.yourEmail')}
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
@@ -160,7 +161,7 @@ export default function ContactSection() {
                 className="bg-card border-border rounded-xl h-12"
               />
               <Textarea
-                placeholder="Your Message"
+                placeholder={t('contact.yourMessage')}
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
@@ -175,11 +176,11 @@ export default function ContactSection() {
                 className="w-full h-12 rounded-xl bg-primary text-primary-foreground hover:opacity-90"
               >
                 {sending ? (
-                  "Sending..."
+                  t('contact.sending')
                 ) : (
                   <span className="flex items-center gap-2">
                     <Send size={16} />
-                    Send Message
+                    {t('contact.sendMessageBtn')}
                   </span>
                 )}
               </Button>

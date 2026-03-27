@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowDown, MapPin, GraduationCap } from "lucide-react";
 import NetworkBackground from "./NetworkBackground";
+import { useTranslation } from "react-i18next";
 
 const PROFILE_IMG = "https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -24,7 +27,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-2 mb-6">
               <div className="h-px w-10 bg-accent" />
               <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-                CS Student & Applied LLM Engineer
+                {t('hero.subtitle')}
               </span>
             </div>
 
@@ -35,17 +38,17 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-md">
-              Final-year CS student with research and industry experience in LLM systems, RAG pipelines, and backend engineering. Built production systems at CMU and contributed to joint research at JAIST.
+              {t('hero.description')}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-10">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <GraduationCap size={16} className="text-accent" />
-                <span>Chiang Mai University</span>
+                <span>{t('hero.university')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin size={16} className="text-accent" />
-                <span>Chiang Mai, Thailand</span>
+                <span>{t('hero.location')}</span>
               </div>
             </div>
 
@@ -54,20 +57,20 @@ export default function HeroSection() {
                 href="#experience"
                 className="px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
               >
-                View My Work
+                {t('hero.viewWork')}
               </a>
               <a
                 href="#contact"
                 className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors"
               >
-                Contact Me
+                {t('hero.contactMe')}
               </a>
               <a
                 href="/cv.pdf"
                 download
                 className="px-7 py-3 border border-accent text-accent rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
               >
-                Download CV
+                {t('hero.downloadCV')}
               </a>
             </div>
           </motion.div>

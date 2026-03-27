@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Briefcase, FlaskConical, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const experiences = [
   {
@@ -50,6 +51,7 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
+  const { t } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleExpand = (index) => {
@@ -69,21 +71,21 @@ export default function ExperienceSection() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="h-px w-10 bg-accent" />
             <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-              Experience
+              {t('experience.title')}
             </span>
             <div className="h-px w-10 bg-accent" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
-            Work & Research <span className="italic">Experience</span>
+            {t('experience.heading')} <span className="italic">{t('experience.headingItalic')}</span>
           </h2>
         </motion.div>
 
         <div className="flex items-center gap-6 mb-10 justify-center">
           <span className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Briefcase size={14} className="text-accent" /> Work
+            <Briefcase size={14} className="text-accent" /> {t('experience.work')}
           </span>
           <span className="flex items-center gap-2 text-sm text-muted-foreground">
-            <FlaskConical size={14} className="text-primary" /> Research
+            <FlaskConical size={14} className="text-primary" /> {t('experience.research')}
           </span>
         </div>
 
@@ -124,7 +126,7 @@ export default function ExperienceSection() {
                             : "bg-primary/10 text-primary"
                         }`}
                       >
-                        {exp.type === "work" ? "Work" : "Research"}
+                        {exp.type === "work" ? t('experience.work') : t('experience.research')}
                       </span>
                       <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
                         {exp.title}
@@ -180,12 +182,12 @@ export default function ExperienceSection() {
                     {expandedIndex === i ? (
                       <>
                         <ChevronUp size={16} />
-                        Show Less
+                        {t('experience.showLess')}
                       </>
                     ) : (
                       <>
                         <ChevronDown size={16} />
-                        Show More Details
+                        {t('experience.showMore')}
                       </>
                     )}
                   </button>

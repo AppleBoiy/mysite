@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink, Star, GitFork, Lock } from "lucide-react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const projects = [
   {
@@ -59,9 +60,11 @@ const projects = [
 ];
 
 export default function ProjectsSection() {
+  const { t } = useTranslation();
+  
   const handlePrivateDemoClick = (e) => {
     e.preventDefault();
-    toast.info("Live demo for private projects is only available for reserved users. Please contact me to schedule a demo.", {
+    toast.info(t('projects.requestDemoMessage'), {
       duration: 5000,
     });
   };
@@ -79,15 +82,15 @@ export default function ProjectsSection() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="h-px w-10 bg-accent" />
             <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-              Projects
+              {t('projects.title')}
             </span>
             <div className="h-px w-10 bg-accent" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
-            Featured <span className="italic">Projects</span>
+            {t('projects.heading')} <span className="italic">{t('projects.headingItalic')}</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-md mx-auto">
-            A selection of open-source projects and experiments from my GitHub.
+            {t('projects.description')}
           </p>
 
           <a
@@ -97,7 +100,7 @@ export default function ProjectsSection() {
             className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 border border-border rounded-full text-sm text-foreground hover:bg-muted transition-colors"
           >
             <Github size={16} />
-            View all on GitHub
+            {t('projects.viewAllGithub')}
           </a>
         </motion.div>
 
@@ -184,7 +187,7 @@ export default function ProjectsSection() {
                       : 'text-foreground hover:text-accent'
                   }`}
                 >
-                  <Github size={15} /> {project.isPrivate ? 'Private Repo' : 'Code'}
+                  <Github size={15} /> {project.isPrivate ? t('projects.privateRepo') : t('projects.code')}
                 </a>
                 {project.demo && (
                   project.isPrivate ? (
@@ -192,7 +195,7 @@ export default function ProjectsSection() {
                       onClick={handlePrivateDemoClick}
                       className="flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-colors"
                     >
-                      <Lock size={15} /> Request Demo
+                      <Lock size={15} /> {t('projects.requestDemo')}
                     </button>
                   ) : (
                     <a
@@ -201,7 +204,7 @@ export default function ProjectsSection() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors"
                     >
-                      <ExternalLink size={15} /> Live Demo
+                      <ExternalLink size={15} /> {t('projects.liveDemo')}
                     </a>
                   )
                 )}

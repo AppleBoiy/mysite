@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BadgeCheck } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const certifications = [
   {
@@ -25,6 +26,8 @@ const certifications = [
 ];
 
 export default function AboutSection() {
+  const { t } = useTranslation();
+  
   return (
     <section id="about" className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
@@ -40,31 +43,25 @@ export default function AboutSection() {
             <div className="flex items-center gap-2 mb-4">
               <div className="h-px w-10 bg-accent" />
               <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-                About Me
+                {t('about.title')}
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground mb-6">
-              Building AI Systems,
+              {t('about.heading')}
               <br />
-              <span className="italic">One Pipeline at a Time</span>
+              <span className="italic">{t('about.headingItalic')}</span>
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Final-year Computer Science student at Chiang Mai University with hands-on experience in LLM systems, RAG pipelines, and backend engineering. I've built production systems at CMU and contributed to cutting-edge research at JAIST in Japan.
-              </p>
-              <p>
-                My work focuses on the intersection of Large Language Models and Knowledge Graphs, particularly in building intelligent systems that can understand and process complex unstructured data. I'm passionate about creating practical AI solutions that solve real-world problems.
-              </p>
-              <p>
-                Looking to grow as an Applied LLM Engineer on an early-stage team where I can contribute to building innovative AI products while continuing to learn and develop my skills.
-              </p>
+              <p>{t('about.paragraph1')}</p>
+              <p>{t('about.paragraph2')}</p>
+              <p>{t('about.paragraph3')}</p>
             </div>
           </div>
 
           {/* Right — Certifications */}
           <div className="space-y-4 lg:pt-8">
             <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
-              Certifications
+              {t('about.certifications')}
             </h3>
             {certifications.map((cert, i) => (
               <motion.div

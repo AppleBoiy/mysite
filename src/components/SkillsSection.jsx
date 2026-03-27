@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const skillCategories = [
   {
@@ -52,6 +53,8 @@ const skillCategories = [
 ];
 
 export default function SkillsSection() {
+  const { t } = useTranslation();
+  
   return (
     <section id="skills" className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
@@ -65,12 +68,12 @@ export default function SkillsSection() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="h-px w-10 bg-accent" />
             <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-              Expertise
+              {t('skills.title')}
             </span>
             <div className="h-px w-10 bg-accent" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
-            Skills & <span className="italic">Competencies</span>
+            {t('skills.heading')} <span className="italic">{t('skills.headingItalic')}</span>
           </h2>
         </motion.div>
 

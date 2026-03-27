@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FileText, Users, ExternalLink, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const publications = [
   {
@@ -44,6 +45,8 @@ const publications = [
 ];
 
 export default function AcademicContributions() {
+  const { t } = useTranslation();
+  
   return (
     <section id="publications" className="py-24 lg:py-32 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
@@ -57,12 +60,12 @@ export default function AcademicContributions() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="h-px w-10 bg-accent" />
             <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-              Academic Contributions
+              {t('publications.title')}
             </span>
             <div className="h-px w-10 bg-accent" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
-            Publications & <span className="italic">Contributions</span>
+            {t('publications.heading')} <span className="italic">{t('publications.headingItalic')}</span>
           </h2>
         </motion.div>
 
@@ -113,7 +116,7 @@ export default function AcademicContributions() {
                           className="shrink-0 px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
                         >
                           <Download size={12} />
-                          Download
+                          {t('publications.download')}
                           {pub.documentLanguage && (
                             <span className="ml-1">({pub.documentLanguage})</span>
                           )}

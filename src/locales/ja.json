@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "について",
+    "experience": "経験",
+    "academic": "学術",
+    "projects": "プロジェクト",
+    "skills": "スキル",
+    "contact": "お問い合わせ",
+    "getInTouch": "連絡する"
+  },
+  "hero": {
+    "subtitle": "CS学生 & 応用LLMエンジニア",
+    "description": "LLMシステム、RAGパイプライン、バックエンドエンジニアリングの研究・実務経験を持つ最終学年のCS学生。CMUで本番システムを構築し、JAISTとの共同研究に貢献。",
+    "university": "チェンマイ大学",
+    "location": "チェンマイ、タイ",
+    "viewWork": "作品を見る",
+    "contactMe": "お問い合わせ",
+    "downloadCV": "履歴書をダウンロード"
+  },
+  "about": {
+    "title": "私について",
+    "heading": "AIシステムを構築",
+    "headingItalic": "一つずつパイプライン",
+    "paragraph1": "チェンマイ大学のコンピュータサイエンス最終学年の学生で、LLMシステム、RAGパイプライン、バックエンドエンジニアリングの実践経験があります。CMUで本番システムを構築し、日本のJAISTで最先端の研究に貢献しました。",
+    "paragraph2": "私の仕事は、大規模言語モデルと知識グラフの交差点に焦点を当てており、特に複雑な非構造化データを理解し処理できるインテリジェントシステムの構築に取り組んでいます。実世界の問題を解決する実用的なAIソリューションの作成に情熱を持っています。",
+    "paragraph3": "革新的なAI製品の構築に貢献しながら、スキルを学び続け、成長できる初期段階のチームで応用LLMエンジニアとして成長することを目指しています。",
+    "certifications": "認定資格"
+  },
+  "skills": {
+    "title": "専門知識",
+    "heading": "スキル &",
+    "headingItalic": "能力"
+  },
+  "experience": {
+    "title": "経験",
+    "heading": "職務 & 研究",
+    "headingItalic": "経験",
+    "work": "職務",
+    "research": "研究",
+    "showMore": "詳細を表示",
+    "showLess": "表示を減らす"
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "heading": "注目の",
+    "headingItalic": "プロジェクト",
+    "description": "GitHubからのオープンソースプロジェクトと実験の選択。",
+    "viewAllGithub": "GitHubで全て見る",
+    "code": "コード",
+    "privateRepo": "プライベートリポジトリ",
+    "liveDemo": "ライブデモ",
+    "requestDemo": "デモをリクエスト",
+    "requestDemoMessage": "プライベートプロジェクトのライブデモは予約ユーザーのみ利用可能です。デモのスケジュールについてはお問い合わせください。"
+  },
+  "publications": {
+    "title": "学術貢献",
+    "heading": "出版物 &",
+    "headingItalic": "貢献",
+    "download": "ダウンロード"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "heading": "つながり",
+    "headingItalic": "ましょう",
+    "description": "コラボレーションに興味がある、または質問がありますか？ぜひお聞かせください。",
+    "findMeOnline": "オンラインで見つける",
+    "sendMessage": "メッセージを送る",
+    "yourName": "お名前",
+    "yourEmail": "メールアドレス",
+    "yourMessage": "メッセージ",
+    "sending": "送信中...",
+    "sendMessageBtn": "メッセージを送信",
+    "messageSent": "メッセージが送信されました！すぐにご連絡いたします。",
+    "messageFailed": "メッセージの送信に失敗しました。もう一度お試しいただくか、直接メールでご連絡ください。"
+  },
+  "availability": {
+    "banner": "現在、新しい機会を募集中！応用LLMエンジニアのポジションを探しています。",
+    "bannerShort": "募集中！応用LLMエンジニアのポジションを探しています。",
+    "badge": "新しい機会を募集中",
+    "badgeShort": "募集中"
+  },
+  "footer": {
+    "rights": "全著作権所有。",
+    "builtWith": "React & Tailwind CSSで構築"
+  },
+  "notFound": {
+    "title": "ページが見つかりません",
+    "description": "お探しのページは存在しないか、移動されました。元に戻りましょう。",
+    "goHome": "ホームページへ",
+    "goBack": "戻る",
+    "quickLinks": "クイックリンク"
+  }
+}

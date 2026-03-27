@@ -2,19 +2,22 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Academic", href: "#publications" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar({ hasBanner = false }) {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t('nav.about'), href: "#about" },
+    { label: t('nav.experience'), href: "#experience" },
+    { label: t('nav.academic'), href: "#publications" },
+    { label: t('nav.projects'), href: "#projects" },
+    { label: t('nav.skills'), href: "#skills" },
+    { label: t('nav.contact'), href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -48,17 +51,19 @@ export default function Navbar({ hasBanner = false }) {
               {link.label}
             </a>
           ))}
+          <LanguageSwitcher />
           <ThemeToggle />
           <a
             href="#contact"
             className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
           >
-            Get in Touch
+            {t('nav.getInTouch')}
           </a>
         </div>
 
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-3">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             className="text-foreground"
@@ -94,7 +99,7 @@ export default function Navbar({ hasBanner = false }) {
                 onClick={() => setMobileOpen(false)}
                 className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground text-center"
               >
-                Get in Touch
+                {t('nav.getInTouch')}
               </a>
             </div>
           </motion.div>

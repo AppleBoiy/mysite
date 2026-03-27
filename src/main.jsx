@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import { HelmetProvider } from 'react-helmet-async'
 import App from '@/App.jsx'
 import '@/index.css'
+import './i18n'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <HelmetProvider>

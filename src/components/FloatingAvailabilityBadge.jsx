@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function FloatingAvailabilityBadge({ isVisible }) {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
@@ -65,8 +67,8 @@ export default function FloatingAvailabilityBadge({ isVisible }) {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="flex items-center gap-2 whitespace-nowrap"
           >
-            <span className="hidden sm:inline">Available for opportunities</span>
-            <span className="sm:hidden">Available</span>
+            <span className="hidden sm:inline">{t('availability.badge')}</span>
+            <span className="sm:hidden">{t('availability.badgeShort')}</span>
             <motion.div
               className="w-2 h-2 bg-white rounded-full"
               animate={{ scale: [1, 1.2, 1] }}

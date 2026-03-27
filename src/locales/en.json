@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "academic": "Academic",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "hero": {
+    "subtitle": "CS Student & Applied LLM Engineer",
+    "description": "Final-year CS student with research and industry experience in LLM systems, RAG pipelines, and backend engineering. Built production systems at CMU and contributed to joint research at JAIST.",
+    "university": "Chiang Mai University",
+    "location": "Chiang Mai, Thailand",
+    "viewWork": "View My Work",
+    "contactMe": "Contact Me",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "heading": "Building AI Systems,",
+    "headingItalic": "One Pipeline at a Time",
+    "paragraph1": "Final-year Computer Science student at Chiang Mai University with hands-on experience in LLM systems, RAG pipelines, and backend engineering. I've built production systems at CMU and contributed to cutting-edge research at JAIST in Japan.",
+    "paragraph2": "My work focuses on the intersection of Large Language Models and Knowledge Graphs, particularly in building intelligent systems that can understand and process complex unstructured data. I'm passionate about creating practical AI solutions that solve real-world problems.",
+    "paragraph3": "Looking to grow as an Applied LLM Engineer on an early-stage team where I can contribute to building innovative AI products while continuing to learn and develop my skills.",
+    "certifications": "Certifications"
+  },
+  "skills": {
+    "title": "Expertise",
+    "heading": "Skills &",
+    "headingItalic": "Competencies"
+  },
+  "experience": {
+    "title": "Experience",
+    "heading": "Work & Research",
+    "headingItalic": "Experience",
+    "work": "Work",
+    "research": "Research",
+    "showMore": "Show More Details",
+    "showLess": "Show Less"
+  },
+  "projects": {
+    "title": "Projects",
+    "heading": "Featured",
+    "headingItalic": "Projects",
+    "description": "A selection of open-source projects and experiments from my GitHub.",
+    "viewAllGithub": "View all on GitHub",
+    "code": "Code",
+    "privateRepo": "Private Repo",
+    "liveDemo": "Live Demo",
+    "requestDemo": "Request Demo",
+    "requestDemoMessage": "Live demo for private projects is only available for reserved users. Please contact me to schedule a demo."
+  },
+  "publications": {
+    "title": "Academic Contributions",
+    "heading": "Publications &",
+    "headingItalic": "Contributions",
+    "download": "Download"
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Let's",
+    "headingItalic": "Connect",
+    "description": "Interested in collaboration or have a question? I'd love to hear from you.",
+    "findMeOnline": "Find Me Online",
+    "sendMessage": "Send a Message",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "yourMessage": "Your Message",
+    "sending": "Sending...",
+    "messageSent": "Message sent! I'll get back to you soon.",
+    "messageFailed": "Failed to send message. Please try again or email me directly."
+  },
+  "availability": {
+    "banner": "Currently available for opportunities! Looking for Applied LLM Engineer roles.",
+    "bannerShort": "Available for work! Looking for Applied LLM Engineer roles.",
+    "badge": "Available for opportunities",
+    "badgeShort": "Available"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with React & Tailwind CSS"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved. Let's get you back on track.",
+    "goHome": "Go to Homepage",
+    "goBack": "Go Back",
+    "quickLinks": "Quick Links"
+  }
+}

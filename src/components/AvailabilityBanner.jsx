@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function AvailabilityBanner({ onVisibilityChange }) {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(true);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -51,9 +53,8 @@ export default function AvailabilityBanner({ onVisibilityChange }) {
             <Sparkles size={20} />
           </motion.div>
           <p className="text-sm sm:text-base font-medium">
-            <span className="hidden sm:inline">Currently available for opportunities! </span>
-            <span className="sm:hidden">Available for work! </span>
-            Looking for Applied LLM Engineer roles.
+            <span className="hidden sm:inline">{t('availability.banner')} </span>
+            <span className="sm:hidden">{t('availability.bannerShort')} </span>
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -61,7 +62,7 @@ export default function AvailabilityBanner({ onVisibilityChange }) {
             href="#contact"
             className="px-4 py-1.5 bg-white text-accent rounded-full text-sm font-medium hover:bg-white/90 transition-colors whitespace-nowrap"
           >
-            Get in Touch
+            {t('nav.getInTouch')}
           </a>
           <button
             onClick={handleDismiss}
