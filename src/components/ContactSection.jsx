@@ -10,8 +10,8 @@ const socials = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact.chaipat@gmail.com",
-    href: "mailto:contact.chaipat@gmail.com",
+    value: "contact@chaipat.cc",
+    href: "mailto:contact@chaipat.cc",
   },
   {
     icon: Linkedin,
@@ -38,11 +38,38 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    // Simulate sending
-    await new Promise((r) => setTimeout(r, 1000));
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setSending(false);
+
+    try {
+      // Using Web3Forms API (free service)
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Contact Form Submission from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("Message sent! I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again or email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
