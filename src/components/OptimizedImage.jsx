@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ImageOff } from "lucide-react";
+import { useLazyLoad } from "@/hooks/useLazyLoad";
 
 export default function OptimizedImage({ 
   src, 
@@ -12,6 +13,7 @@ export default function OptimizedImage({
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const { ref, isVisible } = useLazyLoad();
 
   const handleError = () => {
     setHasError(true);
@@ -30,24 +32,26 @@ export default function OptimizedImage({
   }
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {/* Blur placeholder */}
       {!isLoaded && (
         <div className="absolute inset-0 bg-muted animate-pulse" />
       )}
       
-      {/* Actual image */}
-      <img
-        src={hasError && fallbackSrc ? fallbackSrc : src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading={priority ? "eager" : "lazy"}
-        decoding="async"
-        onLoad={() => setIsLoaded(true)}
-        onError={handleError}
-        className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-      />
+      {/* Actual image - only load when visible or priority */}
+      {(isVisible || priority) && (
+        <img
+          src={hasError && fallbackSrc ? fallbackSrc : src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          onError={handleError}
+          className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        />
+      )}
     </div>
   );
 }
