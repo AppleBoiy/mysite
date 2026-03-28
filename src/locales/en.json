@@ -118,6 +118,13 @@
     "noResultsDescription": "Try adjusting your search terms or browse all projects",
     "emptyState": "No projects yet",
     "emptyStateDescription": "Check back soon for new projects and contributions",
+    "activeFilters": "Active filters",
+    "clearAll": "Clear all",
+    "sort": {
+      "recent": "Most Recent",
+      "stars": "Most Stars",
+      "name": "Name (A-Z)"
+    },
     "items": {
       "ags": {
         "title": "AGS - Automated Grading System",

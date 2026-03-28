@@ -118,6 +118,13 @@
     "noResultsDescription": "ลองปรับคำค้นหาหรือดูโปรเจกต์ทั้งหมด",
     "emptyState": "ยังไม่มีโปรเจกต์",
     "emptyStateDescription": "โปรดติดตามโปรเจกต์และผลงานใหม่ๆ",
+    "activeFilters": "ตัวกรองที่ใช้งาน",
+    "clearAll": "ล้างทั้งหมด",
+    "sort": {
+      "recent": "ล่าสุด",
+      "stars": "ดาวมากสุด",
+      "name": "ชื่อ (ก-ฮ)"
+    },
     "items": {
       "ags": {
         "title": "AGS - ระบบตรวจงานอัตโนมัติ",

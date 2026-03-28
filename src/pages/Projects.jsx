@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, Star, GitFork, Lock, FolderGit2, ChevronLeft, ChevronRight, X, ArrowUpDown } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Lock, FolderGit2, ChevronLeft, ChevronRight, ArrowUpDown } from "lucide-react";
 import { toast } from "sonner";
 import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -109,10 +109,42 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkScroll);
   }, []);
 
+  // Update URL when filters change
+  const updateURL = (newSearch, newCategory, newSort) => {
+    const params = new URLSearchParams();
+    if (newSearch) params.set('search', newSearch);
+    if (newCategory && newCategory !== 'all') params.set('category', newCategory);
+    if (newSort && newSort !== 'recent') params.set('sort', newSort);
+    setSearchParams(params);
+  };
+
+  const handleSearchChange = (value) => {
+    setSearchQuery(value);
+    updateURL(value, selectedCategory, sortBy);
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    updateURL(searchQuery, category, sortBy);
+  };
+
+  const handleSortChange = (sort) => {
+    setSortBy(sort);
+    updateURL(searchQuery, selectedCategory, sort);
+  };
+
   const projects = projectsData.map(proj => ({
     ...proj,
     title: t(`projects.items.${proj.id}.title`),
     description: t(`projects.items.${proj.id}.description`),
+  }));
+
+  // Calculate category counts
+  const categoriesWithCounts = categories.map(cat => ({
+    ...cat,
+    count: cat.id === 'all' 
+      ? projects.length 
+      : projects.filter(p => p.category === cat.id).length
   }));
 
   const filteredProjects = useMemo(() => {
@@ -133,8 +165,22 @@ export default function Projects() {
       );
     }
     
+    // Sort projects
+    filtered = [...filtered].sort((a, b) => {
+      switch (sortBy) {
+        case 'stars':
+          return (b.stars || 0) - (a.stars || 0);
+        case 'name':
+          return a.title.localeCompare(b.title);
+        case 'recent':
+        default:
+          // Keep original order (most recent first)
+          return 0;
+      }
+    });
+    
     return filtered;
-  }, [projects, searchQuery, selectedCategory]);
+  }, [projects, searchQuery, selectedCategory, sortBy]);
 
   return (
     <>
@@ -149,7 +195,7 @@ export default function Projects() {
             <div className="w-full lg:w-96">
               <SearchBar
                 value={searchQuery}
-                onChange={setSearchQuery}
+                onChange={handleSearchChange}
                 placeholder={t('projects.search')}
               />
             </div>
@@ -193,17 +239,28 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-8"
             >
-              {/* Search Bar - Show on mobile, hidden on desktop (since it's in navbar) */}
-              <div className="mb-4 lg:hidden">
-                <SearchBar
-                  value={searchQuery}
-                  onChange={setSearchQuery}
-                  placeholder={t('projects.search')}
-                />
+              {/* Search Bar and Sort - Show on mobile, hidden on desktop (since search is in navbar) */}
+              <div className="mb-4 lg:hidden flex gap-2">
+                <div className="flex-1">
+                  <SearchBar
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    placeholder={t('projects.search')}
+                  />
+                </div>
+                <select
+                  value={sortBy}
+                  onChange={(e) => handleSortChange(e.target.value)}
+                  className="px-4 py-2 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                >
+                  <option value="recent">{t('projects.sort.recent')}</option>
+                  <option value="stars">{t('projects.sort.stars')}</option>
+                  <option value="name">{t('projects.sort.name')}</option>
+                </select>
               </div>
 
               {/* Category Filters with Scroll Indicators */}
-              <div className="relative group">
+              <div className="relative mb-6">
                 {/* Left Arrow */}
                 {showLeftArrow && (
                   <button
@@ -238,25 +295,46 @@ export default function Projects() {
                 <div
                   ref={scrollContainerRef}
                   onScroll={checkScroll}
-                  className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide scroll-smooth px-10 justify-center"
+                  className="flex gap-2 overflow-x-auto scrollbar-hide scroll-smooth px-10"
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
-                  {categories.map((category) => {
-                    const isActive = selectedCategory === category.id;
-                    return (
-                      <button
-                        key={category.id}
-                        onClick={() => setSelectedCategory(category.id)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
-                          isActive
-                            ? 'bg-accent text-accent-foreground shadow-md'
-                            : 'bg-card border border-border text-muted-foreground hover:border-accent hover:text-foreground'
-                        }`}
-                      >
-                        {category.label}
-                      </button>
-                    );
-                  })}
+                  <div className="flex gap-2 mx-auto">
+                    {categoriesWithCounts.map((category) => {
+                      const isActive = selectedCategory === category.id;
+                      return (
+                        <button
+                          key={category.id}
+                          onClick={() => handleCategoryChange(category.id)}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+                            isActive
+                              ? 'bg-accent text-accent-foreground shadow-md'
+                              : 'bg-card border border-border text-muted-foreground hover:border-accent hover:text-foreground'
+                          }`}
+                        >
+                          {category.label} ({category.count})
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Sort Dropdown - Desktop only, positioned below categories */}
+              <div className="hidden lg:flex justify-between items-center">
+                <p className="text-sm text-muted-foreground">
+                  {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+                </p>
+                <div className="flex items-center gap-2">
+                  <ArrowUpDown size={16} className="text-muted-foreground" />
+                  <select
+                    value={sortBy}
+                    onChange={(e) => handleSortChange(e.target.value)}
+                    className="px-4 py-2 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer"
+                  >
+                    <option value="recent">{t('projects.sort.recent')}</option>
+                    <option value="stars">{t('projects.sort.stars')}</option>
+                    <option value="name">{t('projects.sort.name')}</option>
+                  </select>
                 </div>
               </div>
             </motion.div>
