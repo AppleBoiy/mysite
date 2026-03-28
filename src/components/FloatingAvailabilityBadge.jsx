@@ -25,7 +25,7 @@ export default function FloatingAvailabilityBadge({ isVisible }) {
     <AnimatePresence>
       {isVisible && (
         <motion.a
-          href="#contact"
+          href="/contact"
           initial={{ y: 100, opacity: 0, scale: 0.8 }}
           animate={{ 
             y: 0, 

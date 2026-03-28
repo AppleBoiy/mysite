@@ -6,8 +6,12 @@ import { toast } from "sonner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import ScrollProgress from "../components/ScrollProgress";
 import SEOHead from "../components/SEOHead";
 import PageTransition from "../components/PageTransition";
+import Breadcrumbs from "../components/Breadcrumbs";
+import ShareButtons from "../components/ShareButtons";
+import { useTranslation } from "react-i18next";
 
 const projectsData = {
   "ags": {
@@ -86,6 +90,7 @@ const projectsData = {
 export default function ProjectPreview() {
   const { projectId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const project = projectsData[projectId];
 
   const handlePrivateDemoClick = () => {
@@ -106,28 +111,27 @@ export default function ProjectPreview() {
   }
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-background">
-        <SEOHead
-          title={`${project.title} | Chaipat Jainan`}
-          description={project.description}
-          keywords={project.tags.join(", ")}
+    <>
+      <ScrollProgress />
+      <PageTransition>
+        <div className="min-h-screen bg-background">
+          <SEOHead
+            title={`${project.title} | Chaipat Jainan`}
+            description={project.description}
+            keywords={project.tags.join(", ")}
           ogType="article"
         />
         <Navbar />
       
       <div className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">
-          {/* Back Button */}
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft size={20} />
-            Back to Portfolio
-          </motion.button>
+          {/* Breadcrumbs */}
+          <Breadcrumbs
+            items={[
+              { label: t('breadcrumbs.projects'), href: '/#projects' },
+              { label: project.title }
+            ]}
+          />
 
           {/* Header */}
           <motion.div
@@ -136,17 +140,23 @@ export default function ProjectPreview() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <div className="flex items-center gap-3 mb-4">
-              {project.isPrivate && (
-                <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full flex items-center gap-1">
-                  <Lock size={12} />
-                  Private Project
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                {project.isPrivate && (
+                  <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full flex items-center gap-1">
+                    <Lock size={12} />
+                    Private Project
+                  </span>
+                )}
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
+                  <Calendar size={14} />
+                  {project.period}
                 </span>
-              )}
-              <span className="text-sm text-muted-foreground flex items-center gap-1">
-                <Calendar size={14} />
-                {project.period}
-              </span>
+              </div>
+              <ShareButtons
+                title={project.title}
+                description={project.overview}
+              />
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl font-bold text-foreground mb-4">
@@ -317,5 +327,6 @@ export default function ProjectPreview() {
       <ScrollToTop />
     </div>
     </PageTransition>
+    </>
   );
 }

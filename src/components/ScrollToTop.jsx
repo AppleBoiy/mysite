@@ -29,20 +29,32 @@ export default function ScrollToTop() {
     });
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Home') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.2 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp size={20} className="group-hover:-translate-y-0.5 transition-transform" />
-        </motion.button>
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+            aria-label="Scroll to top (Home key)"
+          >
+            <ArrowUp size={20} className="group-hover:-translate-y-0.5 transition-transform" />
+          </motion.button>
       )}
     </AnimatePresence>
   );

@@ -5,9 +5,10 @@ import SkillsSection from "../components/SkillsSection";
 import ExperienceSection from "../components/ExperienceSection";
 import ProjectsSection from "../components/ProjectsSection";
 import AcademicContributions from "../components/AcademicContributions";
-import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import ScrollProgress from "../components/ScrollProgress";
+import SkipToContent from "../components/SkipToContent";
 import SEOHead from "../components/SEOHead";
 import AvailabilityBanner from "../components/AvailabilityBanner";
 import FloatingAvailabilityBadge from "../components/FloatingAvailabilityBadge";
@@ -20,17 +21,20 @@ export default function Home() {
   return (
     <>
       <SEOHead />
+      <SkipToContent />
+      <ScrollProgress />
       <PageTransition>
         <div className="min-h-screen bg-background">
           <AvailabilityBanner onVisibilityChange={setBannerVisible} />
           <Navbar hasBanner={bannerVisible} />
-          <HeroSection />
-          <AboutSection />
-          <ExperienceSection />
-          <AcademicContributions />
-          <ProjectsSection />
-          <SkillsSection />
-          <ContactSection />
+          <main id="main-content">
+            <HeroSection />
+            <AboutSection />
+            <ExperienceSection />
+            <AcademicContributions />
+            <ProjectsSection />
+            <SkillsSection />
+          </main>
           <Footer />
           <ScrollToTop />
           <FloatingAvailabilityBadge isVisible={!bannerVisible} />

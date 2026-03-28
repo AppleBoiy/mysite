@@ -57,9 +57,9 @@ export default function AvailabilityBanner({ onVisibilityChange }) {
             <span className="sm:hidden">{t('availability.bannerShort')} </span>
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        {/* <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href="/contact"
             className="px-4 py-1.5 bg-white text-accent rounded-full text-sm font-medium hover:bg-white/90 transition-colors whitespace-nowrap"
           >
             {t('nav.getInTouch')}
@@ -71,7 +71,7 @@ export default function AvailabilityBanner({ onVisibilityChange }) {
           >
             <X size={18} />
           </button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

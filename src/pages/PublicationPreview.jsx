@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import ScrollProgress from "../components/ScrollProgress";
 import SEOHead from "../components/SEOHead";
 import PageTransition from "../components/PageTransition";
 
@@ -268,7 +269,9 @@ export default function PublicationPreview() {
   }
 
   return (
-    <PageTransition>
+    <>
+      <ScrollProgress />
+      <PageTransition>
       <div className="min-h-screen bg-background">
         <SEOHead
           title={`${publication.title} | Chaipat Jainan`}
@@ -593,5 +596,6 @@ export default function PublicationPreview() {
       <ScrollToTop />
     </div>
     </PageTransition>
+    </>
   );
 }

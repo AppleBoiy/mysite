@@ -154,7 +154,7 @@ export default function ContactSection() {
             <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
               {t('contact.sendMessage')}
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form">
               <Input
                 placeholder={t('contact.yourName')}
                 value={formData.name}
@@ -163,6 +163,8 @@ export default function ContactSection() {
                 }
                 required
                 className="bg-card border-border rounded-xl h-12"
+                aria-label="Your name"
+                aria-required="true"
               />
               <Input
                 type="email"
@@ -173,6 +175,8 @@ export default function ContactSection() {
                 }
                 required
                 className="bg-card border-border rounded-xl h-12"
+                aria-label="Your email address"
+                aria-required="true"
               />
               <Textarea
                 placeholder={t('contact.yourMessage')}
@@ -183,6 +187,8 @@ export default function ContactSection() {
                 required
                 rows={5}
                 className="bg-card border-border rounded-xl resize-none"
+                aria-label="Your message"
+                aria-required="true"
               />
               <Button
                 type="submit"
