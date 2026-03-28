@@ -4,15 +4,18 @@ import NetworkBackground from "./NetworkBackground";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import { useHaptic } from "@/hooks/useHaptic";
 
-// Use local image first, fallback to GitHub, then UI Avatars
+// Use WebP with JPEG fallback for better performance
+const PROFILE_IMG_WEBP = "/profile.webp";
 const PROFILE_IMG = "/profile.jpeg";
 const PROFILE_IMG_GITHUB = "https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg";
 const PROFILE_IMG_FALLBACK = "https://ui-avatars.com/api/?name=Chaipat+Jainan&size=320&background=D4A574&color=1a1a2e&bold=true";
 
 export default function HeroSection() {
   const { t } = useTranslation();
-  const [imgSrc, setImgSrc] = useState(PROFILE_IMG);
+  const { haptic } = useHaptic();
+  const [imgSrc, setImgSrc] = useState(PROFILE_IMG_WEBP);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
   
@@ -26,26 +29,32 @@ export default function HeroSection() {
     };
     
     img.onerror = () => {
-      // Try fallbacks in order
+      // Try fallbacks in order: WebP → JPEG → GitHub → UI Avatars
       if (retryCount === 0) {
-        setImgSrc(PROFILE_IMG_GITHUB);
+        setImgSrc(PROFILE_IMG);
         setRetryCount(1);
       } else if (retryCount === 1) {
-        setImgSrc(PROFILE_IMG_FALLBACK);
+        setImgSrc(PROFILE_IMG_GITHUB);
         setRetryCount(2);
+      } else if (retryCount === 2) {
+        setImgSrc(PROFILE_IMG_FALLBACK);
+        setRetryCount(3);
         setImgLoaded(true);
       }
     };
     
     // Timeout fallback for slow networks (5 seconds)
     const timeout = setTimeout(() => {
-      if (!imgLoaded && retryCount < 2) {
+      if (!imgLoaded && retryCount < 3) {
         if (retryCount === 0) {
-          setImgSrc(PROFILE_IMG_GITHUB);
+          setImgSrc(PROFILE_IMG);
           setRetryCount(1);
+        } else if (retryCount === 1) {
+          setImgSrc(PROFILE_IMG_GITHUB);
+          setRetryCount(2);
         } else {
           setImgSrc(PROFILE_IMG_FALLBACK);
-          setRetryCount(2);
+          setRetryCount(3);
           setImgLoaded(true);
         }
       }
@@ -56,19 +65,23 @@ export default function HeroSection() {
   
   const handleCVDownload = async (e) => {
     e.preventDefault();
+    haptic.medium();
     
     try {
       const response = await fetch('/cv.pdf', { method: 'HEAD' });
       
       if (response.ok) {
+        haptic.success();
         window.location.href = '/cv.pdf';
       } else {
+        haptic.error();
         toast.error('CV is currently unavailable', {
           description: 'Please contact me directly for my resume',
           duration: 4000,
         });
       }
     } catch (error) {
+      haptic.error();
       toast.error('CV is currently unavailable', {
         description: 'Please contact me directly for my resume',
         duration: 4000,
@@ -123,12 +136,14 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#experience"
+                onClick={() => haptic.light()}
                 className="px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
               >
                 {t('hero.viewWork')}
               </a>
               <a
                 href="/contact"
+                onClick={() => haptic.light()}
                 className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors"
               >
                 {t('hero.contactMe')}
@@ -170,17 +185,20 @@ export default function HeroSection() {
                   decoding="async"
                   onError={() => {
                     if (retryCount === 0) {
-                      setImgSrc(PROFILE_IMG_GITHUB);
+                      setImgSrc(PROFILE_IMG);
                       setRetryCount(1);
                     } else if (retryCount === 1) {
-                      setImgSrc(PROFILE_IMG_FALLBACK);
+                      setImgSrc(PROFILE_IMG_GITHUB);
                       setRetryCount(2);
+                    } else if (retryCount === 2) {
+                      setImgSrc(PROFILE_IMG_FALLBACK);
+                      setRetryCount(3);
                       setImgLoaded(true);
                     }
                   }}
                   onLoad={() => setImgLoaded(true)}
                 />
-                {retryCount === 2 && imgLoaded && (
+                {retryCount === 3 && imgLoaded && (
                   <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm rounded-full p-1.5" title="Using fallback image">
                     <AlertCircle size={14} className="text-muted-foreground" />
                   </div>

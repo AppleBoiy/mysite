@@ -10,7 +10,9 @@ import SEOHead from "../components/SEOHead";
 import AvailabilityBanner from "../components/AvailabilityBanner";
 import FloatingAvailabilityBadge from "../components/FloatingAvailabilityBadge";
 import PageTransition from "../components/PageTransition";
+import PullToRefresh from "../components/PullToRefresh";
 import { SkeletonExperience, SkeletonProject, SkeletonPublication } from "../components/SkeletonLoader";
+import { toast } from "sonner";
 
 // Lazy load below-the-fold sections
 const ExperienceSection = lazy(() => import("../components/ExperienceSection"));
@@ -89,32 +91,40 @@ function AcademicSkeleton() {
 export default function Home() {
   const [bannerVisible, setBannerVisible] = useState(true);
 
+  const handleRefresh = async () => {
+    // Reload the page content
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    window.location.reload();
+  };
+
   return (
     <>
       <SEOHead />
       <SkipToContent />
       <ScrollProgress />
       <PageTransition>
-        <div className="min-h-screen bg-background">
-          <AvailabilityBanner onVisibilityChange={setBannerVisible} />
-          <Navbar hasBanner={bannerVisible} />
-          <main id="main-content">
-            <HeroSection />
-            <AboutSection />
-            <Suspense fallback={<ExperienceSkeleton />}>
-              <ExperienceSection />
-            </Suspense>
-            <Suspense fallback={<AcademicSkeleton />}>
-              <AcademicContributions />
-            </Suspense>
-            <Suspense fallback={<ProjectsSkeleton />}>
-              <ProjectsSection />
-            </Suspense>
-          </main>
-          <Footer />
-          <ScrollToTop />
-          <FloatingAvailabilityBadge isVisible={!bannerVisible} />
-        </div>
+        <PullToRefresh onRefresh={handleRefresh}>
+          <div className="min-h-screen bg-background">
+            <AvailabilityBanner onVisibilityChange={setBannerVisible} />
+            <Navbar hasBanner={bannerVisible} />
+            <main id="main-content">
+              <HeroSection />
+              <AboutSection />
+              <Suspense fallback={<ExperienceSkeleton />}>
+                <ExperienceSection />
+              </Suspense>
+              <Suspense fallback={<AcademicSkeleton />}>
+                <AcademicContributions />
+              </Suspense>
+              <Suspense fallback={<ProjectsSkeleton />}>
+                <ProjectsSection />
+              </Suspense>
+            </main>
+            <Footer />
+            <ScrollToTop />
+            <FloatingAvailabilityBadge isVisible={!bannerVisible} />
+          </div>
+        </PullToRefresh>
       </PageTransition>
     </>
   );

@@ -3,26 +3,54 @@ import { Share2, Twitter, Linkedin, Link as LinkIcon, Check } from "lucide-react
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import { useHaptic } from "@/hooks/useHaptic";
 
 export default function ShareButtons({ title, description, url }) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const { t } = useTranslation();
+  const { haptic } = useHaptic();
 
   const shareUrl = url || window.location.href;
   const shareTitle = title || document.title;
   const shareText = description || "";
 
+  // Check if Web Share API is available (mobile browsers)
+  const canUseNativeShare = typeof navigator !== 'undefined' && navigator.share;
+
+  const handleNativeShare = async () => {
+    haptic.light();
+    try {
+      await navigator.share({
+        title: shareTitle,
+        text: shareText,
+        url: shareUrl,
+      });
+      haptic.success();
+      toast.success(t('share.shared'), {
+        duration: 2000,
+      });
+    } catch (err) {
+      // User cancelled or share failed
+      if (err.name !== 'AbortError') {
+        console.error('Share failed:', err);
+      }
+    }
+  };
+
   const handleCopyLink = async () => {
+    haptic.medium();
     try {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
+      haptic.success();
       toast.success(t('share.linkCopied'), {
         description: t('share.linkCopiedDesc'),
         duration: 3000,
       });
       setTimeout(() => setCopied(false), 3000);
     } catch (err) {
+      haptic.error();
       toast.error(t('share.error'), {
         description: t('share.errorDesc'),
         duration: 5000,
@@ -46,10 +74,27 @@ export default function ShareButtons({ title, description, url }) {
     },
   ];
 
+  // If native share is available, use it directly on mobile
+  if (canUseNativeShare) {
+    return (
+      <button
+        onClick={handleNativeShare}
+        className="flex items-center gap-2 px-4 py-2 text-sm bg-muted hover:bg-muted/80 text-foreground rounded-lg transition-colors"
+        aria-label={t('share.share')}
+      >
+        <Share2 size={16} />
+        <span>{t('share.share')}</span>
+      </button>
+    );
+  }
+
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          haptic.light();
+          setIsOpen(!isOpen);
+        }}
         className="flex items-center gap-2 px-4 py-2 text-sm bg-muted hover:bg-muted/80 text-foreground rounded-lg transition-colors"
         aria-label={t('share.share')}
       >
@@ -85,7 +130,10 @@ export default function ShareButtons({ title, description, url }) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      haptic.light();
+                      setIsOpen(false);
+                    }}
                     className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${link.color}`}
                   >
                     <link.icon size={18} />

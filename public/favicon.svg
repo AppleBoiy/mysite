@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A574;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8935F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="128" height="128" rx="24" fill="#1a1a2e"/>
+  
+  <!-- Decorative corner elements -->
+  <rect x="8" y="8" width="16" height="16" rx="4" fill="url(#grad)" opacity="0.3"/>
+  <rect x="104" y="104" width="16" height="16" rx="4" fill="url(#grad)" opacity="0.2"/>
+  
+  <!-- CJ Monogram -->
+  <text x="64" y="82" font-family="serif" font-size="56" font-weight="600" fill="url(#grad)" text-anchor="middle" style="font-style: italic;">
+    CJ
+  </text>
+  
+  <!-- Accent line -->
+  <line x1="32" y1="96" x2="96" y2="96" stroke="url(#grad)" stroke-width="2" stroke-linecap="round"/>
+</svg>

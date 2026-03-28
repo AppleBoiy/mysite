@@ -3,6 +3,7 @@ import { Languages, Check, Loader2 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { loadLanguage } from "../i18n";
 import { toast } from "sonner";
+import { useHaptic } from "@/hooks/useHaptic";
 
 const languages = [
   { code: 'en', label: 'EN', name: 'English', flag: '🇬🇧' },
@@ -12,6 +13,7 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
+  const { haptic } = useHaptic();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +40,7 @@ export default function LanguageSwitcher() {
       return;
     }
 
+    haptic.medium();
     setIsLoading(true);
     
     try {
@@ -46,15 +49,18 @@ export default function LanguageSwitcher() {
       if (loaded) {
         await i18n.changeLanguage(langCode);
         
+        haptic.success();
         const lang = languages.find(l => l.code === langCode);
         toast.success(`Language changed to ${lang?.name || langCode}`, {
           duration: 2000,
         });
       } else {
+        haptic.error();
         toast.error('Failed to load language');
       }
     } catch (error) {
       console.error('Language change error:', error);
+      haptic.error();
       toast.error('Failed to change language');
     } finally {
       setIsLoading(false);
@@ -77,7 +83,10 @@ export default function LanguageSwitcher() {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          haptic.light();
+          setIsOpen(!isOpen);
+        }}
         className="w-9 h-9 rounded-full bg-muted hover:bg-accent/20 flex items-center justify-center transition-colors relative group disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Select language"
         title={`Current: ${currentLang.name}`}
