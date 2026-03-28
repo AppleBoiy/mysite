@@ -1,0 +1,307 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "academic": "Academic",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch",
+    "backToHome": "Back to Home",
+    "resume": "Resume"
+  },
+  "hero": {
+    "subtitle": "CS Student & Applied LLM Engineer",
+    "description": "Final-year CS student with research and industry experience in LLM systems, RAG pipelines, and backend engineering. Built production systems at CMU and contributed to joint research at JAIST.",
+    "university": "Chiang Mai University",
+    "location": "Chiang Mai, Thailand",
+    "viewWork": "View My Work",
+    "contactMe": "Contact Me",
+    "requestCV": "Request CV",
+    "downloadCV": "Download CV",
+    "metrics": {
+      "studentsMentored": "Students Mentored",
+      "yearsTA": "Years as TA"
+    }
+  },
+  "quickSummary": {
+    "experience": "Experience",
+    "specialization": "Specialization",
+    "achievement": "Key Achievement",
+    "availability": "Availability",
+    "availableNow": "Available Now",
+    "keySkills": "Key Skills",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "heading": "Engineering Intelligent Systems for Unstructured Data",
+    "paragraph1": "I specialize at the intersection of Large Language Models and Knowledge Graphs, focusing on building systems that extract meaning from chaotic, unstructured data. My goal is to move past basic API wrappers and engineer AI solutions that solve actual business logic problems.",
+    "paragraph2": "Looking to grow as an Applied LLM Engineer on an early-stage team where I can contribute to building innovative AI products while continuing to learn and develop my skills.",
+    "certifications": "Certifications",
+    "certificationsAndHonors": "Certifications & Honors",
+    "viewCertificate": "View Certificate",
+    "hoverToFlip": "Hover to see details",
+    "skillsCovered": "Skills Covered",
+    "verifyCertificate": "Verify Certificate"
+  },
+  "skills": {
+    "title": "Expertise",
+    "heading": "Skills &",
+    "headingItalic": "Competencies"
+  },
+  "experience": {
+    "title": "Experience",
+    "heading": "Work & Research",
+    "headingItalic": "Experience",
+    "work": "Work",
+    "research": "Research",
+    "showMore": "Show More Details",
+    "showLess": "Show Less",
+    "items": {
+      "jaist": {
+        "title": "AI/ML Research Intern",
+        "organization": "KnOWLab Research Lab, JAIST",
+        "location": "Nomi, Ishikawa, Japan",
+        "period": "Apr 2025 — Sep 2025",
+        "bullets": [
+          "Built a prompt engineering pipeline (DoC) for LLM-based information extraction with 68% improvement over state-of-the-art",
+          "Tested and debugged LLM outputs at scale, applying domain constraints to filter implausible responses",
+          "Achieved 100% accuracy in automated structured data population from unstructured documents"
+        ]
+      },
+      "french": {
+        "title": "Backend Developer (Contract)",
+        "organization": "Chiang Mai University, Dept. of Western Languages (French)",
+        "location": "Chiang Mai, Thailand",
+        "period": "Apr 2024 — Mar 2025",
+        "bullets": [
+          "Developed a platform integrating French language learning with interactive lessons and personalized guidance",
+          "Built backend infrastructure including database management, API endpoints, and server configuration"
+        ]
+      },
+      "ags": {
+        "title": "DevOps (Contract)",
+        "organization": "Chiang Mai University, Dept. of Computer Science",
+        "location": "Chiang Mai, Thailand",
+        "period": "Jun 2024 — Dec 2024",
+        "bullets": [
+          "Built production LLM application using GPT-3.5 with structured prompt engineering",
+          "Reduced grading turnaround time by 80% (5 days → 1 day) for 80+ students while managing inference costs",
+          "Designed and deployed secure REST API with Flask and SQLAlchemy, containerized with Docker",
+          "Automated deployment via GitHub Actions CI/CD on AWS (ECS, Aurora, S3)"
+        ]
+      },
+      "ta": {
+        "title": "Teaching Assistant",
+        "organization": "Chiang Mai University",
+        "location": "Chiang Mai, Thailand",
+        "period": "Aug 2022 — Mar 2025",
+        "bullets": [
+          "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices",
+          "Authored comprehensive software setup guides to ensure smooth access to development tools"
+        ]
+      },
+      "cmu": {
+        "title": "B.Sc. Computer Science",
+        "organization": "Chiang Mai University",
+        "location": "Chiang Mai, Thailand",
+        "period": "2021 — 2025"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "heading": "Featured",
+    "headingItalic": "Projects",
+    "description": "A selection of open-source projects and experiments from my GitHub.",
+    "viewAllGithub": "View all on GitHub",
+    "viewAllProjects": "View All Projects",
+    "visitGithub": "Visit me on GitHub",
+    "code": "Code",
+    "privateRepo": "Private Repo",
+    "liveDemo": "Live Demo",
+    "requestDemo": "Request Demo",
+    "requestDemoMessage": "Live demo for private projects is only available for reserved users. Please contact me to schedule a demo.",
+    "search": "Search projects...",
+    "noResults": "No projects found",
+    "noResultsDescription": "Try adjusting your search terms or browse all projects",
+    "emptyState": "No projects yet",
+    "emptyStateDescription": "Check back soon for new projects and contributions",
+    "activeFilters": "Active filters",
+    "clearAll": "Clear all",
+    "sort": {
+      "recent": "Most Recent",
+      "stars": "Most Stars",
+      "name": "Name (A-Z)"
+    },
+    "items": {
+      "ags": {
+        "title": "AGS - Automated Grading System",
+        "description": "A production LLM application using structured prompt engineering to automate grading. Reduces turnaround time by 80% for 80+ students."
+      },
+      "ezaAlias": {
+        "title": "Eza Alias Configuration",
+        "description": "Popular Gist providing comprehensive alias setup for eza (modern ls replacement). Used by developers worldwide."
+      },
+      "neovim": {
+        "title": "Neovim",
+        "description": "Contributor to Neovim - Vim-fork focused on extensibility and usability with modern features."
+      },
+      "flaskSecurity": {
+        "title": "Flask-Security",
+        "description": "Contributor to Flask-Security - Quick and simple security for Flask applications with common patterns."
+      }
+    }
+  },
+  "publications": {
+    "title": "Academic Contributions",
+    "heading": "Publications &",
+    "headingItalic": "Contributions",
+    "download": "Download",
+    "viewRepo": "View Repo",
+    "downloadPDF": "Download PDF",
+    "draftAvailable": "Draft Available on Request",
+    "emptyState": "No publications yet",
+    "emptyStateDescription": "Academic contributions will be listed here as they become available",
+    "languages": {
+      "Thai": "Thai",
+      "English": "English",
+      "Japanese": "Japanese"
+    },
+    "items": {
+      "kg-rag-jaist": {
+        "tldr": "Leveraged knowledge graphs and ontologies to automatically generate critical safety evaluation scenarios for Autonomous Driving Systems (ADS)."
+      },
+      "ontology-phsrs": {
+        "tldr": "Built a semantic web system using OWL ontologies to recommend appropriate public health services based on patient symptoms and medical history."
+      },
+      "cs-setup-guide": {
+        "tldr": "Created comprehensive documentation to help 250+ CS students set up their development environments, reducing setup time from days to hours."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Let's",
+    "headingItalic": "Connect",
+    "description": "Interested in collaboration or have a question? I'd love to hear from you.",
+    "findMeOnline": "Find Me Online",
+    "sendMessage": "Send a Message",
+    "cvRequestForm": "Request CV Form",
+    "cvRequestTemplate": "Hi! I'd like to request your CV. Please share it with me at your earliest convenience.",
+    "cvRequestNote": "Fill in your details below and I'll send you my CV directly via email within 24 hours.",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "yourMessage": "Your Message",
+    "sending": "Sending...",
+    "sendMessageBtn": "Send Message",
+    "messageSent": "Message sent! I'll get back to you soon.",
+    "messageFailed": "Failed to send message. Please try again or email me directly.",
+    "copyEmail": "Copy email address",
+    "emailCopied": "Email copied to clipboard!",
+    "emailCopyFailed": "Failed to copy email",
+    "keyboardHint": "⌘/Ctrl + Enter to send",
+    "categoryLabel": "What's this about?",
+    "categoryPlaceholder": "Select a reason for contacting...",
+    "categories": {
+      "hiring": {
+        "label": "Hiring / Job Opportunity",
+        "subject": "Job Opportunity Inquiry",
+        "message": "Hello! I'm reaching out regarding potential job opportunities. I'm interested in learning more about working with you and how my skills could contribute to your team."
+      },
+      "collaboration": {
+        "label": "Collaboration / Partnership",
+        "subject": "Collaboration Proposal",
+        "message": "Hi! I'm interested in collaborating on a project. I'd love to discuss potential opportunities to work together and create something amazing."
+      },
+      "question": {
+        "label": "Question / Consultation",
+        "subject": "Question",
+        "message": "Hi! I have a question about your work. I'd appreciate your insights and expertise on this topic."
+      },
+      "other": {
+        "label": "Other",
+        "subject": "General Inquiry"
+      }
+    },
+    "successState": {
+      "title": "Message sent successfully!",
+      "description": "I'll reply within 24 hours."
+    },
+    "socialTooltip": {
+      "clickToCopy": "Click to copy",
+      "openInNewTab": "Open in new tab"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Let's Work Together",
+      "description": "Whether you have a project in mind, want to collaborate, or just want to say hi, I'm always open to new opportunities and conversations."
+    },
+    "cvRequest": {
+      "title": "Request My CV",
+      "description": "Interested in my full resume? Send me a message below with your details and I'll share my CV with you directly.",
+      "badge": "CV Request",
+      "button": "Go to Request Form"
+    },
+    "responseTime": {
+      "title": "Response Time",
+      "value": "Within 24 hours"
+    },
+    "location": {
+      "title": "Location",
+      "value": "Chiang Mai, Thailand (GMT+7)"
+    }
+  },
+  "availability": {
+    "banner": "Currently available for opportunities! Looking for Applied LLM Engineer roles.",
+    "bannerShort": "Available for work! Looking for Applied LLM Engineer roles.",
+    "badge": "Available for opportunities",
+    "badgeShort": "Available",
+    "available": "Available",
+    "tooltip": "Open to new opportunities"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with React & Tailwind CSS"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved. Let's get you back on track.",
+    "goHome": "Go to Homepage",
+    "goBack": "Go Back",
+    "quickLinks": "Quick Links"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "projects": "Projects",
+    "publications": "Publications"
+  },
+  "share": {
+    "share": "Share",
+    "shared": "Shared successfully!",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "linkCopied": "Link copied!",
+    "linkCopiedDesc": "The link has been copied to your clipboard.",
+    "error": "Error",
+    "errorDesc": "Failed to copy link. Please try again."
+  },
+  "language": {
+    "selectLanguage": "Select language",
+    "current": "Language",
+    "loadFailed": "Failed to load language",
+    "changeFailed": "Failed to change language"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "accessibility": {
+    "navigatedTo": "Navigated to {{page}}",
+    "skipToContent": "Skip to main content",
+    "mainContent": "Main content"
+  }
+}
