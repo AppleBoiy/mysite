@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, MapPin, GraduationCap, Download, AlertCircle } from "lucide-react";
 import NetworkBackground from "./NetworkBackground";
+import OptimizedImage from "./OptimizedImage";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
@@ -15,53 +16,6 @@ const PROFILE_IMG_FALLBACK = "https://ui-avatars.com/api/?name=Chaipat+Jainan&si
 export default function HeroSection() {
   const { t } = useTranslation();
   const { haptic } = useHaptic();
-  const [imgSrc, setImgSrc] = useState(PROFILE_IMG_WEBP);
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const [retryCount, setRetryCount] = useState(0);
-  
-  // Preload image with retry logic
-  useEffect(() => {
-    const img = new Image();
-    img.src = imgSrc;
-    
-    img.onload = () => {
-      setImgLoaded(true);
-    };
-    
-    img.onerror = () => {
-      // Try fallbacks in order: WebP → JPEG → GitHub → UI Avatars
-      if (retryCount === 0) {
-        setImgSrc(PROFILE_IMG);
-        setRetryCount(1);
-      } else if (retryCount === 1) {
-        setImgSrc(PROFILE_IMG_GITHUB);
-        setRetryCount(2);
-      } else if (retryCount === 2) {
-        setImgSrc(PROFILE_IMG_FALLBACK);
-        setRetryCount(3);
-        setImgLoaded(true);
-      }
-    };
-    
-    // Timeout fallback for slow networks (5 seconds)
-    const timeout = setTimeout(() => {
-      if (!imgLoaded && retryCount < 3) {
-        if (retryCount === 0) {
-          setImgSrc(PROFILE_IMG);
-          setRetryCount(1);
-        } else if (retryCount === 1) {
-          setImgSrc(PROFILE_IMG_GITHUB);
-          setRetryCount(2);
-        } else {
-          setImgSrc(PROFILE_IMG_FALLBACK);
-          setRetryCount(3);
-          setImgLoaded(true);
-        }
-      }
-    }, 5000);
-    
-    return () => clearTimeout(timeout);
-  }, [imgSrc, retryCount, imgLoaded]);
   
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -161,42 +115,15 @@ export default function HeroSection() {
           >
             <div className="relative">
               <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-2xl bg-muted">
-                {!imgLoaded && (
-                  <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 border-4 border-accent/30 border-t-accent rounded-full animate-spin mx-auto mb-2"></div>
-                      <p className="text-sm text-muted-foreground">Loading...</p>
-                    </div>
-                  </div>
-                )}
-                <img
-                  src={imgSrc}
+                <OptimizedImage
+                  src={PROFILE_IMG_WEBP}
                   alt="Profile photo"
-                  className={`w-full h-full object-cover transition-opacity duration-300 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  width="320"
-                  height="320"
-                  loading="eager"
-                  decoding="async"
-                  onError={() => {
-                    if (retryCount === 0) {
-                      setImgSrc(PROFILE_IMG);
-                      setRetryCount(1);
-                    } else if (retryCount === 1) {
-                      setImgSrc(PROFILE_IMG_GITHUB);
-                      setRetryCount(2);
-                    } else if (retryCount === 2) {
-                      setImgSrc(PROFILE_IMG_FALLBACK);
-                      setRetryCount(3);
-                      setImgLoaded(true);
-                    }
-                  }}
-                  onLoad={() => setImgLoaded(true)}
+                  fallbackSrc={PROFILE_IMG}
+                  width={320}
+                  height={320}
+                  priority={true}
+                  className="w-full h-full object-cover"
                 />
-                {retryCount === 3 && imgLoaded && (
-                  <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm rounded-full p-1.5" title="Using fallback image">
-                    <AlertCircle size={14} className="text-muted-foreground" />
-                  </div>
-                )}
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-accent/30 rounded-2xl" />
