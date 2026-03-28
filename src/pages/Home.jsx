@@ -1,10 +1,7 @@
+import { lazy, Suspense, useState } from "react";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
-import SkillsSection from "../components/SkillsSection";
-import ExperienceSection from "../components/ExperienceSection";
-import ProjectsSection from "../components/ProjectsSection";
-import AcademicContributions from "../components/AcademicContributions";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import ScrollProgress from "../components/ScrollProgress";
@@ -13,7 +10,12 @@ import SEOHead from "../components/SEOHead";
 import AvailabilityBanner from "../components/AvailabilityBanner";
 import FloatingAvailabilityBadge from "../components/FloatingAvailabilityBadge";
 import PageTransition from "../components/PageTransition";
-import { useState } from "react";
+import { SkeletonSection } from "../components/SkeletonLoader";
+
+// Lazy load below-the-fold sections
+const ExperienceSection = lazy(() => import("../components/ExperienceSection"));
+const ProjectsSection = lazy(() => import("../components/ProjectsSection"));
+const AcademicContributions = lazy(() => import("../components/AcademicContributions"));
 
 export default function Home() {
   const [bannerVisible, setBannerVisible] = useState(true);
@@ -30,10 +32,15 @@ export default function Home() {
           <main id="main-content">
             <HeroSection />
             <AboutSection />
-            <ExperienceSection />
-            <AcademicContributions />
-            <ProjectsSection />
-            <SkillsSection />
+            <Suspense fallback={<SkeletonSection />}>
+              <ExperienceSection />
+            </Suspense>
+            <Suspense fallback={<SkeletonSection />}>
+              <AcademicContributions />
+            </Suspense>
+            <Suspense fallback={<SkeletonSection />}>
+              <ProjectsSection />
+            </Suspense>
           </main>
           <Footer />
           <ScrollToTop />

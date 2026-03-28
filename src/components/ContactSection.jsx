@@ -129,7 +129,7 @@ export default function ContactSection() {
               <a
                 key={s.label}
                 href={s.href}
-                target="_blank"
+                target={s.label === "Email" ? "_self" : "_blank"}
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 bg-card border border-border rounded-2xl hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
               >

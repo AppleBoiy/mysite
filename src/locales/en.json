@@ -152,5 +152,19 @@
     "goHome": "Go to Homepage",
     "goBack": "Go Back",
     "quickLinks": "Quick Links"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "projects": "Projects",
+    "publications": "Publications"
+  },
+  "share": {
+    "share": "Share",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "linkCopied": "Link copied!",
+    "linkCopiedDesc": "The link has been copied to your clipboard.",
+    "error": "Error",
+    "errorDesc": "Failed to copy link. Please try again."
   }
 }

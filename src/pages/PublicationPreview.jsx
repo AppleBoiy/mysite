@@ -8,6 +8,9 @@ import ScrollToTop from "../components/ScrollToTop";
 import ScrollProgress from "../components/ScrollProgress";
 import SEOHead from "../components/SEOHead";
 import PageTransition from "../components/PageTransition";
+import Breadcrumbs from "../components/Breadcrumbs";
+import ShareButtons from "../components/ShareButtons";
+import { useTranslation } from "react-i18next";
 
 const publicationsData = {
   "ontology-phsrs": {
@@ -255,6 +258,7 @@ const publicationsData = {
 export default function PublicationPreview() {
   const { publicationId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const publication = publicationsData[publicationId];
 
   if (!publication) {
@@ -283,16 +287,13 @@ export default function PublicationPreview() {
       
       <div className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">
-          {/* Back Button */}
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft size={20} />
-            Back to Portfolio
-          </motion.button>
+          {/* Breadcrumbs */}
+          <Breadcrumbs
+            items={[
+              { label: t('breadcrumbs.publications'), href: '/#publications' },
+              { label: publication.title }
+            ]}
+          />
 
           {/* Header */}
           <motion.div
@@ -301,21 +302,27 @@ export default function PublicationPreview() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
-                {publication.type}
-              </span>
-              <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                publication.status === 'Extended' 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'bg-green-100 text-green-700'
-              }`}>
-                {publication.status}
-              </span>
-              <span className="text-sm text-muted-foreground flex items-center gap-1">
-                <Calendar size={14} />
-                {publication.year}
-              </span>
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
+                  {publication.type}
+                </span>
+                <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                  publication.status === 'Extended' 
+                    ? 'bg-blue-100 text-blue-700' 
+                    : 'bg-green-100 text-green-700'
+                }`}>
+                  {publication.status}
+                </span>
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
+                  <Calendar size={14} />
+                  {publication.year}
+                </span>
+              </div>
+              <ShareButtons
+                title={publication.title}
+                description={publication.abstract}
+              />
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl font-bold text-foreground mb-4">

@@ -31,12 +31,13 @@ export default function ShareButtons({ title, description, url }) {
     }
   };
 
+  const hashtags = "tech,coding,javascript";
   const shareLinks = [
     {
-      name: "Twitter",
+      name: "X",
       icon: Twitter,
-      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
-      color: "hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2]",
+      url: `https://x.com/intent/post?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}&hashtags=${encodeURIComponent(hashtags)}`,
+      color: "hover:bg-black/10 hover:text-black dark:hover:bg-white/10 dark:hover:text-white",
     },
     {
       name: "LinkedIn",

@@ -22,7 +22,6 @@ export default function Navbar({ hasBanner = false }) {
     { label: t('nav.experience'), href: "#experience", icon: Briefcase },
     { label: t('nav.academic'), href: "#publications", icon: FileText },
     { label: t('nav.projects'), href: "#projects", icon: FolderGit2 },
-    { label: t('nav.skills'), href: "#skills", icon: Code2 },
   ];
 
   const handleNavClick = (e, href) => {

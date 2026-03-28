@@ -151,5 +151,19 @@
     "goHome": "ホームページへ",
     "goBack": "戻る",
     "quickLinks": "クイックリンク"
+  },
+  "breadcrumbs": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "publications": "学術貢献"
+  },
+  "share": {
+    "share": "共有",
+    "copyLink": "リンクをコピー",
+    "copied": "コピーしました！",
+    "linkCopied": "リンクをコピーしました！",
+    "linkCopiedDesc": "リンクがクリップボードにコピーされました",
+    "error": "エラー",
+    "errorDesc": "リンクのコピーに失敗しました。もう一度お試しください"
   }
 }

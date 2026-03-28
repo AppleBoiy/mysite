@@ -60,7 +60,7 @@ export default function HeroSection() {
                 {t('hero.viewWork')}
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors"
               >
                 {t('hero.contactMe')}

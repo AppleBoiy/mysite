@@ -96,7 +96,7 @@ export default function NotFound() {
               <a href="/#publications" className="text-foreground hover:text-accent transition-colors">
                 Publications
               </a>
-              <a href="/#contact" className="text-foreground hover:text-accent transition-colors">
+              <a href="/contact" className="text-foreground hover:text-accent transition-colors">
                 Contact
               </a>
             </div>
