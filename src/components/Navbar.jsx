@@ -71,7 +71,7 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
     if (!isHomePage) return;
     
     const handleScroll = () => {
-      const sections = navLinks.map(link => link.href.substring(1));
+      const sections = ['about', 'experience', 'skills', 'projects', 'publications', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
