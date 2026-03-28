@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Share2, Twitter, Linkedin, Link as LinkIcon, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 
 export default function ShareButtons({ title, description, url }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,16 +17,15 @@ export default function ShareButtons({ title, description, url }) {
     try {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
-      toast({
-        title: t('share.linkCopied'),
+      toast.success(t('share.linkCopied'), {
         description: t('share.linkCopiedDesc'),
+        duration: 3000,
       });
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 3000);
     } catch (err) {
-      toast({
-        title: t('share.error'),
+      toast.error(t('share.error'), {
         description: t('share.errorDesc'),
-        variant: "destructive",
+        duration: 5000,
       });
     }
   };
@@ -60,50 +59,60 @@ export default function ShareButtons({ title, description, url }) {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="absolute top-full mt-2 right-0 bg-card border border-border rounded-xl shadow-lg p-2 z-50 min-w-[200px]"
-          >
-            <div className="space-y-1">
-              {shareLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${link.color}`}
+          <>
+            {/* Backdrop - must be before dropdown for proper z-index */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            
+            {/* Dropdown menu */}
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+              className="absolute top-full mt-2 right-0 bg-card border border-border rounded-xl shadow-lg p-2 z-50 min-w-[200px]"
+            >
+              <div className="space-y-1">
+                {shareLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${link.color}`}
+                  >
+                    <link.icon size={18} />
+                    <span className="text-sm">{link.name}</span>
+                  </a>
+                ))}
+                <button
+                  onClick={() => {
+                    handleCopyLink();
+                    setTimeout(() => setIsOpen(false), 500);
+                  }}
+                  className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted transition-colors"
                 >
-                  <link.icon size={18} />
-                  <span className="text-sm">{link.name}</span>
-                </a>
-              ))}
-              <button
-                onClick={handleCopyLink}
-                className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted transition-colors"
-              >
-                {copied ? (
-                  <Check size={18} className="text-green-500" />
-                ) : (
-                  <LinkIcon size={18} />
-                )}
-                <span className="text-sm">
-                  {copied ? t('share.copied') : t('share.copyLink')}
-                </span>
-              </button>
-            </div>
-          </motion.div>
+                  {copied ? (
+                    <Check size={18} className="text-green-500" />
+                  ) : (
+                    <LinkIcon size={18} />
+                  )}
+                  <span className="text-sm">
+                    {copied ? t('share.copied') : t('share.copyLink')}
+                  </span>
+                </button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
     </div>
   );
 }

@@ -16,6 +16,7 @@ export default function Footer() {
       await navigator.clipboard.writeText(email);
       toast.success("Email copied to clipboard!", {
         description: email,
+        duration: 2000, // Auto-dismiss after 2 seconds
       });
     } catch (err) {
       // Clipboard failed, let mailto work

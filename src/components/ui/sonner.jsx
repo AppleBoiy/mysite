@@ -11,6 +11,10 @@ const Toaster = ({
     (<Sonner
       theme={theme}
       className="toaster group"
+      position="bottom-right"
+      closeButton
+      duration={5000}
+      style={{ zIndex: 'var(--z-toast)' }}
       toastOptions={{
         classNames: {
           toast:
