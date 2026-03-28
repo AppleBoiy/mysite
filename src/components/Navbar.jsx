@@ -15,7 +15,6 @@ export default function Navbar({ hasBanner = false }) {
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const isContactPage = location.pathname === '/contact';
-  const isPreviewPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/publication/');
 
   const navLinks = [
     { label: t('nav.about'), href: "#about", icon: User },
@@ -29,6 +28,7 @@ export default function Navbar({ hasBanner = false }) {
       e.preventDefault();
       navigate('/' + href);
     }
+    setMobileOpen(false);
   };
 
   useEffect(() => {
@@ -36,6 +36,34 @@ export default function Navbar({ hasBanner = false }) {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [mobileOpen]);
+
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (!isHomePage) return;
@@ -155,63 +183,75 @@ export default function Navbar({ hasBanner = false }) {
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            id="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
-            role="navigation"
-            aria-label="Mobile navigation"
-          >
-            <div className="px-6 py-6 flex flex-col gap-2">
-              {/* Show nav links only on home page */}
-              {isHomePage && navLinks.map((link) => {
-                const Icon = link.icon;
-                const isActive = activeSection === link.href;
-                return (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-30 lg:hidden"
+              aria-hidden="true"
+            />
+            
+            {/* Menu */}
+            <motion.div
+              id="mobile-menu"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden relative z-40"
+              role="navigation"
+              aria-label="Mobile navigation"
+            >
+              <div className="px-6 py-6 flex flex-col gap-2">
+                {/* Show nav links only on home page */}
+                {isHomePage && navLinks.map((link) => {
+                  const Icon = link.icon;
+                  const isActive = activeSection === link.href;
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => {
+                        handleNavClick(e, link.href);
+                      }}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                        isActive
+                          ? 'bg-accent/10 text-accent'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      }`}
+                    >
+                      <Icon size={18} />
+                      {link.label}
+                    </a>
+                  );
+                })}
+                
+                {/* Show "Back to Home" on other pages */}
+                {!isHomePage && (
                   <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => {
-                      handleNavClick(e, link.href);
-                      setMobileOpen(false);
-                    }}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                      isActive
-                        ? 'bg-accent/10 text-accent'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
+                    href="/"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
                   >
-                    <Icon size={18} />
-                    {link.label}
+                    ← Back to Home
                   </a>
-                );
-              })}
-              
-              {/* Show "Back to Home" on other pages */}
-              {!isHomePage && (
-                <a
-                  href="/"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
-                >
-                  ← Back to Home
-                </a>
-              )}
-              
-              {/* Hide "Get in Touch" button on contact page */}
-              {!isContactPage && (
-                <a
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="mt-2 text-sm font-medium px-6 py-3 rounded-lg bg-primary text-primary-foreground text-center hover:bg-primary/90 transition-colors"
-                >
-                  {t('nav.getInTouch')}
-                </a>
-              )}
-            </div>
-          </motion.div>
+                )}
+                
+                {/* Hide "Get in Touch" button on contact page */}
+                {!isContactPage && (
+                  <a
+                    href="/contact"
+                    onClick={() => setMobileOpen(false)}
+                    className="mt-2 text-sm font-medium px-6 py-3 rounded-lg bg-primary text-primary-foreground text-center hover:bg-primary/90 transition-colors"
+                  >
+                    {t('nav.getInTouch')}
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

@@ -3,15 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Chaipat Jainan - CS Student & Applied LLM Engineer specializing in RAG pipelines, Knowledge Graphs, and backend engineering" />
     <meta name="author" content="Chaipat Jainan" />
+    <meta name="keywords" content="Chaipat Jainan, LLM Engineer, RAG Pipeline, Knowledge Graphs, Backend Engineering, Computer Science, CMU, JAIST" />
     <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="light dark" />
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+    
+    <!-- Preload critical fonts with font-display swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"></noscript>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -19,13 +25,53 @@
     <meta property="og:title" content="Chaipat Jainan - CS Student & Applied LLM Engineer" />
     <meta property="og:description" content="Final-year CS student with research and industry experience in LLM systems, RAG pipelines, and backend engineering." />
     <meta property="og:image" content="https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Chaipat Jainan Portfolio" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://chaipat.cc" />
-    <meta property="twitter:title" content="Chaipat Jainan - CS Student & Applied LLM Engineer" />
-    <meta property="twitter:description" content="Final-year CS student with research and industry experience in LLM systems, RAG pipelines, and backend engineering." />
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://chaipat.cc" />
+    <meta name="twitter:title" content="Chaipat Jainan - CS Student & Applied LLM Engineer" />
+    <meta name="twitter:description" content="Final-year CS student with research and industry experience in LLM systems, RAG pipelines, and backend engineering." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg" />
+    <meta name="twitter:creator" content="@AppleBoiy" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://chaipat.cc" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Chaipat Portfolio" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Chaipat Jainan",
+      "url": "https://chaipat.cc",
+      "image": "https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg",
+      "jobTitle": "Computer Science Student & Applied LLM Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Chiang Mai University"
+      },
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Chiang Mai University"
+      },
+      "sameAs": [
+        "https://github.com/AppleBoiy",
+        "https://www.linkedin.com/in/chaipat-jainan"
+      ],
+      "knowsAbout": ["Large Language Models", "RAG Pipelines", "Knowledge Graphs", "Backend Engineering", "Python", "Flask"]
+    }
+    </script>
     
     <title>Chaipat Jainan - Portfolio</title>
   </head>

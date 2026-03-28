@@ -270,14 +270,16 @@ export default function ContactSection() {
               </div>
               <Button
                 type="submit"
-                disabled={sending || submitStatus === 'success'}
+                disabled={sending || submitStatus === 'success' || Object.keys(errors).length > 0}
                 className={`w-full h-12 rounded-xl transition-all duration-300 ${
                   submitStatus === 'success' 
                     ? 'bg-green-500 hover:bg-green-500' 
                     : submitStatus === 'error'
                     ? 'bg-red-500 hover:bg-red-500'
                     : 'bg-primary hover:opacity-90'
-                } text-primary-foreground`}
+                } text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed`}
+                aria-live="polite"
+                aria-busy={sending}
               >
                 <AnimatePresence mode="wait">
                   {sending ? (
