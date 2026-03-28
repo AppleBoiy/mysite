@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FileText, Users, ExternalLink, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { safeDownload } from "@/utils/downloadHelper";
 
 const publications = [
   {
@@ -46,6 +47,11 @@ const publications = [
 
 export default function AcademicContributions() {
   const { t } = useTranslation();
+  
+  const handleDownload = (e, url, filename) => {
+    e.preventDefault();
+    safeDownload(url, filename, 'Document is currently unavailable');
+  };
   
   return (
     <section id="publications" className="py-24 lg:py-32 bg-muted/30">
@@ -110,9 +116,8 @@ export default function AcademicContributions() {
                         {pub.year}
                       </span>
                       {pub.downloadable && (
-                        <a
-                          href={pub.downloadUrl}
-                          download
+                        <button
+                          onClick={(e) => handleDownload(e, pub.downloadUrl, `${pub.id}.pdf`)}
                           className="shrink-0 px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
                         >
                           <Download size={12} />
@@ -120,7 +125,7 @@ export default function AcademicContributions() {
                           {pub.documentLanguage && (
                             <span className="ml-1">({t(`publications.languages.${pub.documentLanguage}`)})</span>
                           )}
-                        </a>
+                        </button>
                       )}
                     </div>
                   </div>

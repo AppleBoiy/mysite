@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { ImageOff } from "lucide-react";
 
 export default function OptimizedImage({ 
   src, 
@@ -7,9 +7,27 @@ export default function OptimizedImage({
   className = "", 
   width, 
   height,
-  priority = false 
+  priority = false,
+  fallbackSrc = null
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(true);
+  };
+
+  if (hasError && !fallbackSrc) {
+    return (
+      <div className={`relative overflow-hidden bg-muted flex items-center justify-center ${className}`}>
+        <div className="text-center p-4">
+          <ImageOff size={48} className="text-muted-foreground mx-auto mb-2" />
+          <p className="text-sm text-muted-foreground">Image not available</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
@@ -19,17 +37,16 @@ export default function OptimizedImage({
       )}
       
       {/* Actual image */}
-      <motion.img
-        src={src}
+      <img
+        src={hasError && fallbackSrc ? fallbackSrc : src}
         alt={alt}
         width={width}
         height={height}
         loading={priority ? "eager" : "lazy"}
+        decoding="async"
         onLoad={() => setIsLoaded(true)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isLoaded ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className={className}
+        onError={handleError}
+        className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       />
     </div>
   );

@@ -1,12 +1,41 @@
 import { motion } from "framer-motion";
-import { ArrowDown, MapPin, GraduationCap } from "lucide-react";
+import { ArrowDown, MapPin, GraduationCap, Download, AlertCircle } from "lucide-react";
 import NetworkBackground from "./NetworkBackground";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const PROFILE_IMG = "https://raw.githubusercontent.com/AppleBoiy/mysite/main/img/profile.jpeg";
+const PROFILE_IMG_FALLBACK = "https://ui-avatars.com/api/?name=Chaipat+Jainan&size=320&background=random";
 
 export default function HeroSection() {
   const { t } = useTranslation();
+  const [imgError, setImgError] = useState(false);
+  
+  const handleCVDownload = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('/cv.pdf', { method: 'HEAD' });
+      
+      if (response.ok) {
+        // CV exists, proceed with download
+        window.location.href = '/cv.pdf';
+      } else {
+        // CV not found
+        toast.error('CV is currently unavailable', {
+          description: 'Please contact me directly for my resume',
+          duration: 4000,
+        });
+      }
+    } catch (error) {
+      // Network error or CV not found
+      toast.error('CV is currently unavailable', {
+        description: 'Please contact me directly for my resume',
+        duration: 4000,
+      });
+    }
+  };
   
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -65,13 +94,13 @@ export default function HeroSection() {
               >
                 {t('hero.contactMe')}
               </a>
-              <a
-                href="/cv.pdf"
-                download
-                className="px-7 py-3 border border-accent text-accent rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+              <button
+                onClick={handleCVDownload}
+                className="px-7 py-3 border border-accent text-accent rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors flex items-center gap-2"
               >
+                <Download size={16} />
                 {t('hero.downloadCV')}
-              </a>
+              </button>
             </div>
           </motion.div>
 
@@ -83,16 +112,22 @@ export default function HeroSection() {
             className="flex justify-center md:justify-end"
           >
             <div className="relative">
-              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-2xl">
+              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-2xl bg-muted">
                 <img
-                  src={PROFILE_IMG}
+                  src={imgError ? PROFILE_IMG_FALLBACK : PROFILE_IMG}
                   alt="Profile photo"
                   className="w-full h-full object-cover"
                   width="320"
                   height="320"
                   loading="eager"
                   decoding="async"
+                  onError={() => setImgError(true)}
                 />
+                {imgError && (
+                  <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm rounded-full p-1.5">
+                    <AlertCircle size={14} className="text-muted-foreground" />
+                  </div>
+                )}
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-accent/30 rounded-2xl" />
