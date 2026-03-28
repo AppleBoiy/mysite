@@ -267,7 +267,7 @@ export default function ContactSection({ isCVRequest = false }) {
               }
             }}>
               <div className="relative">
-                <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+                <User size={18} className="absolute left-4 top-3.5 text-muted-foreground pointer-events-none" />
                 <Input
                   ref={nameInputRef}
                   name="name"
@@ -277,13 +277,15 @@ export default function ContactSection({ isCVRequest = false }) {
                   required
                   className={`bg-card border-border rounded-xl h-12 pl-11 ${errors.name ? 'border-red-500' : ''}`}
                 />
-                {errors.name && (
-                  <p className="text-xs text-red-500 mt-1 ml-1">{errors.name}</p>
-                )}
+                <div className="h-5 mt-1">
+                  {errors.name && (
+                    <p className="text-xs text-red-500 ml-1">{errors.name}</p>
+                  )}
+                </div>
               </div>
               
               <div className="relative">
-                <AtSign size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+                <AtSign size={18} className="absolute left-4 top-3.5 text-muted-foreground pointer-events-none" />
                 <Input
                   name="email"
                   type="email"
@@ -293,9 +295,11 @@ export default function ContactSection({ isCVRequest = false }) {
                   required
                   className={`bg-card border-border rounded-xl h-12 pl-11 ${errors.email ? 'border-red-500' : ''}`}
                 />
-                {errors.email && (
-                  <p className="text-xs text-red-500 mt-1 ml-1">{errors.email}</p>
-                )}
+                <div className="h-5 mt-1">
+                  {errors.email && (
+                    <p className="text-xs text-red-500 ml-1">{errors.email}</p>
+                  )}
+                </div>
               </div>
               
               <div className="relative">
