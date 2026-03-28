@@ -4,8 +4,18 @@ A modern, responsive portfolio website built with React, featuring multilingual 
 
 ## Preview
 
-![Desktop Preview](./preview/desktop.png)
-![Mobile Preview](./preview/mobile.jpeg)
+<table>
+  <tr>
+    <td width="70%">
+      <img src="./preview/desktop.png" alt="Desktop Preview" />
+      <p align="center"><em>Desktop View</em></p>
+    </td>
+    <td width="30%">
+      <img src="./preview/mobile.jpeg" alt="Mobile Preview" />
+      <p align="center"><em>Mobile View</em></p>
+    </td>
+  </tr>
+</table>
 
 ## Tech Stack
 
