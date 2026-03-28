@@ -37,6 +37,55 @@ export default function ContactSection() {
   });
   const [sending, setSending] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [errors, setErrors] = useState({});
+  
+  const MAX_MESSAGE_LENGTH = 500;
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validateField = (name, value) => {
+    const newErrors = { ...errors };
+    
+    switch (name) {
+      case 'name':
+        if (value.length < 2) {
+          newErrors.name = 'Name must be at least 2 characters';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+      case 'email':
+        if (!validateEmail(value)) {
+          newErrors.email = 'Please enter a valid email address';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      case 'message':
+        if (value.length < 10) {
+          newErrors.message = 'Message must be at least 10 characters';
+        } else if (value.length > MAX_MESSAGE_LENGTH) {
+          newErrors.message = `Message must be less than ${MAX_MESSAGE_LENGTH} characters`;
+        } else {
+          delete newErrors.message;
+        }
+        break;
+    }
+    
+    setErrors(newErrors);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Validate on change if field has been touched
+    if (value.length > 0) {
+      validateField(name, value);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -155,41 +204,70 @@ export default function ContactSection() {
               {t('contact.sendMessage')}
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form">
-              <Input
-                placeholder={t('contact.yourName')}
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                className="bg-card border-border rounded-xl h-12"
-                aria-label="Your name"
-                aria-required="true"
-              />
-              <Input
-                type="email"
-                placeholder={t('contact.yourEmail')}
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                required
-                className="bg-card border-border rounded-xl h-12"
-                aria-label="Your email address"
-                aria-required="true"
-              />
-              <Textarea
-                placeholder={t('contact.yourMessage')}
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                required
-                rows={5}
-                className="bg-card border-border rounded-xl resize-none"
-                aria-label="Your message"
-                aria-required="true"
-              />
+              <div>
+                <Input
+                  name="name"
+                  placeholder={t('contact.yourName')}
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className={`bg-card border-border rounded-xl h-12 ${errors.name ? 'border-red-500' : ''}`}
+                  aria-label="Your name"
+                  aria-required="true"
+                  aria-invalid={!!errors.name}
+                />
+                {errors.name && (
+                  <p className="text-xs text-red-500 mt-1 ml-1">{errors.name}</p>
+                )}
+              </div>
+              
+              <div>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder={t('contact.yourEmail')}
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className={`bg-card border-border rounded-xl h-12 ${errors.email ? 'border-red-500' : ''}`}
+                  aria-label="Your email address"
+                  aria-required="true"
+                  aria-invalid={!!errors.email}
+                />
+                {errors.email && (
+                  <p className="text-xs text-red-500 mt-1 ml-1">{errors.email}</p>
+                )}
+              </div>
+              
+              <div>
+                <Textarea
+                  name="message"
+                  placeholder={t('contact.yourMessage')}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  maxLength={MAX_MESSAGE_LENGTH}
+                  className={`bg-card border-border rounded-xl resize-none ${errors.message ? 'border-red-500' : ''}`}
+                  aria-label="Your message"
+                  aria-required="true"
+                  aria-invalid={!!errors.message}
+                />
+                <div className="flex items-center justify-between mt-1 px-1">
+                  {errors.message ? (
+                    <p className="text-xs text-red-500">{errors.message}</p>
+                  ) : (
+                    <div />
+                  )}
+                  <p className={`text-xs ${
+                    formData.message.length > MAX_MESSAGE_LENGTH * 0.9 
+                      ? 'text-orange-500' 
+                      : 'text-muted-foreground'
+                  }`}>
+                    {formData.message.length}/{MAX_MESSAGE_LENGTH}
+                  </p>
+                </div>
+              </div>
               <Button
                 type="submit"
                 disabled={sending || submitStatus === 'success'}

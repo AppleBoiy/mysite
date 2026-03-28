@@ -10,8 +10,8 @@
   },
   "hero": {
     "subtitle": "情報工学専攻 & 応用LLMエンジニア",
-    "description": "LLMシステム、RAGパイプライン、バックエンド開発の研究および実務経験を持つ、CS専攻の最終学年生。CMUでのシステム構築や、JAISTとの共同研究に従事。",
-    "university": "チェンマイ大学",
+    "description": "LLMシステム、RAGパイプライン、バックエンド開発の研究および実務経験を持つ、コンピュータサイエンス専攻の最終学年。Chiang Mai Universityでの本番環境向けシステム構築や、JAISTでの共同研究に従事。",
+    "university": "Chiang Mai University",
     "location": "タイ、チェンマイ",
     "viewWork": "実績を見る",
     "contactMe": "お問い合わせ",
@@ -19,9 +19,9 @@
   },
   "about": {
     "title": "私について",
-    "heading": "AIシステムを構築する、",
+    "heading": "AIシステムの構築 —",
     "headingItalic": "一つひとつのパイプラインから",
-    "paragraph1": "チェンマイ大学でコンピュータサイエンスを専攻している最終学年の学生です。LLMシステム、RAGパイプライン、バックエンドエンジニアリングの実践的な経験があります。CMUで本番環境向けシステムを構築し、日本の北陸先端科学技術大学院大学（JAIST）での最先端の研究にも貢献しました。",
+    "paragraph1": "Chiang Mai Universityでコンピュータサイエンスを専攻している最終学年の学生です。LLMシステム、RAGパイプライン、バックエンドエンジニアリングの実践的な経験があります。学内で本番環境向けシステムを構築し、日本のJAIST（北陸先端科学技術大学院大学）での最先端の研究にも貢献しました。",
     "paragraph2": "大規模言語モデル（LLM）とナレッジグラフの融合に焦点を当てており、特に複雑な非構造化データを理解・処理できるインテリジェントシステムの構築に取り組んでいます。実社会の問題を解決する実用的なAIソリューションの開発に情熱を注いでいます。",
     "paragraph3": "現在、応用LLMエンジニアとして成長できるアーリーステージのチームを探しています。革新的なAI製品の開発に貢献しながら、継続的にスキルを磨いていきたいと考えています。",
     "certifications": "認定資格"
@@ -38,19 +38,19 @@
     "work": "職歴",
     "research": "研究歴",
     "showMore": "詳細を表示",
-    "showLess": "表示を減らす",
+    "showLess": "折りたたむ",
     "items": {
       "jaist": {
         "title": "AI/MLリサーチインターン",
-        "organization": "JAIST 知能機能化領域（KnOWLab）",
+        "organization": "北陸先端科学技術大学院大学（JAIST）KnOWLab",
         "location": "石川県能美市",
         "period": "2025年4月 — 2025年9月",
         "summary": "LLMベースの情報抽出用プロンプトエンジニアリング・パイプライン（DoC）を構築。従来手法を68%上回る精度向上を実現。",
-        "description": "チェンマイ大学・JAIST知能機能化領域・JAIST形式手法領域の共同研究。非構造化ドキュメントからLLMを用いて情報抽出を行うプロンプトエンジニアリング・パイプライン（DoC）を構築し、構造化データ入力を自動化。大規模なLLM出力のテストとデバッグを実施し、ドメイン制約を適用して不適切な回答をフィルタリングすることで、100%の精度を達成しました。"
+        "description": "CSCMU × KnOWLab-JAIST × Formal Methods Lab-JAIST の共同研究。非構造化ドキュメントからLLMを用いて情報抽出を行うプロンプトエンジニアリング・パイプライン（DoC）を構築し、構造化データ入力を自動化。大規模なLLM出力のテストとデバッグを実施し、ドメイン制約を適用して不適切な回答をフィルタリングすることで、100%の精度を達成しました。"
       },
       "french": {
-        "title": "バックエンド開発者（業務委託）",
-        "organization": "チェンマイ大学 西洋言語学科（フランス語）",
+        "title": "バックエンドエンジニア（業務委託）",
+        "organization": "Chiang Mai University, Dept. of Western Languages (French)",
         "location": "タイ、チェンマイ",
         "period": "2024年4月 — 2025年3月",
         "summary": "インタラクティブなレッスンと個別指導を統合したフランス語学習プラットフォームを開発。",
@@ -58,23 +58,23 @@
       },
       "ags": {
         "title": "DevOpsエンジニア（業務委託）",
-        "organization": "チェンマイ大学 コンピュータサイエンス学科",
+        "organization": "Chiang Mai University, Dept. of Computer Science",
         "location": "タイ、チェンマイ",
         "period": "2024年6月 — 2024年12月",
         "summary": "GPT-3.5を活用したLLMアプリケーションを構築。80名以上の学生に対する採点時間を80%短縮（5日→1日）。",
-        "description": "GPT-3.5を活用した本番用LLMアプリケーション（ags.cs.science.cmu.ac.th）を構築。構造化プロンプトエンジニアリングとトークン予算管理により、推論コストを抑えつつ採点時間を80%短縮しました。FlaskとSQLAlchemyを用いたセキュアなREST APIの設計・デプロイ、Dockerによるコンテナ化、GitHub ActionsでのCI/CD自動化を実施。AWS（ECS, Aurora, S3）を活用してスケーラビリティを確保しました。"
+        "description": "GPT-3.5を活用した本番環境用LLMアプリケーション（ags.cs.science.cmu.ac.th）を構築。構造化プロンプトエンジニアリングとトークン予算管理により、推論コストを抑えつつ採点時間を80%短縮しました。FlaskとSQLAlchemyを用いたセキュアなREST APIの設計・デプロイ、Dockerによるコンテナ化、GitHub ActionsでのCI/CD自動化を実施。AWS（ECS, Aurora, S3）を活用してスケーラビリティを確保しました。"
       },
       "ta": {
         "title": "ティーチングアシスタント",
-        "organization": "チェンマイ大学",
+        "organization": "Chiang Mai University",
         "location": "タイ、チェンマイ",
         "period": "2022年8月 — 2025年3月",
         "summary": "50名以上の学部生に対し、Pythonプログラミングの基礎概念やベストプラクティスを指導。",
         "description": "50名以上の学部生を対象に、Pythonプログラミングの指導を担当。プログラミングの根幹となる概念やベストプラクティスに焦点を当てたメンタリングを行い、学習に必要なソフトウェアのセットアップガイドも執筆しました。"
       },
       "cmu": {
-        "title": "理学士 コンピュータサイエンス",
-        "organization": "チェンマイ大学",
+        "title": "理学士（コンピュータサイエンス専攻）",
+        "organization": "Chiang Mai University",
         "location": "タイ、チェンマイ",
         "period": "2021年 — 2025年"
       }
@@ -86,15 +86,15 @@
     "headingItalic": "プロジェクト",
     "description": "GitHubで公開しているオープンソースプロジェクトや実験的な取り組みの選集。",
     "viewAllGithub": "GitHubですべて見る",
-    "code": "コード",
+    "code": "ソースコード",
     "privateRepo": "プライベートリポジトリ",
     "liveDemo": "ライブデモ",
     "requestDemo": "デモをリクエスト",
-    "requestDemoMessage": "プライベートプロジェクトのライブデモは、許可されたユーザーのみ利用可能です。デモのご希望は直接ご連絡ください。",
+    "requestDemoMessage": "プライベートプロジェクトのライブデモは、事前予約いただいた方のみご利用いただけます。デモをご希望の場合は直接ご連絡ください。",
     "items": {
       "ags": {
         "title": "AGS - 自動採点システム",
-        "description": "GPT-3.5を活用した実用的なLLMアプリケーション。プロンプトエンジニアリングとトークン制御を最適化し、80名以上の学生に対する採点時間を5日から1日へ大幅短縮。Flask、SQLAlchemy、Docker、AWS、GitHub Actionsを用いたフルスタックな構築を実施。"
+        "description": "GPT-3.5を活用した実用的なLLMアプリケーション。プロンプトエンジニアリングとトークン制御を最適化し、80名以上の学生に対する採点時間を5日から1日へ大幅短縮。Flask、SQLAlchemy、Docker、AWS、GitHub Actionsを用いたフルスタックなシステム構築を実施。"
       },
       "ezaAlias": {
         "title": "Eza Alias 設定ファイル",
@@ -126,19 +126,34 @@
     "heading": "ぜひ、",
     "headingItalic": "つながりましょう",
     "description": "コラボレーションのご提案やご質問など、お気軽にお問い合わせください。",
-    "findMeOnline": "各種リンク",
+    "findMeOnline": "オンラインプロファイル",
     "sendMessage": "メッセージを送る",
     "yourName": "お名前",
     "yourEmail": "メールアドレス",
     "yourMessage": "メッセージ内容",
     "sending": "送信中...",
-    "messageSent": "送信されました！折り返しご連絡いたします。",
+    "sendMessageBtn": "メッセージを送信",
+    "messageSent": "メッセージが送信されました！折り返しご連絡いたします。",
     "messageFailed": "送信に失敗しました。もう一度お試しいただくか、メールで直接ご連絡ください。"
   },
+  "contactPage": {
+    "hero": {
+      "title": "一緒に働きましょう",
+      "description": "プロジェクトのアイデア、コラボレーションのご相談、または単にご挨拶でも、新しい機会や会話をいつでも歓迎しています。"
+    },
+    "responseTime": {
+      "title": "返信の目安",
+      "value": "24時間以内"
+    },
+    "location": {
+      "title": "所在地",
+      "value": "タイ、チェンマイ (GMT+7)"
+    }
+  },
   "availability": {
-    "banner": "現在、新しいオポチュニティを募集中です！応用LLMエンジニアの職を探しています。",
-    "bannerShort": "求職中！応用LLMエンジニアのポジションを探しています。",
-    "badge": "お仕事募集中",
+    "banner": "現在、新たな活躍の場を探しています！応用LLMエンジニアのポジションに関心があります。",
+    "bannerShort": "求職中（応用LLMエンジニア）",
+    "badge": "オファー歓迎",
     "badgeShort": "求職中"
   },
   "footer": {
@@ -148,22 +163,22 @@
   "notFound": {
     "title": "ページが見つかりません",
     "description": "お探しのページは存在しないか、移動した可能性があります。トップページにお戻りください。",
-    "goHome": "ホームページへ",
-    "goBack": "戻る",
+    "goHome": "ホームページへ戻る",
+    "goBack": "前に戻る",
     "quickLinks": "クイックリンク"
   },
   "breadcrumbs": {
     "home": "ホーム",
     "projects": "プロジェクト",
-    "publications": "学術貢献"
+    "publications": "研究業績"
   },
   "share": {
     "share": "共有",
     "copyLink": "リンクをコピー",
     "copied": "コピーしました！",
     "linkCopied": "リンクをコピーしました！",
-    "linkCopiedDesc": "リンクがクリップボードにコピーされました",
+    "linkCopiedDesc": "リンクがクリップボードにコピーされました。",
     "error": "エラー",
-    "errorDesc": "リンクのコピーに失敗しました。もう一度お試しください"
+    "errorDesc": "リンクのコピーに失敗しました。もう一度お試しください。"
   }
 }

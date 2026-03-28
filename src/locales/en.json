@@ -136,6 +136,20 @@
     "messageSent": "Message sent! I'll get back to you soon.",
     "messageFailed": "Failed to send message. Please try again or email me directly."
   },
+  "contactPage": {
+    "hero": {
+      "title": "Let's Work Together",
+      "description": "Whether you have a project in mind, want to collaborate, or just want to say hi, I'm always open to new opportunities and conversations."
+    },
+    "responseTime": {
+      "title": "Response Time",
+      "value": "Within 24 hours"
+    },
+    "location": {
+      "title": "Location",
+      "value": "Chiang Mai, Thailand (GMT+7)"
+    }
+  },
   "availability": {
     "banner": "Currently available for opportunities! Looking for Applied LLM Engineer roles.",
     "bannerShort": "Available for work! Looking for Applied LLM Engineer roles.",

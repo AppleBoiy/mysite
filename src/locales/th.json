@@ -10,7 +10,7 @@
   },
   "hero": {
     "subtitle": "นักศึกษาวิทยาการคอมพิวเตอร์ & Applied LLM Engineer",
-    "description": "นักศึกษาวิทยาการคอมพิวเตอร์ชั้นปีสุดท้ายที่มีประสบการณ์วิจัยและพัฒนาระบบ LLM, RAG pipelines และ Backend engineering เคยพัฒนาระบบ Production ให้กับ มช. และร่วมทำงานวิจัยกับ JAIST ประเทศญี่ปุ่น",
+    "description": "นักศึกษาวิทยาการคอมพิวเตอร์ชั้นปีสุดท้ายที่มีประสบการณ์วิจัยและพัฒนาระบบ LLM, RAG pipelines และ Backend engineering เคยพัฒนาระบบระดับ Production ให้กับ มช. และร่วมทำงานวิจัยกับ JAIST ประเทศญี่ปุ่น",
     "university": "มหาวิทยาลัยเชียงใหม่",
     "location": "เชียงใหม่, ประเทศไทย",
     "viewWork": "ดูผลงาน",
@@ -46,7 +46,7 @@
         "location": "โนมิ, อิชิกาวะ, ญี่ปุ่น",
         "period": "เม.ย. 2025 — ก.ย. 2025",
         "summary": "พัฒนา Prompt Engineering Pipeline (DoC) สำหรับสกัดข้อมูลด้วย LLM ซึ่งมีประสิทธิภาพสูงกว่า State-of-the-art เดิมถึง 68% และมีความแม่นยำ 100%",
-        "description": "โครงการความร่วมมือ CSCMU × KnOWLab-JAIST × Formal Methods Lab-JAIST — ออกแบบ Prompt Engineering Pipeline (DoC) เพื่อสกัดข้อมูลจากเอกสาร Unstructured ช่วยให้การทำ Structured data เป็นไปอย่างอัตโนมัติ โดยมีประสิทธิภาพดีกว่าวิธีมาตรฐานเดิม 68% พร้อมทั้งวางระบบทดสอบผลลัพธ์ LLM และใช้ Domain Constraints เพื่อคัดกรองคำตอบที่ผิดเพี้ยน จนบรรลุความแม่นยำ 100%"
+        "description": "โครงการความร่วมมือ CSCMU x KnOWLab-JAIST x Formal Methods Lab-JAIST — ออกแบบ Prompt Engineering Pipeline (DoC) เพื่อสกัดข้อมูลจากเอกสาร Unstructured ช่วยให้การทำ Structured data เป็นไปอย่างอัตโนมัติ โดยมีประสิทธิภาพดีกว่าวิธีมาตรฐานเดิม 68% พร้อมทั้งวางระบบทดสอบผลลัพธ์ LLM และใช้ Domain Constraints เพื่อคัดกรองคำตอบที่ผิดเพี้ยน จนบรรลุความแม่นยำ 100%"
       },
       "french": {
         "title": "Backend Developer (สัญญาจ้าง)",
@@ -62,15 +62,21 @@
         "location": "เชียงใหม่, ประเทศไทย",
         "period": "มิ.ย. 2024 — ธ.ค. 2024",
         "summary": "พัฒนาระบบ LLM (Production) ด้วย GPT-3.5 ช่วยลดเวลาตรวจงานได้ 80% (จาก 5 วันเหลือ 1 วัน) สำหรับนักศึกษา 80+ คน",
-        "description": "พัฒนาระบบตรวจงานอัตโนมัติ (ags.cs.science.cmu.ac.th) โดยใช้ GPT-3.5 ร่วมกับ Structured Prompt Engineering และการควบคุม Token budget ช่วยลดระยะเวลาทำงานได้ 80% พร้อมบริหารจัดการต้นทุนการใช้งานอย่างมีประสิทธิภาพ ออกแบบและ Deploy Secure REST API ด้วย Flask และ SQLAlchemy รวมถึงทำระบบ CI/CD ด้วย Docker และ GitHub Actions บนโครงสร้างพื้นฐาน AWS"
+        "description": "พัฒนาระบบตรวจงานอัตโนมัติ (ags.cs.science.cmu.ac.th) โดยใช้ GPT-3.5 ร่วมกับ Structured Prompt Engineering และการควบคุม Token budget ช่วยลดระยะเวลาทำงานได้ 80% (จาก 5 วันเหลือ 1 วัน) พร้อมบริหารจัดการต้นทุนการใช้งานอย่างมีประสิทธิภาพสำหรับนักศึกษากว่า 80 คน ออกแบบและ Deploy Secure REST API ด้วย Flask และ SQLAlchemy รวมถึงทำระบบ CI/CD ด้วย Docker และ GitHub Actions บนโครงสร้างพื้นฐาน AWS (ECS, Aurora, S3)"
       },
       "ta": {
         "title": "ผู้ช่วยสอน (Teaching Assistant)",
         "organization": "มหาวิทยาลัยเชียงใหม่",
         "location": "เชียงใหม่, ประเทศไทย",
         "period": "ส.ค. 2022 — มี.ค. 2025",
-        "summary": "ดูแลและให้คำแนะนำนักศึกษา 50+ คน ในการเขียนโปรแกรม Python โดยเน้น Best Practices เป็นหลัก",
-        "description": "ถ่ายทอดความรู้และให้คำปรึกษาแก่นักศึกษาในการเขียนโปรแกรมภาษา Python โดยเน้นการปูพื้นฐานแนวคิดที่สำคัญและ Best practices พร้อมทั้งจัดทำคู่มือการติดตั้งสภาพแวดล้อมสำหรับการพัฒนา (Software Setup) เพื่อให้การเรียนการสอนเป็นไปอย่างราบรื่น"
+        "summary": "ดูแลและให้คำแนะนำนักศึกษากว่า 50 คน ในการเขียนโปรแกรม Python โดยเน้นหลักการพื้นฐานและ Best Practices",
+        "description": "ถ่ายทอดความรู้และให้คำปรึกษาแก่นักศึกษาในการเขียนโปรแกรมภาษา Python โดยเน้นการปูพื้นฐานแนวคิดที่สำคัญและ Best practices พร้อมทั้งจัดทำคู่มือการติดตั้งสภาพแวดล้อมสำหรับการพัฒนา (Software Setup) อย่างละเอียดเพื่อให้การเรียนการสอนเป็นไปอย่างราบรื่น"
+      },
+      "cmu": {
+        "title": "วิทยาศาสตรบัณฑิต สาขาวิทยาการคอมพิวเตอร์",
+        "organization": "มหาวิทยาลัยเชียงใหม่",
+        "location": "เชียงใหม่, ประเทศไทย",
+        "period": "2021 — 2025"
       }
     }
   },
@@ -84,23 +90,23 @@
     "privateRepo": "Private Repo",
     "liveDemo": "ดูเดโม",
     "requestDemo": "ขอรับชมเดโม",
-    "requestDemoMessage": "Live Demo สำหรับโปรเจกต์ส่วนตัวจำกัดสิทธิ์เฉพาะผู้ใช้ที่ได้รับอนุญาต กรุณาติดต่อผมเพื่อทำการนัดหมาย",
+    "requestDemoMessage": "Live Demo สำหรับโปรเจกต์ส่วนตัวจำกัดสิทธิ์เฉพาะผู้ใช้ที่ได้รับการจองไว้ กรุณาติดต่อผมเพื่อทำการนัดหมาย",
     "items": {
       "ags": {
         "title": "AGS - ระบบตรวจงานอัตโนมัติ",
-        "description": "ระบบตรวจงานที่ใช้พลังของ LLM (GPT-3.5) พร้อมการจัดการ Token และ Prompt ที่ซับซ้อน ช่วยลดภาระงานอาจารย์ได้ถึง 80% พัฒนาด้วย Stack สมัยใหม่ (Flask, Docker, AWS)"
+        "description": "พัฒนาระบบ LLM สำหรับใช้งานจริง (ags.cs.science.cmu.ac.th) โดยใช้ GPT-3.5 ร่วมกับ Structured Prompt Engineering และการควบคุม Token budget ช่วยลดระยะเวลาตรวจงานได้ 80% (จาก 5 วันเหลือ 1 วัน) พร้อมบริหารจัดการต้นทุนสำหรับนักศึกษากว่า 80 คน ออกแบบและ Deploy Secure REST API ด้วย Flask และ SQLAlchemy รวมถึงทำ Container ด้วย Docker และ CI/CD ผ่าน GitHub Actions ขยายระบบบนโครงสร้างพื้นฐานของ AWS (ECS, Aurora, S3)"
       },
       "ezaAlias": {
         "title": "Eza Alias Configuration",
-        "description": "Gist ยอดนิยมที่รวบรวมการตั้งค่า Alias สำหรับ eza (ตัวแทน ls) เพื่อเพิ่มประสิทธิภาพในการใช้งาน Terminal พร้อมชุดสีและไอคอนที่ปรับแต่งมาอย่างดี มีผู้ใช้งานจากทั่วโลก"
+        "description": "Gist ยอดนิยมที่รวบรวมการตั้งค่า Alias สำหรับ eza (เครื่องมือทางเลือกแทนคำสั่ง ls) เพื่อเพิ่มประสิทธิภาพในการใช้งาน Terminal พร้อมชุดสีและไอคอนที่ปรับแต่งมาอย่างดี มีนักพัฒนาใช้งานจากทั่วโลก"
       },
       "neovim": {
         "title": "Neovim",
-        "description": "ผู้ร่วมพัฒนา (Contributor) ใน Neovim - Text editor ระดับโลกที่เน้นการขยายขีดความสามารถและระบบนิเวศของปลั๊กอินที่ทันสมัย"
+        "description": "ผู้ร่วมพัฒนา (Contributor) ใน Neovim - Text editor แบบ Open-source ระดับโลกที่ต่อยอดจาก Vim โดยเน้นการขยายขีดความสามารถและระบบนิเวศของปลั๊กอินที่ทันสมัย"
       },
       "flaskSecurity": {
         "title": "Flask-Security",
-        "description": "Contributor ในโปรเจกต์ Flask-Security ช่วยเพิ่มความปลอดภัยให้กับเว็บแอปพลิเคชันอย่างเป็นระบบ ทั้งเรื่อง Authentication และ Authorization"
+        "description": "ผู้ร่วมพัฒนา (Contributor) ในโปรเจกต์ Flask-Security ซึ่งช่วยเพิ่มระบบความปลอดภัยพื้นฐานให้กับแอปพลิเคชัน Flask อย่างรวดเร็วและเป็นระบบ ทั้งด้าน Authentication และ Authorization"
       }
     }
   },
@@ -130,8 +136,22 @@
     "messageSent": "ส่งข้อความเรียบร้อยแล้ว ผมจะติดต่อกลับโดยเร็วที่สุดครับ",
     "messageFailed": "ไม่สามารถส่งข้อมูลได้ กรุณาลองใหม่อีกครั้งหรือส่งอีเมลหาผมโดยตรง"
   },
+  "contactPage": {
+    "hero": {
+      "title": "มาทำงานร่วมกัน",
+      "description": "ไม่ว่าคุณจะมีโปรเจกต์ในใจ ต้องการร่วมงาน หรือแค่อยากทักทาย ผมยินดีรับฟังและเปิดรับโอกาสใหม่ๆ เสมอ"
+    },
+    "responseTime": {
+      "title": "เวลาตอบกลับ",
+      "value": "ภายใน 24 ชั่วโมง"
+    },
+    "location": {
+      "title": "ที่ตั้ง",
+      "value": "เชียงใหม่, ประเทศไทย (GMT+7)"
+    }
+  },
   "availability": {
-    "banner": "พร้อมรับโอกาสใหม่ในตำแหน่ง Applied LLM Engineer!",
+    "banner": "พร้อมรับโอกาสใหม่! กำลังมองหาตำแหน่ง Applied LLM Engineer",
     "bannerShort": "พร้อมเริ่มงาน! (Applied LLM Engineer)",
     "badge": "เปิดรับโอกาสใหม่",
     "badgeShort": "พร้อมเริ่มงาน"
@@ -142,10 +162,10 @@
   },
   "notFound": {
     "title": "ไม่พบหน้านี้",
-    "description": "หน้าที่คุณต้องการเข้าถึงไม่มีอยู่หรืออาจถูกย้ายไปแล้ว",
+    "description": "หน้าที่คุณต้องการเข้าถึงไม่มีอยู่หรืออาจถูกย้ายไปแล้ว กลับไปที่หน้าหลักกันเถอะ",
     "goHome": "กลับสู่หน้าหลัก",
     "goBack": "ย้อนกลับ",
-    "quickLinks": "ลิงก์ที่น่าสนใจ"
+    "quickLinks": "ลิงก์ด่วน"
   },
   "breadcrumbs": {
     "home": "หน้าหลัก",
