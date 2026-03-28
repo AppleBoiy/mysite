@@ -2,8 +2,10 @@ import { Zap, ZapOff, Wifi, WifiOff } from "lucide-react";
 import { useNetworkStatus } from "@/hooks/useNetworkStatus";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 export default function LiteModeToggle({ liteMode, setLiteMode }) {
+  const { t } = useTranslation();
   const { isOnline, isSlowConnection, effectiveType } = useNetworkStatus();
   const [hasShownToast, setHasShownToast] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -14,21 +16,21 @@ export default function LiteModeToggle({ liteMode, setLiteMode }) {
       setLiteMode(true);
       setHasShownToast(true);
       
-      toast.info('Lite mode enabled', {
-        description: 'Optimized for your connection speed',
+      toast.info(t('liteMode.enabled'), {
+        description: t('liteMode.optimizedConnection'),
         duration: 4000,
       });
     }
-  }, [isSlowConnection, liteMode, hasShownToast, setLiteMode]);
+  }, [isSlowConnection, liteMode, hasShownToast, setLiteMode, t]);
 
   const getTooltipText = () => {
     if (liteMode) {
-      return "Lite mode active - Faster loading, reduced animations";
+      return t('liteMode.tooltipActive');
     }
     if (isSlowConnection) {
-      return "Enable lite mode - Recommended for your connection";
+      return t('liteMode.tooltipRecommended');
     }
-    return "Enable lite mode - Optimized for slow connections";
+    return t('liteMode.tooltipEnable');
   };
 
   return (
@@ -43,7 +45,7 @@ export default function LiteModeToggle({ liteMode, setLiteMode }) {
         ) : (
           <>
             <WifiOff size={14} className="text-red-500" />
-            <span>Offline</span>
+            <span>{t('liteMode.offline')}</span>
           </>
         )}
       </div>
@@ -61,7 +63,7 @@ export default function LiteModeToggle({ liteMode, setLiteMode }) {
               ? 'bg-accent text-accent-foreground' 
               : 'bg-muted hover:bg-accent/20 text-foreground'
           }`}
-          aria-label={liteMode ? "Disable lite mode" : "Enable lite mode"}
+          aria-label={liteMode ? t('liteMode.disable') : t('liteMode.enable')}
         >
           {liteMode ? (
             <Zap size={18} />

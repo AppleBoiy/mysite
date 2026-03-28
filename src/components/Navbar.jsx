@@ -148,7 +148,7 @@ export default function Navbar({ hasBanner = false }) {
               href="/"
               className="px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300 rounded-lg flex items-center gap-2"
             >
-              ← Back to Home
+              ← {t('nav.backToHome')}
             </a>
           )}
           
@@ -240,7 +240,7 @@ export default function Navbar({ hasBanner = false }) {
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
                   >
-                    ← Back to Home
+                    ← {t('nav.backToHome')}
                   </a>
                 )}
                 

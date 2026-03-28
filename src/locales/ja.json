@@ -6,7 +6,8 @@
     "projects": "プロジェクト",
     "skills": "スキル",
     "contact": "お問い合わせ",
-    "getInTouch": "連絡する"
+    "getInTouch": "連絡する",
+    "backToHome": "ホームに戻る"
   },
   "hero": {
     "subtitle": "情報工学専攻 & 応用LLMエンジニア",
@@ -15,7 +16,11 @@
     "location": "タイ、チェンマイ",
     "viewWork": "実績を見る",
     "contactMe": "お問い合わせ",
-    "downloadCV": "履歴書をダウンロード"
+    "requestCV": "履歴書を請求",
+    "metrics": {
+      "studentsMentored": "指導した学生数",
+      "yearsTA": "TA経験年数"
+    }
   },
   "about": {
     "title": "私について",
@@ -128,18 +133,31 @@
     "description": "コラボレーションのご提案やご質問など、お気軽にお問い合わせください。",
     "findMeOnline": "オンラインプロファイル",
     "sendMessage": "メッセージを送る",
+    "cvRequestForm": "履歴書リクエストフォーム",
+    "cvRequestTemplate": "こんにちは！履歴書をリクエストしたいです。ご都合の良い時にお送りいただけますでしょうか。",
+    "cvRequestNote": "下記のフォームにご記入いただければ、24時間以内にメールで履歴書をお送りいたします。",
     "yourName": "お名前",
     "yourEmail": "メールアドレス",
     "yourMessage": "メッセージ内容",
     "sending": "送信中...",
     "sendMessageBtn": "メッセージを送信",
     "messageSent": "メッセージが送信されました！折り返しご連絡いたします。",
-    "messageFailed": "送信に失敗しました。もう一度お試しいただくか、メールで直接ご連絡ください。"
+    "messageFailed": "送信に失敗しました。もう一度お試しいただくか、メールで直接ご連絡ください。",
+    "copyEmail": "メールアドレスをコピー",
+    "emailCopied": "メールアドレスをコピーしました！",
+    "emailCopyFailed": "コピーに失敗しました",
+    "keyboardHint": "⌘/Ctrl + Enter で送信"
   },
   "contactPage": {
     "hero": {
       "title": "一緒に働きましょう",
       "description": "プロジェクトのアイデア、コラボレーションのご相談、または単にご挨拶でも、新しい機会や会話をいつでも歓迎しています。"
+    },
+    "cvRequest": {
+      "title": "履歴書をリクエスト",
+      "description": "詳細な履歴書をご希望ですか？下記のフォームからご連絡いただければ、直接お送りいたします。",
+      "badge": "履歴書リクエスト",
+      "button": "リクエストフォームへ"
     },
     "responseTime": {
       "title": "返信の目安",
@@ -180,5 +198,26 @@
     "linkCopiedDesc": "リンクがクリップボードにコピーされました。",
     "error": "エラー",
     "errorDesc": "リンクのコピーに失敗しました。もう一度お試しください。"
+  },
+  "liteMode": {
+    "enable": "ライトモードを有効にする",
+    "disable": "ライトモードを無効にする",
+    "enabled": "ライトモードが有効になりました",
+    "optimizedConnection": "接続速度に最適化されました",
+    "tooltipActive": "ライトモード有効 - 高速読み込み、アニメーション削減",
+    "tooltipRecommended": "ライトモードを有効にする - 接続環境に推奨",
+    "tooltipEnable": "ライトモードを有効にする - 低速接続に最適化",
+    "offline": "オフライン"
+  },
+  "language": {
+    "selectLanguage": "言語を選択",
+    "current": "言語",
+    "loadFailed": "言語の読み込みに失敗しました",
+    "changeFailed": "言語の変更に失敗しました"
+  },
+  "theme": {
+    "toggle": "テーマを切り替え",
+    "switchToLight": "ライトモードに切り替え",
+    "switchToDark": "ダークモードに切り替え"
   }
 }

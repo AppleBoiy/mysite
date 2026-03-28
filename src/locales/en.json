@@ -6,7 +6,8 @@
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
-    "getInTouch": "Get in Touch"
+    "getInTouch": "Get in Touch",
+    "backToHome": "Back to Home"
   },
   "hero": {
     "subtitle": "CS Student & Applied LLM Engineer",
@@ -15,7 +16,11 @@
     "location": "Chiang Mai, Thailand",
     "viewWork": "View My Work",
     "contactMe": "Contact Me",
-    "downloadCV": "Download CV"
+    "requestCV": "Request CV",
+    "metrics": {
+      "studentsMentored": "Students Mentored",
+      "yearsTA": "Years as TA"
+    }
   },
   "about": {
     "title": "About Me",
@@ -128,18 +133,31 @@
     "description": "Interested in collaboration or have a question? I'd love to hear from you.",
     "findMeOnline": "Find Me Online",
     "sendMessage": "Send a Message",
+    "cvRequestForm": "Request CV Form",
+    "cvRequestTemplate": "Hi! I'd like to request your CV. Please share it with me at your earliest convenience.",
+    "cvRequestNote": "Fill in your details below and I'll send you my CV directly via email within 24 hours.",
     "yourName": "Your Name",
     "yourEmail": "Your Email",
     "yourMessage": "Your Message",
     "sending": "Sending...",
     "sendMessageBtn": "Send Message",
     "messageSent": "Message sent! I'll get back to you soon.",
-    "messageFailed": "Failed to send message. Please try again or email me directly."
+    "messageFailed": "Failed to send message. Please try again or email me directly.",
+    "copyEmail": "Copy email address",
+    "emailCopied": "Email copied to clipboard!",
+    "emailCopyFailed": "Failed to copy email",
+    "keyboardHint": "⌘/Ctrl + Enter to send"
   },
   "contactPage": {
     "hero": {
       "title": "Let's Work Together",
       "description": "Whether you have a project in mind, want to collaborate, or just want to say hi, I'm always open to new opportunities and conversations."
+    },
+    "cvRequest": {
+      "title": "Request My CV",
+      "description": "Interested in my full resume? Send me a message below with your details and I'll share my CV with you directly.",
+      "badge": "CV Request",
+      "button": "Go to Request Form"
     },
     "responseTime": {
       "title": "Response Time",
@@ -181,5 +199,26 @@
     "linkCopiedDesc": "The link has been copied to your clipboard.",
     "error": "Error",
     "errorDesc": "Failed to copy link. Please try again."
+  },
+  "liteMode": {
+    "enable": "Enable lite mode",
+    "disable": "Disable lite mode",
+    "enabled": "Lite mode enabled",
+    "optimizedConnection": "Optimized for your connection speed",
+    "tooltipActive": "Lite mode active - Faster loading, reduced animations",
+    "tooltipRecommended": "Enable lite mode - Recommended for your connection",
+    "tooltipEnable": "Enable lite mode - Optimized for slow connections",
+    "offline": "Offline"
+  },
+  "language": {
+    "selectLanguage": "Select language",
+    "current": "Language",
+    "loadFailed": "Failed to load language",
+    "changeFailed": "Failed to change language"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
   }
 }

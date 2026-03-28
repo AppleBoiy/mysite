@@ -60,13 +60,13 @@ export default function NetworkBackground() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(139, 92, 246, 0.4)';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.6)'; // Black particles
         ctx.fill();
       }
     }
 
     // Reduce particle count based on screen size
-    const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 20000));
+    const particleCount = Math.min(100, Math.max(80, Math.floor((canvas.width * canvas.height) / 15000))); // 80-100 particles
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
@@ -80,10 +80,10 @@ export default function NetworkBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < maxDistance) {
-            const opacity = (1 - distance / maxDistance) * 0.4;
+            const opacity = (1 - distance / maxDistance) * 0.5; // Black lines
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
+            ctx.lineWidth = 1.5; // Increased from 1 to 1.5
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -123,7 +123,7 @@ export default function NetworkBackground() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.3 }}
+      style={{ opacity: 0.5 }} // Increased from 0.3 to 0.5
       aria-hidden="true"
     />
   );

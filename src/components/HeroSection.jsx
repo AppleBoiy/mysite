@@ -63,32 +63,6 @@ export default function HeroSection() {
     return () => clearTimeout(timeout);
   }, [imgSrc, retryCount, imgLoaded]);
   
-  const handleCVDownload = async (e) => {
-    e.preventDefault();
-    haptic.medium();
-    
-    try {
-      const response = await fetch('/cv.pdf', { method: 'HEAD' });
-      
-      if (response.ok) {
-        haptic.success();
-        window.location.href = '/cv.pdf';
-      } else {
-        haptic.error();
-        toast.error('CV is currently unavailable', {
-          description: 'Please contact me directly for my resume',
-          duration: 4000,
-        });
-      }
-    } catch (error) {
-      haptic.error();
-      toast.error('CV is currently unavailable', {
-        description: 'Please contact me directly for my resume',
-        duration: 4000,
-      });
-    }
-  };
-  
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -122,6 +96,18 @@ export default function HeroSection() {
               {t('hero.description')}
             </p>
 
+            {/* Impact Metrics */}
+            <div className="flex gap-8 mb-8">
+              <div>
+                <div className="text-3xl font-bold text-accent">250+</div>
+                <div className="text-sm text-muted-foreground">{t('hero.metrics.studentsMentored')}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-accent">3+</div>
+                <div className="text-sm text-muted-foreground">{t('hero.metrics.yearsTA')}</div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap gap-4 mb-10">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <GraduationCap size={16} className="text-accent" />
@@ -133,28 +119,36 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+              {/* Primary CTA - Most important action */}
+              <a
+                href="/contact"
+                onClick={() => haptic.light()}
+                className="px-8 py-4 bg-accent text-accent-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 select-none"
+              >
+                {t('hero.contactMe')} →
+              </a>
+              
+              {/* Secondary CTAs - Less prominent */}
               <a
                 href="#experience"
                 onClick={() => haptic.light()}
-                className="px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+                className="px-6 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors select-none"
               >
                 {t('hero.viewWork')}
               </a>
               <a
-                href="/contact"
-                onClick={() => haptic.light()}
-                className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors"
-              >
-                {t('hero.contactMe')}
-              </a>
-              <button
-                onClick={handleCVDownload}
-                className="px-7 py-3 border border-accent text-accent rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors flex items-center gap-2"
+                href="/contact?request=cv"
+                onClick={(e) => {
+                  e.preventDefault();
+                  haptic.medium();
+                  window.location.href = '/contact?request=cv';
+                }}
+                className="px-6 py-3 bg-accent/10 border border-accent/30 rounded-full text-sm font-medium text-accent hover:bg-accent/20 hover:border-accent/50 transition-all flex items-center gap-2 justify-center select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 <Download size={16} />
-                {t('hero.downloadCV')}
-              </button>
+                {t('hero.requestCV')}
+              </a>
             </div>
           </motion.div>
 
