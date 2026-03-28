@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ScrollProgress from "../components/ScrollProgress";
 import SEOHead from "../components/SEOHead";
 import PageTransition from "../components/PageTransition";
+import SectionErrorBoundary from "../components/SectionErrorBoundary";
 import { useEffect, useState } from "react";
 
 export default function Contact() {
@@ -20,13 +21,16 @@ export default function Contact() {
     <>
       <SEOHead 
         title="Contact | Chaipat Jainan"
-        description="Get in touch with Chaipat Jainan for collaboration opportunities, questions, or just to connect."
+        description="Get in touch with Chaipat Jainan for collaboration opportunities, questions, or just to connect. Available for LLM engineering, backend development, and research projects."
+        canonicalUrl="https://chaipat.cc/contact"
       />
       <ScrollProgress />
       <PageTransition>
         <div className="min-h-screen bg-background flex flex-col">
           <Navbar />
-          <ContactSection isCVRequest={isCVRequest} />
+          <SectionErrorBoundary sectionName="Contact Form" errorTitle="Unable to load contact form">
+            <ContactSection isCVRequest={isCVRequest} />
+          </SectionErrorBoundary>
           <Footer />
         </div>
       </PageTransition>

@@ -117,11 +117,42 @@ export default function ProjectPreview() {
         <div className="min-h-screen bg-background">
           <SEOHead
             title={`${project.title} | Chaipat Jainan`}
-            description={project.description}
+            description={project.overview}
             keywords={project.tags.join(", ")}
-          ogType="article"
-        />
-        <Navbar />
+            ogType="article"
+            canonicalUrl={`https://chaipat.cc/projects/${projectId}`}
+            publishedTime={project.period.split("—")[0].trim()}
+            modifiedTime={project.period.split("—")[1]?.trim()}
+          />
+          
+          {/* JSON-LD Structured Data for Project */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareSourceCode",
+              "name": project.title,
+              "description": project.overview,
+              "author": {
+                "@type": "Person",
+                "name": "Chaipat Jainan",
+                "url": "https://chaipat.cc"
+              },
+              "dateCreated": project.period.split("—")[0].trim(),
+              "dateModified": project.period.split("—")[1]?.trim() || project.period.split("—")[0].trim(),
+              "programmingLanguage": project.tags,
+              "codeRepository": project.github,
+              "url": `https://chaipat.cc/projects/${projectId}`,
+              ...(project.demo && !project.isPrivate && { "applicationCategory": "WebApplication" }),
+              "keywords": project.tags.join(", "),
+              "isAccessibleForFree": !project.isPrivate,
+              "creator": {
+                "@type": "Organization",
+                "name": project.organization
+              }
+            })}
+          </script>
+          
+          <Navbar />
       
       <div className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">

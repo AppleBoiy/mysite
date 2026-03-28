@@ -8,6 +8,9 @@ export default function SEOHead({
   ogType = "website",
   twitterCard = "summary_large_image",
   canonicalUrl = "https://chaipat.cc",
+  author = "Chaipat Jainan",
+  publishedTime = null,
+  modifiedTime = null,
 }) {
   return (
     <Helmet>
@@ -16,7 +19,7 @@ export default function SEOHead({
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content="Chaipat Jainan" />
+      <meta name="author" content={author} />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={canonicalUrl} />
 
@@ -27,6 +30,16 @@ export default function SEOHead({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content="Chaipat Jainan Portfolio" />
+      
+      {/* Article-specific metadata */}
+      {ogType === "article" && (
+        <>
+          <meta property="article:author" content={author} />
+          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+          {keywords && <meta property="article:tag" content={keywords} />}
+        </>
+      )}
 
       {/* Twitter */}
       <meta property="twitter:card" content={twitterCard} />
@@ -34,6 +47,7 @@ export default function SEOHead({
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={ogImage} />
+      <meta property="twitter:creator" content="@AppleBoiy" />
 
       {/* Additional Meta Tags */}
       <meta name="theme-color" content="#000000" />

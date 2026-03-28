@@ -192,8 +192,10 @@ export default function Projects() {
   return (
     <>
       <SEOHead 
-        title="Projects"
-        description="Browse my portfolio of projects including web applications, AI/ML systems, and DevOps tools."
+        title="Projects | Chaipat Jainan"
+        description="Browse my portfolio of projects including web applications, AI/ML systems, and DevOps tools. Featuring production LLM applications, automated grading systems, and open-source contributions."
+        keywords="Projects, Portfolio, Web Development, AI/ML, DevOps, LLM Applications, Open Source"
+        canonicalUrl="https://chaipat.cc/projects"
       />
       <div className="min-h-screen bg-background">
         <Navbar 

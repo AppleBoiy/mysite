@@ -9,6 +9,8 @@ import SEOHead from "../components/SEOHead";
 import AvailabilityBanner from "../components/AvailabilityBanner";
 import PageTransition from "../components/PageTransition";
 import PullToRefresh from "../components/PullToRefresh";
+import SectionErrorBoundary from "../components/SectionErrorBoundary";
+import OfflineIndicator from "../components/OfflineIndicator";
 import { SkeletonExperience, SkeletonProject, SkeletonPublication } from "../components/SkeletonLoader";
 import { toast } from "sonner";
 
@@ -131,26 +133,44 @@ export default function Home() {
       <SEOHead />
       <SkipToContent />
       <ScrollProgress />
+      <OfflineIndicator />
       <PageTransition>
         <PullToRefresh onRefresh={handleRefresh}>
           <div className="min-h-screen bg-background">
             <AvailabilityBanner onVisibilityChange={setBannerVisible} />
             <Navbar hasBanner={bannerVisible} />
             <main id="main-content">
-              <HeroSection />
-              <AboutSection />
-              <Suspense fallback={<ExperienceSkeleton />}>
-                <ExperienceSection />
-              </Suspense>
-              <Suspense fallback={<SkillsSkeleton />}>
-                <SkillsSection />
-              </Suspense>
-              <Suspense fallback={<ProjectsSkeleton />}>
-                <ProjectsSection />
-              </Suspense>
-              <Suspense fallback={<AcademicSkeleton />}>
-                <AcademicContributions />
-              </Suspense>
+              <SectionErrorBoundary sectionName="Hero" errorTitle="Unable to load hero section">
+                <HeroSection />
+              </SectionErrorBoundary>
+              
+              <SectionErrorBoundary sectionName="About" errorTitle="Unable to load about section">
+                <AboutSection />
+              </SectionErrorBoundary>
+              
+              <SectionErrorBoundary sectionName="Experience" errorTitle="Unable to load experience">
+                <Suspense fallback={<ExperienceSkeleton />}>
+                  <ExperienceSection />
+                </Suspense>
+              </SectionErrorBoundary>
+              
+              <SectionErrorBoundary sectionName="Skills" errorTitle="Unable to load skills">
+                <Suspense fallback={<SkillsSkeleton />}>
+                  <SkillsSection />
+                </Suspense>
+              </SectionErrorBoundary>
+              
+              <SectionErrorBoundary sectionName="Projects" errorTitle="Unable to load projects">
+                <Suspense fallback={<ProjectsSkeleton />}>
+                  <ProjectsSection />
+                </Suspense>
+              </SectionErrorBoundary>
+              
+              <SectionErrorBoundary sectionName="Academic" errorTitle="Unable to load publications">
+                <Suspense fallback={<AcademicSkeleton />}>
+                  <AcademicContributions />
+                </Suspense>
+              </SectionErrorBoundary>
             </main>
             <Footer />
           </div>

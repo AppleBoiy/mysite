@@ -228,6 +228,16 @@ html {
   animation: spin 1s linear infinite;
 }
 
+/* Shimmer effect for image skeleton loaders */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Smooth transitions for theme changes */
 * {
   transition-property: background-color, border-color, color, fill, stroke;

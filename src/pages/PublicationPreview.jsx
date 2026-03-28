@@ -282,7 +282,52 @@ export default function PublicationPreview() {
           description={publication.abstract}
           keywords={publication.tags.join(", ")}
           ogType="article"
+          canonicalUrl={`https://chaipat.cc/publication/${publicationId}`}
+          publishedTime={`${publication.year}-01-01`}
+          author={publication.authors[0]}
         />
+        
+        {/* JSON-LD Structured Data for Publication */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ScholarlyArticle",
+            "headline": publication.title,
+            "alternativeHeadline": publication.subtitle,
+            "description": publication.abstract,
+            "author": publication.authors.map(author => ({
+              "@type": "Person",
+              "name": author
+            })),
+            "datePublished": publication.year,
+            "publisher": {
+              "@type": "Organization",
+              "name": publication.organization
+            },
+            "isPartOf": {
+              "@type": "PublicationIssue",
+              "name": publication.journal
+            },
+            "keywords": publication.tags.join(", "),
+            "url": `https://chaipat.cc/publication/${publicationId}`,
+            "inLanguage": publication.documentLanguage || "en",
+            ...(publication.downloadUrl && {
+              "encoding": {
+                "@type": "MediaObject",
+                "contentUrl": `https://chaipat.cc${publication.downloadUrl}`,
+                "encodingFormat": "application/pdf"
+              }
+            }),
+            ...(publication.github && {
+              "codeRepository": publication.github
+            }),
+            "about": publication.tags.map(tag => ({
+              "@type": "Thing",
+              "name": tag
+            }))
+          })}
+        </script>
+        
         <Navbar />
       
       <div className="pt-32 pb-20">

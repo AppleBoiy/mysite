@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import ScrollToTopOnMount from './components/ScrollToTopOnMount';
+import OfflineIndicator from './components/OfflineIndicator';
 import { SkeletonSection } from './components/SkeletonLoader';
 
 // Lazy load pages
@@ -16,6 +17,7 @@ function App() {
   return (
     <Router>
       <ScrollToTopOnMount />
+      <OfflineIndicator />
       <Suspense fallback={<SkeletonSection />}>
         <Routes>
           <Route path="/" element={<Home />} />
