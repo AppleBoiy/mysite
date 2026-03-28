@@ -1,9 +1,14 @@
 import { useEffect, useRef } from 'react';
+import { useLiteMode } from "@/contexts/LiteModeContext";
 
 export default function NetworkBackground() {
   const canvasRef = useRef(null);
+  const { liteMode } = useLiteMode();
 
   useEffect(() => {
+    // Don't render in lite mode
+    if (liteMode) return;
+    
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -112,7 +117,7 @@ export default function NetworkBackground() {
       clearTimeout(resizeTimeout);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [liteMode]);
 
   return (
     <canvas

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -18,16 +19,30 @@ export default function ThemeToggle() {
   }
 
   return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="w-9 h-9 rounded-full bg-muted hover:bg-accent/20 flex items-center justify-center transition-colors"
-      aria-label="Toggle theme"
+    <div 
+      className="relative"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
     >
-      {theme === "dark" ? (
-        <Sun size={18} className="text-foreground" />
-      ) : (
-        <Moon size={18} className="text-foreground" />
+      <button
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className="w-9 h-9 rounded-full bg-muted hover:bg-accent/20 flex items-center justify-center transition-colors"
+        aria-label="Toggle theme"
+      >
+        {theme === "dark" ? (
+          <Sun size={18} className="text-foreground" />
+        ) : (
+          <Moon size={18} className="text-foreground" />
+        )}
+      </button>
+
+      {/* Tooltip */}
+      {showTooltip && (
+        <div className="absolute top-full mt-2 right-0 z-50 px-3 py-2 bg-popover text-popover-foreground text-xs rounded-lg shadow-lg border border-border whitespace-nowrap animate-fade-in">
+          {theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          <div className="absolute -top-1 right-3 w-2 h-2 bg-popover border-l border-t border-border rotate-45" />
+        </div>
       )}
-    </button>
+    </div>
   );
 }

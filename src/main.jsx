@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import ErrorBoundary from '@/components/ErrorBoundary'
+import { LiteModeProvider } from '@/contexts/LiteModeContext'
 import App from '@/App.jsx'
 import '@/index.css'
 import './i18n'
@@ -31,9 +32,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         enableSystem
         storageKey="chaipat-theme"
       >
-        <App />
-        <Analytics />
-        <SpeedInsights />
+        <LiteModeProvider>
+          <App />
+          <Analytics />
+          <SpeedInsights />
+        </LiteModeProvider>
       </ThemeProvider>
     </HelmetProvider>
   </ErrorBoundary>

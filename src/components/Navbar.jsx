@@ -4,10 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
+import LiteModeToggle from "./LiteModeToggle";
+import { useLiteMode } from "@/contexts/LiteModeContext";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar({ hasBanner = false }) {
   const { t } = useTranslation();
+  const { liteMode, setLiteMode } = useLiteMode();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -150,6 +153,7 @@ export default function Navbar({ hasBanner = false }) {
           )}
           
           {isHomePage && <div className="w-px h-6 bg-border mx-2" />}
+          <LiteModeToggle liteMode={liteMode} setLiteMode={setLiteMode} />
           <LanguageSwitcher />
           <ThemeToggle />
           
@@ -166,6 +170,7 @@ export default function Navbar({ hasBanner = false }) {
 
         {/* Mobile toggle */}
         <div className="lg:hidden flex items-center gap-3">
+          <LiteModeToggle liteMode={liteMode} setLiteMode={setLiteMode} />
           <LanguageSwitcher />
           <ThemeToggle />
           <button

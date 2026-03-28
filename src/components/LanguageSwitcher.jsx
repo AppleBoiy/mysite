@@ -17,6 +17,7 @@ export default function LanguageSwitcher() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -48,12 +49,8 @@ export default function LanguageSwitcher() {
       
       if (loaded) {
         await i18n.changeLanguage(langCode);
-        
         haptic.success();
-        const lang = languages.find(l => l.code === langCode);
-        toast.success(`Language changed to ${lang?.name || langCode}`, {
-          duration: 2000,
-        });
+        // Language changed successfully - no toast notification
       } else {
         haptic.error();
         toast.error('Failed to load language');
@@ -82,27 +79,35 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <button
-        onClick={() => {
-          haptic.light();
-          setIsOpen(!isOpen);
-        }}
-        className="w-9 h-9 rounded-full bg-muted hover:bg-accent/20 flex items-center justify-center transition-colors relative group disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="Select language"
-        title={`Current: ${currentLang.name}`}
-        disabled={isLoading}
+      <div
+        onMouseEnter={() => !isOpen && setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
       >
-        {isLoading ? (
-          <Loader2 size={18} className="text-foreground animate-spin" />
-        ) : (
-          <>
+        <button
+          onClick={() => {
+            haptic.light();
+            setIsOpen(!isOpen);
+            setShowTooltip(false);
+          }}
+          className="w-9 h-9 rounded-full bg-muted hover:bg-accent/20 flex items-center justify-center transition-colors relative group disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="Select language"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <Loader2 size={18} className="text-foreground animate-spin" />
+          ) : (
             <Languages size={18} className="text-foreground" />
-            <span className="absolute -bottom-1 -right-1 text-[10px] font-bold bg-accent text-accent-foreground rounded-full w-5 h-5 flex items-center justify-center">
-              {currentLang.label}
-            </span>
-          </>
+          )}
+        </button>
+
+        {/* Tooltip */}
+        {showTooltip && !isOpen && (
+          <div className="absolute top-full mt-2 right-0 z-50 px-3 py-2 bg-popover text-popover-foreground text-xs rounded-lg shadow-lg border border-border whitespace-nowrap animate-fade-in">
+            Language: {currentLang.name}
+            <div className="absolute -top-1 right-3 w-2 h-2 bg-popover border-l border-t border-border rotate-45" />
+          </div>
         )}
-      </button>
+      </div>
 
       {isOpen && !isLoading && (
         <div className="absolute top-12 right-0 bg-card border border-border rounded-xl shadow-lg overflow-hidden z-50 min-w-[160px] animate-scale-in">

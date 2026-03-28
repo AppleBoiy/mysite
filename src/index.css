@@ -299,3 +299,40 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* Lite Mode Optimizations for Slow Connections */
+.lite-mode {
+  /* Disable expensive animations */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Disable background effects */
+  canvas,
+  [class*="gradient"],
+  [class*="blur"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  /* Simplify shadows for better performance */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  /* Optimize image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Hide decorative elements */
+  [class*="decorative"],
+  [class*="particle"],
+  [class*="floating"] {
+    display: none !important;
+  }
+}
