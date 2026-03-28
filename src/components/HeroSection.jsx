@@ -18,13 +18,7 @@ export default function HeroSection() {
   const { haptic } = useHaptic();
   
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-background">
-        <NetworkBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-      </div>
-
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text */}
@@ -36,14 +30,12 @@ export default function HeroSection() {
             <div className="flex items-center gap-2 mb-6">
               <div className="h-px w-10 bg-accent" />
               <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-                {t('hero.subtitle')}
+                SOFTWARE ENGINEER & RESEARCHER
               </span>
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-6">
-              Chaipat
-              <br />
-              <span className="italic text-accent">Jainan</span>
+              Chaipat Jainan
             </h1>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-md">
@@ -74,30 +66,26 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-              {/* Primary CTA - Most important action */}
+              {/* Primary CTA - Download CV (most important for recruiters) */}
               <a
-                href="/contact"
-                onClick={() => haptic.light()}
-                className="px-8 py-4 bg-accent text-accent-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 select-none items-center justify-center"
-              >
-                {t('hero.contactMe')} →
-              </a>
-              
-              {/* Secondary CTA - CV Download (prominent for recruiters) */}
-              <a
-                href="/contact?request=cv"
-                onClick={(e) => {
-                  e.preventDefault();
-                  haptic.medium();
-                  window.location.href = '/contact?request=cv';
-                }}
-                className="px-8 py-4 bg-primary text-primary-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg flex items-center gap-2 justify-center select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => haptic.medium()}
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 justify-center select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 <Download size={18} />
                 {t('hero.downloadCV')}
               </a>
               
-            
+              {/* Secondary CTA - Contact (outline button) */}
+              <a
+                href="/contact"
+                onClick={() => haptic.light()}
+                className="px-8 py-4 border-2 border-primary text-primary rounded-full text-base font-semibold hover:bg-primary/10 transition-all flex items-center justify-center select-none"
+              >
+                {t('hero.contactMe')}
+              </a>
             </div>
           </motion.div>
 

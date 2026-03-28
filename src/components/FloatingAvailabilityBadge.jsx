@@ -36,8 +36,10 @@ export default function FloatingAvailabilityBadge({ isVisible }) {
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           onMouseEnter={() => setIsExpanded(true)}
           onMouseLeave={() => setIsExpanded(false)}
-          className="fixed bottom-24 right-8 z-40 bg-gradient-to-r from-accent to-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-shadow duration-300 flex items-center overflow-hidden"
+          className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-accent to-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-shadow duration-300 flex items-center overflow-hidden"
           style={{ height: "48px" }}
+          title={t('availability.badge')}
+          aria-label={t('availability.badge')}
         >
           <motion.div
             animate={{ 

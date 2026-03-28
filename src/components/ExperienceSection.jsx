@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Briefcase, FlaskConical, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { Calendar, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const experiencesData = [
@@ -28,11 +27,6 @@ const experiencesData = [
 
 export default function ExperienceSection() {
   const { t } = useTranslation();
-  const [expandedIndex, setExpandedIndex] = useState(null);
-
-  const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
 
   const experiences = experiencesData.map(exp => ({
     ...exp,
@@ -40,9 +34,22 @@ export default function ExperienceSection() {
     organization: t(`experience.items.${exp.id}.organization`),
     location: t(`experience.items.${exp.id}.location`),
     period: t(`experience.items.${exp.id}.period`),
-    summary: t(`experience.items.${exp.id}.summary`),
-    description: t(`experience.items.${exp.id}.description`),
+    bullets: t(`experience.items.${exp.id}.bullets`, { returnObjects: true }),
   }));
+
+  // Helper function to highlight metrics in text
+  const highlightMetrics = (text) => {
+    return text.split(/(\d+%|\d+\+|\d+ days?|\d+ students?|100% accuracy|68%|80%|250\+|50\+)/gi).map((part, idx) => {
+      if (/(\d+%|\d+\+|\d+ days?|\d+ students?|100% accuracy|68%|80%|250\+|50\+)/i.test(part)) {
+        return (
+          <span key={idx} className="font-bold text-accent">
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
 
   return (
     <section id="experience" className="py-24 lg:py-32">
@@ -66,18 +73,11 @@ export default function ExperienceSection() {
           </h2>
         </motion.div>
 
-        <div className="flex items-center gap-6 mb-10 justify-center">
-          <span className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Briefcase size={14} className="text-accent" /> {t('experience.work')}
-          </span>
-          <span className="flex items-center gap-2 text-sm text-muted-foreground">
-            <FlaskConical size={14} className="text-primary" /> {t('experience.research')}
-          </span>
-        </div>
-
         <div className="relative">
-          <div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden sm:block" />
-          <div className="space-y-8">
+          {/* Timeline line */}
+          <div className="absolute left-2 top-0 bottom-0 w-px bg-border hidden sm:block" />
+          
+          <div className="space-y-6">
             {experiences.map((exp, i) => (
               <motion.div
                 key={exp.title}
@@ -86,119 +86,53 @@ export default function ExperienceSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ x: 8, transition: { duration: 0.3 } }}
-                className="sm:pl-14 relative"
+                className="sm:pl-10 relative"
               >
+                {/* Timeline dot */}
                 <div
-                  className={`absolute left-0 top-6 w-10 h-10 rounded-full border-2 items-center justify-center hidden sm:flex ${
+                  className={`absolute left-0 top-6 w-4 h-4 rounded-full border-2 hidden sm:block ${
                     exp.type === "work"
-                      ? "border-accent bg-accent/10"
-                      : "border-primary bg-primary/10"
+                      ? "border-accent bg-accent"
+                      : "border-primary bg-primary"
                   }`}
-                >
-                  {exp.type === "work" ? (
-                    <Briefcase size={16} className="text-accent" />
-                  ) : (
-                    <FlaskConical size={16} className="text-primary" />
-                  )}
-                </div>
+                />
 
-                <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 hover:border-accent/30 hover:shadow-lg transition-all duration-500 group">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 mb-3">
-                    <div>
-                      <span
-                        className={`text-xs px-2 py-0.5 rounded-full font-medium mb-2 inline-block ${
-                          exp.type === "work"
-                            ? "bg-accent/10 text-accent"
-                            : "bg-primary/10 text-primary"
-                        }`}
-                      >
-                        {exp.type === "work" ? t('experience.work') : t('experience.research')}
-                      </span>
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
+                <div className="bg-card border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-lg transition-all duration-300 group">
+                  {/* Header */}
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors mb-1">
                         {exp.title}
                       </h3>
-                      <p className="text-accent font-medium mt-0.5">{exp.organization}</p>
+                      <p className="text-accent font-medium">{exp.organization}</p>
                     </div>
                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground shrink-0">
-                      <span className="flex items-center gap-1.5">
+                      <span className="flex items-center gap-1.5 whitespace-nowrap">
                         <Calendar size={14} /> {exp.period}
                       </span>
-                      <span className="flex items-center gap-1.5">
+                      <span className="flex items-center gap-1.5 whitespace-nowrap">
                         <MapPin size={14} /> {exp.location}
                       </span>
                     </div>
                   </div>
 
-                  {/* Summary - Visible when collapsed */}
-                  {expandedIndex !== i && (
-                    <div className="mb-4">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {exp.summary.split(/(\d+%|\d+\+|\d+ days?|\d+ students?)/g).map((part, idx) => {
-                          // Highlight numbers and metrics
-                          if (/(\d+%|\d+\+|\d+ days?|\d+ students?)/.test(part)) {
-                            return (
-                              <span key={idx} className="inline-flex items-center px-2 py-0.5 mx-1 bg-accent/10 text-accent font-semibold rounded">
-                                {part}
-                              </span>
-                            );
-                          }
-                          return part;
-                        })}
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Full Details - Visible when expanded */}
-                  {expandedIndex === i && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="mb-4"
-                    >
-                      <p className="text-muted-foreground leading-relaxed">
-                        {exp.description.split(/(\d+%|\d+\+|\d+ days?|\d+ students?)/g).map((part, idx) => {
-                          // Highlight numbers and metrics
-                          if (/(\d+%|\d+\+|\d+ days?|\d+ students?)/.test(part)) {
-                            return (
-                              <span key={idx} className="inline-flex items-center px-2 py-0.5 mx-1 bg-accent/10 text-accent font-semibold rounded">
-                                {part}
-                              </span>
-                            );
-                          }
-                          return part;
-                        })}
-                      </p>
-                    </motion.div>
-                  )}
+                  {/* Description with bullet points */}
+                  <ul className="mb-4 space-y-2 list-disc list-inside text-muted-foreground leading-relaxed">
+                    {Array.isArray(exp.bullets) && exp.bullets.map((bullet, idx) => (
+                      <li key={idx} className="pl-2">
+                        {highlightMetrics(bullet)}
+                      </li>
+                    ))}
+                  </ul>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2">
                     {exp.tags.map((tag) => (
                       <span key={tag} className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full">
                         {tag}
                       </span>
                     ))}
                   </div>
-
-                  {/* Expand/Collapse Button */}
-                  <button
-                    onClick={() => toggleExpand(i)}
-                    className="flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors font-medium"
-                  >
-                    {expandedIndex === i ? (
-                      <>
-                        <ChevronUp size={16} />
-                        {t('experience.showLess')}
-                      </>
-                    ) : (
-                      <>
-                        <ChevronDown size={16} />
-                        {t('experience.showMore')}
-                      </>
-                    )}
-                  </button>
                 </div>
               </motion.div>
             ))}

@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
-import { Menu, X, User, Briefcase, FileText, FolderGit2, Code2, Github } from "lucide-react";
+import { Menu, X, Github, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
-import LiteModeToggle from "./LiteModeToggle";
-import { useLiteMode } from "@/contexts/LiteModeContext";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar({ hasBanner = false, customContent = null, showGithubButton = false }) {
   const { t } = useTranslation();
-  const { liteMode, setLiteMode } = useLiteMode();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -20,11 +17,12 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
   const isContactPage = location.pathname === '/contact';
 
   const navLinks = [
-    { label: t('nav.about'), href: "#about", icon: User },
-    { label: t('nav.experience'), href: "#experience", icon: Briefcase },
-    { label: t('nav.skills'), href: "#skills", icon: Code2 },
-    { label: t('nav.projects'), href: "#projects", icon: FolderGit2 },
-    { label: t('nav.academic'), href: "#publications", icon: FileText },
+    { label: t('nav.about'), href: isHomePage ? "#about" : "/#about" },
+    { label: t('nav.experience'), href: isHomePage ? "#experience" : "/#experience" },
+    { label: t('nav.skills'), href: isHomePage ? "#skills" : "/#skills" },
+    { label: t('nav.projects'), href: isHomePage ? "#projects" : "/#projects" },
+    { label: t('nav.academic'), href: isHomePage ? "#publications" : "/#publications" },
+    { label: t('nav.contact'), href: "/contact" },
   ];
 
   const handleNavClick = (e, href) => {
@@ -122,23 +120,19 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
             <>
               {/* Show nav links only on home page */}
               {isHomePage && navLinks.map((link) => {
-                const Icon = link.icon;
                 const isActive = activeSection === link.href;
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                       isActive 
                         ? 'text-accent' 
                         : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      <Icon size={16} className={isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-foreground'} />
-                      {link.label}
-                    </span>
+                    {link.label}
                     {isActive && (
                       <motion.div
                         layoutId="activeSection"
@@ -164,11 +158,10 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
               {isHomePage && <div className="w-px h-6 bg-border mx-2" />}
             </>
           )}
-          <LiteModeToggle liteMode={liteMode} setLiteMode={setLiteMode} />
           <LanguageSwitcher />
           <ThemeToggle />
           
-          {/* Show GitHub button on projects page, otherwise show Get in Touch */}
+          {/* Show GitHub button on projects page, otherwise show Resume */}
           {showGithubButton ? (
             <a
               href="https://github.com/AppleBoiy"
@@ -181,17 +174,19 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
             </a>
           ) : !isContactPage && (
             <a
-              href="/contact"
-              className="ml-2 text-sm font-medium px-6 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center"
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 text-sm font-medium px-6 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
             >
-              {t('nav.getInTouch')}
+              <Download size={16} />
+              {t('nav.resume')}
             </a>
           )}
         </div>
 
         {/* Mobile toggle */}
         <div className="lg:hidden flex items-center gap-3">
-          <LiteModeToggle liteMode={liteMode} setLiteMode={setLiteMode} />
           <LanguageSwitcher />
           <ThemeToggle />
           <button
@@ -240,7 +235,6 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
                 
                 {/* Show nav links only on home page */}
                 {isHomePage && navLinks.map((link) => {
-                  const Icon = link.icon;
                   const isActive = activeSection === link.href;
                   return (
                     <a
@@ -255,7 +249,6 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
                           : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                       }`}
                     >
-                      <Icon size={18} />
                       {link.label}
                     </a>
                   );
@@ -272,7 +265,7 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
                   </a>
                 )}
                 
-                {/* Show GitHub button on projects page, otherwise show Get in Touch */}
+                {/* Show GitHub button on projects page, otherwise show Resume */}
                 {showGithubButton ? (
                   <a
                     href="https://github.com/AppleBoiy"
@@ -286,11 +279,14 @@ export default function Navbar({ hasBanner = false, customContent = null, showGi
                   </a>
                 ) : !isContactPage && (
                   <a
-                    href="/contact"
+                    href="/cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMobileOpen(false)}
-                    className="mt-2 text-sm font-medium px-6 py-3 rounded-lg bg-primary text-primary-foreground text-center hover:bg-primary/90 transition-colors"
+                    className="mt-2 flex items-center justify-center gap-2 text-sm font-medium px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                   >
-                    {t('nav.getInTouch')}
+                    <Download size={16} />
+                    {t('nav.resume')}
                   </a>
                 )}
               </div>

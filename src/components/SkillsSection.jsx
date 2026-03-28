@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
+
+// Core skills that should be highlighted with accent color
+const coreSkills = ["Python", "LLMs", "AWS", "Flask", "Docker", "Knowledge Graphs", "Ontology Engineering"];
 
 const skillCategories = [
   {
@@ -13,39 +15,50 @@ const skillCategories = [
   },
   {
     title: "AI & LLM",
-    skills: ["LangChain", "Hugging Face", "OpenAI API", "Gemini API", "RAG Pipelines", "Prompt Engineering"],
+    skills: ["LLMs", "LangChain", "Hugging Face", "OpenAI API", "Gemini API", "RAG Pipelines", "Prompt Engineering"],
   },
   {
     title: "Cloud & DevOps",
-    skills: ["Docker", "Git", "GitHub Actions", "AWS (ECS, RDS, S3)", "GCP"],
+    skills: ["Docker", "Git", "GitHub Actions", "AWS", "GCP"],
   },
   {
-    title: "Data & Knowledge Graphs",
-    skills: ["Knowledge Graphs", "Ontology Engineering", "Neo4j", "NumPy", "Pandas", "OWL", "SPARQL", "SWRL"],
+    title: "Knowledge Graphs",
+    skills: ["Knowledge Graphs", "Ontology Engineering", "Neo4j", "OWL", "SPARQL", "SWRL"],
+  },
+  {
+    title: "Data Science",
+    skills: ["NumPy", "Pandas"],
   },
 ];
 
-function SkillCategoryCard({ category, index }) {
+function SkillCategory({ category, index }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-card border border-border rounded-2xl p-6 hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+      className="mb-8"
     >
-      <h3 className="font-serif text-lg font-semibold text-foreground mb-4">
+      <h3 className="font-serif text-lg font-semibold text-foreground mb-3">
         {category.title}
       </h3>
       <div className="flex flex-wrap gap-2">
-        {category.skills.map((skill) => (
-          <span
-            key={skill}
-            className="px-3 py-1.5 text-sm bg-muted text-foreground rounded-full border border-border hover:border-accent hover:bg-accent/5 hover:text-accent transition-all"
-          >
-            {skill}
-          </span>
-        ))}
+        {category.skills.map((skill) => {
+          const isCore = coreSkills.includes(skill);
+          return (
+            <span
+              key={skill}
+              className={`px-3 py-1.5 text-sm rounded-full border transition-all ${
+                isCore
+                  ? 'bg-accent/10 text-accent border-accent font-medium hover:bg-accent/20'
+                  : 'bg-muted text-muted-foreground border-border hover:border-accent/50 hover:text-foreground'
+              }`}
+            >
+              {skill}
+            </span>
+          );
+        })}
       </div>
     </motion.div>
   );
@@ -76,9 +89,9 @@ export default function SkillsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
           {skillCategories.map((cat, i) => (
-            <SkillCategoryCard key={cat.title} category={cat} index={i} />
+            <SkillCategory key={cat.title} category={cat} index={i} />
           ))}
         </div>
       </div>

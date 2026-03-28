@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Linkedin, Github, Send, Loader2, CheckCircle2, XCircle, User, AtSign, MessageSquare, Copy, Check } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,69 +36,15 @@ export default function ContactSection({ isCVRequest = false }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: isCVRequest ? t('contact.cvRequestTemplate') : "",
+    message: "",
   });
   const [sending, setSending] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [errors, setErrors] = useState({});
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [hoveredSocial, setHoveredSocial] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState('');
   
   const MAX_MESSAGE_LENGTH = 500;
 
-  // Contact categories with templates
-  const contactCategories = [
-    { 
-      id: 'hiring', 
-      label: t('contact.categories.hiring.label'), 
-      message: t('contact.categories.hiring.message'),
-      subject: t('contact.categories.hiring.subject')
-    },
-    { 
-      id: 'collaboration', 
-      label: t('contact.categories.collaboration.label'), 
-      message: t('contact.categories.collaboration.message'),
-      subject: t('contact.categories.collaboration.subject')
-    },
-    { 
-      id: 'question', 
-      label: t('contact.categories.question.label'), 
-      message: t('contact.categories.question.message'),
-      subject: t('contact.categories.question.subject')
-    },
-    { 
-      id: 'other', 
-      label: t('contact.categories.other.label'), 
-      message: '',
-      subject: t('contact.categories.other.subject')
-    },
-  ];
-
-  // Autofocus name field when CV request
-  useEffect(() => {
-    if (isCVRequest && nameInputRef.current) {
-      setTimeout(() => {
-        nameInputRef.current?.focus();
-      }, 500);
-    }
-  }, [isCVRequest]);
-
-  // Handle template selection
-  const handleTemplateSelect = (template) => {
-    haptic.light();
-    setFormData({ ...formData, message: template.message });
-  };
-
-  // Handle category selection
-  const handleCategoryChange = (categoryId) => {
-    haptic.light();
-    setSelectedCategory(categoryId);
-    const category = contactCategories.find(c => c.id === categoryId);
-    if (category && category.message) {
-      setFormData({ ...formData, message: category.message });
-    }
-  };
   const handleCopyEmail = async (email) => {
     haptic.light();
     try {
@@ -151,7 +97,6 @@ export default function ContactSection({ isCVRequest = false }) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     
-    // Validate on change if field has been touched
     if (value.length > 0) {
       validateField(name, value);
     }
@@ -164,7 +109,6 @@ export default function ContactSection({ isCVRequest = false }) {
     setSubmitStatus(null);
 
     try {
-      // Using Web3Forms API (free service)
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -176,11 +120,7 @@ export default function ContactSection({ isCVRequest = false }) {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: isCVRequest 
-            ? `CV Request from ${formData.name}` 
-            : selectedCategory 
-              ? `${contactCategories.find(c => c.id === selectedCategory)?.subject} - ${formData.name}`
-              : `New Contact Form Submission from ${formData.name}`,
+          subject: `Contact Form: ${formData.name}`,
         }),
       });
 
@@ -193,8 +133,7 @@ export default function ContactSection({ isCVRequest = false }) {
         });
         setFormData({ name: "", email: "", message: "" });
         
-        // Keep success state visible longer to show next steps
-        setTimeout(() => setSubmitStatus(null), 8000); // Increased from 3 to 8 seconds
+        setTimeout(() => setSubmitStatus(null), 8000);
       } else {
         throw new Error(result.message || "Failed to send message");
       }
@@ -205,7 +144,6 @@ export default function ContactSection({ isCVRequest = false }) {
         icon: <XCircle className="text-red-500" />,
       });
       
-      // Reset error state after 3 seconds
       setTimeout(() => setSubmitStatus(null), 3000);
     } finally {
       setSending(false);
@@ -213,61 +151,53 @@ export default function ContactSection({ isCVRequest = false }) {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="contact" className="flex-1 flex items-center py-12 lg:py-16">
+      <div className="max-w-6xl mx-auto px-6 w-full">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="h-px w-10 bg-accent" />
-            <span className="text-sm tracking-[0.2em] uppercase text-accent font-medium">
-              {t('contact.title')}
-            </span>
-            <div className="h-px w-10 bg-accent" />
-          </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-foreground">
-            {t('contact.heading')} <span className="italic">{t('contact.headingItalic')}</span>
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-md mx-auto">
-            {t('contact.description')}
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t('contactPage.hero.title')}
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t('contactPage.hero.description')}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Social links */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Social links - Larger, more prominent */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="space-y-4"
           >
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
+            <h2 className="font-serif text-xl font-semibold text-foreground mb-6">
               {t('contact.findMeOnline')}
-            </h3>
-            {socials.map((s) => (
-              <div 
-                key={s.label} 
-                className="relative"
-                onMouseEnter={() => setHoveredSocial(s.label)}
-                onMouseLeave={() => setHoveredSocial(null)}
+            </h2>
+            {socials.map((s, idx) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
                 <a
                   href={s.href}
                   target={s.label === "Email" ? "_self" : "_blank"}
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-5 bg-card border border-border rounded-2xl hover:border-accent/40 hover:shadow-md transition-all duration-300"
+                  className="flex items-center gap-4 p-6 bg-card border-2 border-border rounded-2xl hover:border-accent hover:bg-accent/5 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                    <s.icon size={20} className="text-accent" />
+                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 group-hover:scale-110 transition-all">
+                    <s.icon size={28} className="text-accent" />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground">{s.label}</p>
-                    <p className="text-foreground font-medium">{s.value}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-muted-foreground mb-0.5">{s.label}</p>
+                    <p className="text-foreground font-medium truncate">{s.value}</p>
                   </div>
                   {s.label === "Email" && (
                     <button
@@ -275,60 +205,44 @@ export default function ContactSection({ isCVRequest = false }) {
                         e.preventDefault();
                         handleCopyEmail(s.value);
                       }}
-                      className="p-2 rounded-lg hover:bg-accent/10 transition-colors"
+                      className="p-2.5 rounded-lg hover:bg-accent/10 transition-colors shrink-0"
                       title={t('contact.copyEmail')}
                     >
                       {copiedEmail ? (
-                        <Check size={18} className="text-green-500" />
+                        <Check size={20} className="text-green-500" />
                       ) : (
-                        <Copy size={18} className="text-muted-foreground" />
+                        <Copy size={20} className="text-muted-foreground" />
                       )}
                     </button>
                   )}
                 </a>
-                
-                {/* Tooltip for social links */}
-                {hoveredSocial === s.label && (
-                  <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-50 px-3 py-2 bg-popover text-popover-foreground text-xs rounded-lg shadow-lg border border-border whitespace-nowrap animate-fade-in">
-                    {s.label === "Email" ? t('contact.socialTooltip.clickToCopy') : t('contact.socialTooltip.openInNewTab')}
-                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-popover border-l border-t border-border rotate-45" />
-                  </div>
-                )}
-              </div>
+              </motion.div>
             ))}
           </motion.div>
 
-          {/* Contact form */}
+          {/* Contact form - Streamlined */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
-              {isCVRequest ? t('contact.cvRequestForm') : t('contact.sendMessage')}
-            </h3>
-            {isCVRequest && (
-              <div className="mb-4 p-4 bg-accent/10 border border-accent/20 rounded-xl">
-                <p className="text-sm text-muted-foreground">
-                  {t('contact.cvRequestNote')}
-                </p>
-              </div>
-            )}
+            <h2 className="font-serif text-xl font-semibold text-foreground mb-6">
+              {t('contact.sendMessage')}
+            </h2>
             
-            {/* Success state with next steps */}
+            {/* Success state */}
             {submitStatus === 'success' && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-4 p-6 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-xl"
+                className="mb-6 p-6 bg-green-50 dark:bg-green-950/20 border-2 border-green-200 dark:border-green-800 rounded-2xl"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <CheckCircle2 size={24} className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">
+                    <h3 className="font-semibold text-green-900 dark:text-green-100 mb-1">
                       {t('contact.successState.title')}
-                    </h4>
+                    </h3>
                     <p className="text-sm text-green-700 dark:text-green-300">
                       {t('contact.successState.description')}
                     </p>
@@ -351,8 +265,7 @@ export default function ContactSection({ isCVRequest = false }) {
               </motion.div>
             )}
             
-            <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form" onKeyDown={(e) => {
-              // Keyboard shortcut: Cmd/Ctrl + Enter to submit
+            <form onSubmit={handleSubmit} className="space-y-4" onKeyDown={(e) => {
               if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
                 e.preventDefault();
                 if (!sending && submitStatus !== 'success' && Object.keys(errors).length === 0) {
@@ -360,28 +273,6 @@ export default function ContactSection({ isCVRequest = false }) {
                 }
               }
             }}>
-              {/* Contact reason dropdown */}
-              {!isCVRequest && submitStatus !== 'success' && (
-                <div className="space-y-2">
-                  <label htmlFor="category" className="text-sm font-medium text-foreground">
-                    {t('contact.categoryLabel')}
-                  </label>
-                  <select
-                    id="category"
-                    value={selectedCategory}
-                    onChange={(e) => handleCategoryChange(e.target.value)}
-                    className="w-full h-12 px-4 bg-card border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                  >
-                    <option value="">{t('contact.categoryPlaceholder')}</option>
-                    {contactCategories.map((category) => (
-                      <option key={category.id} value={category.id}>
-                        {category.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              
               <div className="relative">
                 <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 <Input
@@ -392,9 +283,6 @@ export default function ContactSection({ isCVRequest = false }) {
                   onChange={handleChange}
                   required
                   className={`bg-card border-border rounded-xl h-12 pl-11 ${errors.name ? 'border-red-500' : ''}`}
-                  aria-label="Your name"
-                  aria-required="true"
-                  aria-invalid={!!errors.name}
                 />
                 {errors.name && (
                   <p className="text-xs text-red-500 mt-1 ml-1">{errors.name}</p>
@@ -411,9 +299,6 @@ export default function ContactSection({ isCVRequest = false }) {
                   onChange={handleChange}
                   required
                   className={`bg-card border-border rounded-xl h-12 pl-11 ${errors.email ? 'border-red-500' : ''}`}
-                  aria-label="Your email address"
-                  aria-required="true"
-                  aria-invalid={!!errors.email}
                 />
                 {errors.email && (
                   <p className="text-xs text-red-500 mt-1 ml-1">{errors.email}</p>
@@ -431,9 +316,6 @@ export default function ContactSection({ isCVRequest = false }) {
                   rows={5}
                   maxLength={MAX_MESSAGE_LENGTH}
                   className={`bg-card border-border rounded-xl resize-none pl-11 ${errors.message ? 'border-red-500' : ''}`}
-                  aria-label="Your message"
-                  aria-required="true"
-                  aria-invalid={!!errors.message}
                 />
                 <div className="flex items-center justify-between mt-1 px-1">
                   {errors.message ? (
@@ -450,6 +332,7 @@ export default function ContactSection({ isCVRequest = false }) {
                   </p>
                 </div>
               </div>
+              
               <Button
                 type="submit"
                 disabled={sending || submitStatus === 'success' || Object.keys(errors).length > 0}
@@ -460,8 +343,6 @@ export default function ContactSection({ isCVRequest = false }) {
                     ? 'bg-red-500 hover:bg-red-500'
                     : 'bg-primary hover:opacity-90'
                 } text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed`}
-                aria-live="polite"
-                aria-busy={sending}
               >
                 <AnimatePresence mode="wait">
                   {sending ? (

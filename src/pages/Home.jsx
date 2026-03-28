@@ -3,12 +3,10 @@ import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import Footer from "../components/Footer";
-import ScrollToTop from "../components/ScrollToTop";
 import ScrollProgress from "../components/ScrollProgress";
 import SkipToContent from "../components/SkipToContent";
 import SEOHead from "../components/SEOHead";
 import AvailabilityBanner from "../components/AvailabilityBanner";
-import FloatingAvailabilityBadge from "../components/FloatingAvailabilityBadge";
 import PageTransition from "../components/PageTransition";
 import PullToRefresh from "../components/PullToRefresh";
 import { SkeletonExperience, SkeletonProject, SkeletonPublication } from "../components/SkeletonLoader";
@@ -155,8 +153,6 @@ export default function Home() {
               </Suspense>
             </main>
             <Footer />
-            <ScrollToTop />
-            <FloatingAvailabilityBadge isVisible={!bannerVisible} />
           </div>
         </PullToRefresh>
       </PageTransition>

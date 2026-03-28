@@ -5,15 +5,16 @@ import { useTranslation } from "react-i18next";
 import { safeDownload } from "@/utils/downloadHelper";
 import EmptyState from "./EmptyState";
 
-const publications = [
+const publicationsData = [
   {
     id: "kg-rag-jaist",
     title: "KG-Augmented RAG Pipeline for Automated Test Scenario Generation",
     journal: "JAIST×CMU Joint Research",
     year: "2025",
-    authors: "C Jainan, et al.",
+    authors: ["C. Jainan", "et al."],
+    myName: "C. Jainan",
     type: "Research Paper",
-    status: "Extended",
+    tags: ["Knowledge Graphs", "RAG", "LLMs", "Ontology Engineering", "Autonomous Driving"],
     link: null,
     downloadable: false,
     hasPreview: true,
@@ -23,9 +24,10 @@ const publications = [
     title: "Ontology-Augmented Thai Public Health Service Recommendation System",
     journal: "Knowledge Engineering Project",
     year: "2024",
-    authors: "C Jainan, K Saelee",
+    authors: ["C. Jainan", "K. Saelee"],
+    myName: "C. Jainan",
     type: "Research Project",
-    status: "Completed",
+    tags: ["Ontologies", "Semantic Web", "Healthcare", "OWL", "SPARQL"],
     link: "https://github.com/AppleBoiy/onto-augmented-PHSRS",
     downloadable: true,
     downloadUrl: "/documents/ontology-phsrs.pdf",
@@ -37,9 +39,10 @@ const publications = [
     title: "CS Student Setup Guide - Comprehensive Software Installation Documentation",
     journal: "Chiang Mai University - Teaching Resource",
     year: "2022-2025",
-    authors: "C Jainan",
+    authors: ["C. Jainan"],
+    myName: "C. Jainan",
     type: "Educational Resource",
-    status: "Active",
+    tags: ["Documentation", "Teaching", "Developer Tools", "Technical Writing"],
     link: "https://kiwis.vercel.app/",
     downloadable: false,
     hasPreview: false,
@@ -49,9 +52,28 @@ const publications = [
 export default function AcademicContributions() {
   const { t } = useTranslation();
   
+  // Map publications with translated descriptions
+  const publications = publicationsData.map(pub => ({
+    ...pub,
+    tldr: t(`publications.items.${pub.id}.tldr`),
+  }));
+  
   const handleDownload = (e, url, filename) => {
     e.preventDefault();
     safeDownload(url, filename, 'Document is currently unavailable');
+  };
+  
+  // Helper to format authors with bold name
+  const formatAuthors = (authors, myName) => {
+    return authors.map((author, idx) => {
+      const isBold = author === myName;
+      return (
+        <span key={idx}>
+          {isBold ? <strong className="font-semibold text-foreground">{author}</strong> : author}
+          {idx < authors.length - 1 && ", "}
+        </span>
+      );
+    });
   };
   
   return (
@@ -99,6 +121,7 @@ export default function AcademicContributions() {
                   <FileText size={18} className="text-accent" />
                 </div>
                 <div className="flex-1 min-w-0">
+                  {/* Title and Year */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
                       {pub.hasPreview ? (
@@ -108,48 +131,68 @@ export default function AcademicContributions() {
                       ) : (
                         pub.title
                       )}
+                    </h3>
+                    <span className="shrink-0 px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
+                      {pub.year}
+                    </span>
+                  </div>
+                  
+                  {/* Journal/Institution */}
+                  <p className="text-accent text-sm font-medium mb-3">{pub.journal}</p>
+                  
+                  {/* TL;DR */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                    {pub.tldr}
+                  </p>
+                  
+                  {/* Authors */}
+                  <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-4">
+                    <Users size={14} className="shrink-0" />
+                    <span>{formatAuthors(pub.authors, pub.myName)}</span>
+                  </div>
+                  
+                  {/* Tags and Actions */}
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    {/* Domain Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {pub.tags.map((tag) => (
+                        <span key={tag} className="px-2.5 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Action Area */}
+                    <div className="flex items-center gap-2">
                       {pub.link && (
                         <a
                           href={pub.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 ml-2 text-accent hover:text-accent/80"
+                          className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg text-accent hover:bg-accent/10 transition-colors"
                         >
-                          <ExternalLink size={16} />
+                          <ExternalLink size={14} />
+                          {t('publications.viewRepo')}
                         </a>
                       )}
-                    </h3>
-                    <div className="flex items-center gap-2">
-                      <span className="shrink-0 px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
-                        {pub.year}
-                      </span>
                       {pub.downloadable && (
                         <button
                           onClick={(e) => handleDownload(e, pub.downloadUrl, `${pub.id}.pdf`)}
-                          className="shrink-0 px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
+                          className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors"
                         >
-                          <Download size={12} />
-                          {t('publications.download')}
+                          <Download size={14} />
+                          {t('publications.downloadPDF')}
                           {pub.documentLanguage && (
-                            <span className="ml-1">({t(`publications.languages.${pub.documentLanguage}`)})</span>
+                            <span className="text-xs opacity-70">({t(`publications.languages.${pub.documentLanguage}`)})</span>
                           )}
                         </button>
                       )}
+                      {!pub.link && !pub.downloadable && (
+                        <span className="text-sm text-muted-foreground italic">
+                          {t('publications.draftAvailable')}
+                        </span>
+                      )}
                     </div>
-                  </div>
-                  <p className="text-accent text-sm font-medium mb-2">{pub.journal}</p>
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <Users size={14} /> {pub.authors}
-                    </span>
-                    <span className="px-2 py-0.5 text-xs bg-muted rounded-full">{pub.type}</span>
-                    <span className={`px-2 py-0.5 text-xs rounded-full ${
-                      pub.status === 'Extended' 
-                        ? 'bg-blue-100 text-blue-700' 
-                        : pub.status === 'Active'
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-yellow-100 text-yellow-700'
-                    }`}>{pub.status}</span>
                   </div>
                 </div>
               </div>

@@ -7,7 +7,8 @@
     "skills": "Skills",
     "contact": "Contact",
     "getInTouch": "Get in Touch",
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "resume": "Resume"
   },
   "hero": {
     "subtitle": "CS Student & Applied LLM Engineer",
@@ -34,11 +35,9 @@
   },
   "about": {
     "title": "About Me",
-    "heading": "Building AI Systems,",
-    "headingItalic": "One Pipeline at a Time",
-    "paragraph1": "Final-year Computer Science student at Chiang Mai University with hands-on experience in LLM systems, RAG pipelines, and backend engineering. I've built production systems at CMU and contributed to cutting-edge research at JAIST in Japan.",
-    "paragraph2": "My work focuses on the intersection of Large Language Models and Knowledge Graphs, particularly in building intelligent systems that can understand and process complex unstructured data. I'm passionate about creating practical AI solutions that solve real-world problems.",
-    "paragraph3": "Looking to grow as an Applied LLM Engineer on an early-stage team where I can contribute to building innovative AI products while continuing to learn and develop my skills.",
+    "heading": "Engineering Intelligent Systems for Unstructured Data",
+    "paragraph1": "I specialize at the intersection of Large Language Models and Knowledge Graphs, focusing on building systems that extract meaning from chaotic, unstructured data. My goal is to move past basic API wrappers and engineer AI solutions that solve actual business logic problems.",
+    "paragraph2": "Looking to grow as an Applied LLM Engineer on an early-stage team where I can contribute to building innovative AI products while continuing to learn and develop my skills.",
     "certifications": "Certifications",
     "certificationsAndHonors": "Certifications & Honors",
     "viewCertificate": "View Certificate",
@@ -65,32 +64,43 @@
         "organization": "KnOWLab Research Lab, JAIST",
         "location": "Nomi, Ishikawa, Japan",
         "period": "Apr 2025 — Sep 2025",
-        "summary": "Built a prompt engineering pipeline (DoC) for LLM-based information extraction with 68% improvement over state-of-the-art, achieving 100% accuracy.",
-        "description": "CSCMU × KnOWLab-JAIST × Formal Methods Lab-JAIST Collaboration — Built a prompt engineering pipeline (DoC) for LLM-based information extraction from unstructured documents, automating structured data population with 68% improvement over state-of-the-art. Tested and debugged LLM outputs at scale; applied domain constraints to filter implausible AI responses, achieving 100% accuracy."
+        "bullets": [
+          "Built a prompt engineering pipeline (DoC) for LLM-based information extraction with 68% improvement over state-of-the-art",
+          "Tested and debugged LLM outputs at scale, applying domain constraints to filter implausible responses",
+          "Achieved 100% accuracy in automated structured data population from unstructured documents"
+        ]
       },
       "french": {
         "title": "Backend Developer (Contract)",
         "organization": "Chiang Mai University, Dept. of Western Languages (French)",
         "location": "Chiang Mai, Thailand",
         "period": "Apr 2024 — Mar 2025",
-        "summary": "Developed a platform integrating French language learning with interactive lessons and personalized guidance.",
-        "description": "Developed a platform integrating French language learning with interactive lessons and personalized guidance. Built backend infrastructure, including database management, API endpoints, and server configuration."
+        "bullets": [
+          "Developed a platform integrating French language learning with interactive lessons and personalized guidance",
+          "Built backend infrastructure including database management, API endpoints, and server configuration"
+        ]
       },
       "ags": {
         "title": "DevOps (Contract)",
         "organization": "Chiang Mai University, Dept. of Computer Science",
         "location": "Chiang Mai, Thailand",
         "period": "Jun 2024 — Dec 2024",
-        "summary": "Built production LLM application using GPT-3.5, reducing grading turnaround time by 80% (5 days → 1 day) for 80+ students.",
-        "description": "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy for structured data querying; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability."
+        "bullets": [
+          "Built production LLM application using GPT-3.5 with structured prompt engineering",
+          "Reduced grading turnaround time by 80% (5 days → 1 day) for 80+ students while managing inference costs",
+          "Designed and deployed secure REST API with Flask and SQLAlchemy, containerized with Docker",
+          "Automated deployment via GitHub Actions CI/CD on AWS (ECS, Aurora, S3)"
+        ]
       },
       "ta": {
         "title": "Teaching Assistant",
         "organization": "Chiang Mai University",
         "location": "Chiang Mai, Thailand",
         "period": "Aug 2022 — Mar 2025",
-        "summary": "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices.",
-        "description": "Mentored 50+ undergraduate students in Python programming, focusing on core programming concepts and best practices. Authored comprehensive software setup guides for students to ensure smooth access to the necessary tools for the course."
+        "bullets": [
+          "Mentored 50+ undergraduate students in Python programming, focusing on core concepts and best practices",
+          "Authored comprehensive software setup guides to ensure smooth access to development tools"
+        ]
       },
       "cmu": {
         "title": "B.Sc. Computer Science",
@@ -128,19 +138,19 @@
     "items": {
       "ags": {
         "title": "AGS - Automated Grading System",
-        "description": "Built a production LLM application (ags.cs.science.cmu.ac.th) using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students. Designed and deployed a secure REST API with Flask and SQLAlchemy; containerized with Docker and automated via GitHub Actions CI/CD. Leveraged AWS services (ECS, Aurora, S3) for scalability."
+        "description": "A production LLM application using structured prompt engineering to automate grading. Reduces turnaround time by 80% for 80+ students."
       },
       "ezaAlias": {
         "title": "Eza Alias Configuration",
-        "description": "Popular Gist providing a comprehensive alias setup for eza (modern ls replacement). Includes color schemes, icons, and productivity-enhancing shortcuts for better terminal file navigation. Used by developers worldwide."
+        "description": "Popular Gist providing comprehensive alias setup for eza (modern ls replacement). Used by developers worldwide."
       },
       "neovim": {
         "title": "Neovim",
-        "description": "Contributor to Neovim - Vim-fork focused on extensibility and usability. Open source text editor with modern features and plugin ecosystem."
+        "description": "Contributor to Neovim - Vim-fork focused on extensibility and usability with modern features."
       },
       "flaskSecurity": {
         "title": "Flask-Security",
-        "description": "Contributor to Flask-Security - Quick and simple security for Flask applications. Provides common security patterns for authentication and authorization."
+        "description": "Contributor to Flask-Security - Quick and simple security for Flask applications with common patterns."
       }
     }
   },
@@ -149,12 +159,26 @@
     "heading": "Publications &",
     "headingItalic": "Contributions",
     "download": "Download",
+    "viewRepo": "View Repo",
+    "downloadPDF": "Download PDF",
+    "draftAvailable": "Draft Available on Request",
     "emptyState": "No publications yet",
     "emptyStateDescription": "Academic contributions will be listed here as they become available",
     "languages": {
       "Thai": "Thai",
       "English": "English",
       "Japanese": "Japanese"
+    },
+    "items": {
+      "kg-rag-jaist": {
+        "tldr": "Leveraged knowledge graphs and ontologies to automatically generate critical safety evaluation scenarios for Autonomous Driving Systems (ADS)."
+      },
+      "ontology-phsrs": {
+        "tldr": "Built a semantic web system using OWL ontologies to recommend appropriate public health services based on patient symptoms and medical history."
+      },
+      "cs-setup-guide": {
+        "tldr": "Created comprehensive documentation to help 250+ CS students set up their development environments, reducing setup time from days to hours."
+      }
     }
   },
   "contact": {

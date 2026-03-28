@@ -11,7 +11,7 @@ A modern, responsive portfolio website built with React, featuring multilingual 
       <p align="center"><em>Desktop View</em></p>
     </td>
     <td width="30%">
-      <img src="./preview/mobile.jpeg" alt="Mobile Preview" />
+      <img src="./preview/mobile.png" alt="Mobile Preview" />
       <p align="center"><em>Mobile View</em></p>
     </td>
   </tr>
