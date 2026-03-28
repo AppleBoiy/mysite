@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, ExternalLink, Calendar, Users, Lock, Tag } from "lucide-react";
+import { Github, ExternalLink, Calendar, Users, Lock, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import Navbar from "../components/Navbar";

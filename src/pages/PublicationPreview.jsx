@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Download, ExternalLink, Calendar, Users, FileText, BookOpen, Database } from "lucide-react";
+import { Download, ExternalLink, Calendar, Users, FileText, BookOpen, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";

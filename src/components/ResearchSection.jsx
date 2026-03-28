@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 
 const RESEARCH_BG = "https://media.db.com/images/public/69c65fc225e674ec5ae97316/c22a9e600_generated_8e1e04dd.png";
 

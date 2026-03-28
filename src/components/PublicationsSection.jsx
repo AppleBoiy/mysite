@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, ExternalLink, Users } from "lucide-react";
+import { FileText, Users } from "lucide-react";
 
 const publications = [
   {

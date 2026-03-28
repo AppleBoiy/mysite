@@ -88,6 +88,10 @@ export default function HeroSection() {
                   src={PROFILE_IMG}
                   alt="Profile photo"
                   className="w-full h-full object-cover"
+                  width="320"
+                  height="320"
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
               {/* Decorative elements */}

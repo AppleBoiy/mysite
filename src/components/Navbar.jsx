@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, User, Briefcase, FileText, FolderGit2, Code2, Mail } from "lucide-react";
+import { Menu, X, User, Briefcase, FileText, FolderGit2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";

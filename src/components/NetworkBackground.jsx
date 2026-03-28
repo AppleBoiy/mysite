@@ -7,33 +7,45 @@ export default function NetworkBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    // Check for reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const ctx = canvas.getContext('2d', { alpha: true });
     let animationFrameId;
     let particles = [];
+    let lastTime = 0;
+    const fps = 30; // Limit to 30fps instead of 60
+    const fpsInterval = 1000 / fps;
 
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    
+    let resizeTimeout;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resizeCanvas, 250);
+    };
+    window.addEventListener('resize', debouncedResize);
 
     // Particle class
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.3; // Reduced speed
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.radius = Math.random() * 1.5 + 0.5;
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Wrap around edges
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
         if (this.y < 0) this.y = canvas.height;
@@ -43,20 +55,19 @@ export default function NetworkBackground() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; // accent color
+        ctx.fillStyle = 'rgba(139, 92, 246, 0.4)';
         ctx.fill();
       }
     }
 
-    // Initialize particles
-    const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 15000));
+    // Reduce particle count based on screen size
+    const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 20000));
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
 
-    // Draw connections between nearby particles
     const drawConnections = () => {
-      const maxDistance = 150;
+      const maxDistance = 120; // Reduced from 150
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -64,10 +75,10 @@ export default function NetworkBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < maxDistance) {
-            const opacity = (1 - distance / maxDistance) * 0.6;
+            const opacity = (1 - distance / maxDistance) * 0.4;
             ctx.beginPath();
             ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -76,27 +87,29 @@ export default function NetworkBackground() {
       }
     };
 
-    // Animation loop
-    const animate = () => {
+    const animate = (currentTime) => {
+      animationFrameId = requestAnimationFrame(animate);
+      
+      // Throttle to 30fps
+      const elapsed = currentTime - lastTime;
+      if (elapsed < fpsInterval) return;
+      lastTime = currentTime - (elapsed % fpsInterval);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particles.forEach(particle => {
         particle.update();
         particle.draw();
       });
 
-      // Draw connections
       drawConnections();
-
-      animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animate(0);
 
-    // Cleanup
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', debouncedResize);
+      clearTimeout(resizeTimeout);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -105,7 +118,8 @@ export default function NetworkBackground() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.4 }}
+      style={{ opacity: 0.3 }}
+      aria-hidden="true"
     />
   );
 }
