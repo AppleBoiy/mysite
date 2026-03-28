@@ -3,6 +3,7 @@ import { FileText, Users, ExternalLink, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { safeDownload } from "@/utils/downloadHelper";
+import EmptyState from "./EmptyState";
 
 const publications = [
   {
@@ -75,8 +76,15 @@ export default function AcademicContributions() {
           </h2>
         </motion.div>
 
-        <div className="space-y-6">
-          {publications.map((pub, i) => (
+        {publications.length === 0 ? (
+          <EmptyState
+            icon={FileText}
+            title={t('publications.emptyState')}
+            description={t('publications.emptyStateDescription')}
+          />
+        ) : (
+          <div className="space-y-6">
+            {publications.map((pub, i) => (
             <motion.div
               key={pub.title}
               initial={{ opacity: 0, y: 20 }}
@@ -146,8 +154,9 @@ export default function AcademicContributions() {
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star, GitFork, Lock } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Lock, FolderGit2 } from "lucide-react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useState, useMemo } from "react";
+import SearchBar from "./SearchBar";
+import EmptyState from "./EmptyState";
 
 const projectsData = [
   {
@@ -49,6 +52,7 @@ const projectsData = [
 
 export default function ProjectsSection() {
   const { t } = useTranslation();
+  const [searchQuery, setSearchQuery] = useState("");
   
   const handlePrivateDemoClick = (e) => {
     e.preventDefault();
@@ -62,6 +66,17 @@ export default function ProjectsSection() {
     title: t(`projects.items.${proj.id}.title`),
     description: t(`projects.items.${proj.id}.description`),
   }));
+
+  const filteredProjects = useMemo(() => {
+    if (!searchQuery.trim()) return projects;
+    
+    const query = searchQuery.toLowerCase();
+    return projects.filter(project => 
+      project.title.toLowerCase().includes(query) ||
+      project.description.toLowerCase().includes(query) ||
+      project.tags.some(tag => tag.toLowerCase().includes(query))
+    );
+  }, [projects, searchQuery]);
 
   return (
     <section id="projects" className="py-24 lg:py-32">
@@ -98,8 +113,43 @@ export default function ProjectsSection() {
           </a>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          {projects.map((project, i) => (
+        {projects.length > 0 && (
+          <div className="mb-8 max-w-md mx-auto">
+            <SearchBar
+              value={searchQuery}
+              onChange={setSearchQuery}
+              placeholder={t('projects.search')}
+            />
+          </div>
+        )}
+
+        {projects.length === 0 ? (
+          <EmptyState
+            icon={FolderGit2}
+            title={t('projects.emptyState')}
+            description={t('projects.emptyStateDescription')}
+            action={
+              <a
+                href="https://github.com/AppleBoiy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition-all"
+              >
+                <Github size={16} />
+                {t('projects.viewAllGithub')}
+              </a>
+            }
+          />
+        ) : filteredProjects.length === 0 ? (
+          <EmptyState
+            icon={FolderGit2}
+            title={t('projects.noResults')}
+            description={t('projects.noResultsDescription')}
+            variant="search"
+          />
+        ) : (
+          <div className="grid sm:grid-cols-2 gap-6">
+            {filteredProjects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
@@ -204,8 +254,9 @@ export default function ProjectsSection() {
                 )}
               </div>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

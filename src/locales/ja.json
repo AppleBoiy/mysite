@@ -96,6 +96,11 @@
     "liveDemo": "ライブデモ",
     "requestDemo": "デモをリクエスト",
     "requestDemoMessage": "プライベートプロジェクトのライブデモは、事前予約いただいた方のみご利用いただけます。デモをご希望の場合は直接ご連絡ください。",
+    "search": "プロジェクトを検索...",
+    "noResults": "プロジェクトが見つかりません",
+    "noResultsDescription": "検索キーワードを変更するか、すべてのプロジェクトを閲覧してください",
+    "emptyState": "プロジェクトはまだありません",
+    "emptyStateDescription": "新しいプロジェクトと貢献をお楽しみに",
     "items": {
       "ags": {
         "title": "AGS - 自動採点システム",
@@ -120,6 +125,8 @@
     "heading": "論文・",
     "headingItalic": "業績",
     "download": "ダウンロード",
+    "emptyState": "出版物はまだありません",
+    "emptyStateDescription": "学術貢献が利用可能になり次第、ここに掲載されます",
     "languages": {
       "Thai": "タイ語",
       "English": "英語",

@@ -96,6 +96,11 @@
     "liveDemo": "Live Demo",
     "requestDemo": "Request Demo",
     "requestDemoMessage": "Live demo for private projects is only available for reserved users. Please contact me to schedule a demo.",
+    "search": "Search projects...",
+    "noResults": "No projects found",
+    "noResultsDescription": "Try adjusting your search terms or browse all projects",
+    "emptyState": "No projects yet",
+    "emptyStateDescription": "Check back soon for new projects and contributions",
     "items": {
       "ags": {
         "title": "AGS - Automated Grading System",
@@ -120,6 +125,8 @@
     "heading": "Publications &",
     "headingItalic": "Contributions",
     "download": "Download",
+    "emptyState": "No publications yet",
+    "emptyStateDescription": "Academic contributions will be listed here as they become available",
     "languages": {
       "Thai": "Thai",
       "English": "English",
