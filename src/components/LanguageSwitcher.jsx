@@ -41,14 +41,11 @@ export default function LanguageSwitcher() {
     setIsLoading(true);
     
     try {
-      // Load the language file first
       const loaded = await loadLanguage(langCode);
       
       if (loaded) {
-        // Then change the language
         await i18n.changeLanguage(langCode);
         
-        // Show success toast
         const lang = languages.find(l => l.code === langCode);
         toast.success(`Language changed to ${lang?.name || langCode}`, {
           duration: 2000,
@@ -99,7 +96,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && !isLoading && (
-        <div className="absolute top-12 right-0 bg-card border border-border rounded-xl shadow-lg overflow-hidden z-50 min-w-[160px] animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute top-12 right-0 bg-card border border-border rounded-xl shadow-lg overflow-hidden z-50 min-w-[160px] animate-scale-in">
           {languages.map((lang) => (
             <button
               key={lang.code}
