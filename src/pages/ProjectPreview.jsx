@@ -128,7 +128,7 @@ export default function ProjectPreview() {
           {/* Breadcrumbs */}
           <Breadcrumbs
             items={[
-              { label: t('breadcrumbs.projects'), href: '/#projects' },
+              { label: t('breadcrumbs.projects'), href: '/projects' },
               { label: project.title }
             ]}
           />

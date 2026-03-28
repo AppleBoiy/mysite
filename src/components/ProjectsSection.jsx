@@ -1,16 +1,13 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star, GitFork, Lock, FolderGit2 } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, Lock, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useState, useMemo } from "react";
-import SearchBar from "./SearchBar";
-import EmptyState from "./EmptyState";
 
-const projectsData = [
+const featuredProjectsData = [
   {
     id: "ags",
-    tags: ["Flask", "AWS (ECS, Aurora, S3)", "Docker", "GPT-3.5", "SQLAlchemy", "CI/CD"],
+    tags: ["Flask", "AWS", "Docker", "GPT-3.5"],
     github: "https://github.com/AGS-CMU/ags",
     demo: "https://ags.cs.science.cmu.ac.th",
     stars: null,
@@ -20,7 +17,7 @@ const projectsData = [
   },
   {
     id: "ezaAlias",
-    tags: ["Shell", "CLI", "Productivity", "Gist"],
+    tags: ["Shell", "CLI", "Productivity"],
     github: "https://gist.github.com/AppleBoiy/04a249b6f64fd0fe1744aff759a0563b",
     demo: "",
     stars: 62,
@@ -28,31 +25,10 @@ const projectsData = [
     isPrivate: false,
     hasPreview: true,
   },
-  {
-    id: "neovim",
-    tags: ["Vim Script", "Open Source", "Editor"],
-    github: "https://github.com/neovim/neovim",
-    demo: "",
-    stars: 97500,
-    forks: 6700,
-    isPrivate: false,
-    hasPreview: false,
-  },
-  {
-    id: "flaskSecurity",
-    tags: ["Python", "Flask", "Security", "Open Source"],
-    github: "https://github.com/pallets-eco/flask-security",
-    demo: "",
-    stars: 696,
-    forks: 162,
-    isPrivate: false,
-    hasPreview: false,
-  },
 ];
 
 export default function ProjectsSection() {
   const { t } = useTranslation();
-  const [searchQuery, setSearchQuery] = useState("");
   
   const handlePrivateDemoClick = (e) => {
     e.preventDefault();
@@ -61,22 +37,11 @@ export default function ProjectsSection() {
     });
   };
 
-  const projects = projectsData.map(proj => ({
+  const projects = featuredProjectsData.map(proj => ({
     ...proj,
     title: t(`projects.items.${proj.id}.title`),
     description: t(`projects.items.${proj.id}.description`),
   }));
-
-  const filteredProjects = useMemo(() => {
-    if (!searchQuery.trim()) return projects;
-    
-    const query = searchQuery.toLowerCase();
-    return projects.filter(project => 
-      project.title.toLowerCase().includes(query) ||
-      project.description.toLowerCase().includes(query) ||
-      project.tags.some(tag => tag.toLowerCase().includes(query))
-    );
-  }, [projects, searchQuery]);
 
   return (
     <section id="projects" className="py-24 lg:py-32">
@@ -102,54 +67,17 @@ export default function ProjectsSection() {
             {t('projects.description')}
           </p>
 
-          <a
-            href="https://github.com/AppleBoiy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 border border-border rounded-full text-sm text-foreground hover:bg-muted transition-colors"
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg"
           >
-            <Github size={16} />
-            {t('projects.viewAllGithub')}
-          </a>
+            {t('projects.viewAllProjects')}
+            <ArrowRight size={16} />
+          </Link>
         </motion.div>
 
-        {projects.length > 0 && (
-          <div className="mb-8 max-w-md mx-auto">
-            <SearchBar
-              value={searchQuery}
-              onChange={setSearchQuery}
-              placeholder={t('projects.search')}
-            />
-          </div>
-        )}
-
-        {projects.length === 0 ? (
-          <EmptyState
-            icon={FolderGit2}
-            title={t('projects.emptyState')}
-            description={t('projects.emptyStateDescription')}
-            action={
-              <a
-                href="https://github.com/AppleBoiy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition-all"
-              >
-                <Github size={16} />
-                {t('projects.viewAllGithub')}
-              </a>
-            }
-          />
-        ) : filteredProjects.length === 0 ? (
-          <EmptyState
-            icon={FolderGit2}
-            title={t('projects.noResults')}
-            description={t('projects.noResultsDescription')}
-            variant="search"
-          />
-        ) : (
-          <div className="grid sm:grid-cols-2 gap-6">
-            {filteredProjects.map((project, i) => (
+        <div className="grid sm:grid-cols-2 gap-6">
+          {projects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
@@ -198,7 +126,7 @@ export default function ProjectsSection() {
                   : 'text-foreground group-hover:text-accent'
               }`}>
                 {project.hasPreview ? (
-                  <Link to={`/project/${project.id}`} className="hover:underline">
+                  <Link to={`/projects/${project.id}`} className="hover:underline">
                     {project.title}
                   </Link>
                 ) : (
@@ -254,9 +182,8 @@ export default function ProjectsSection() {
                 )}
               </div>
             </motion.div>
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
       </div>
     </section>
   );

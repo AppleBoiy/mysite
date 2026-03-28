@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, User, Briefcase, FileText, FolderGit2 } from "lucide-react";
+import { Menu, X, User, Briefcase, FileText, FolderGit2, Code2, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
@@ -8,7 +8,7 @@ import LiteModeToggle from "./LiteModeToggle";
 import { useLiteMode } from "@/contexts/LiteModeContext";
 import { useTranslation } from "react-i18next";
 
-export default function Navbar({ hasBanner = false }) {
+export default function Navbar({ hasBanner = false, customContent = null, showGithubButton = false }) {
   const { t } = useTranslation();
   const { liteMode, setLiteMode } = useLiteMode();
   const [scrolled, setScrolled] = useState(false);
@@ -22,8 +22,9 @@ export default function Navbar({ hasBanner = false }) {
   const navLinks = [
     { label: t('nav.about'), href: "#about", icon: User },
     { label: t('nav.experience'), href: "#experience", icon: Briefcase },
-    { label: t('nav.academic'), href: "#publications", icon: FileText },
+    { label: t('nav.skills'), href: "#skills", icon: Code2 },
     { label: t('nav.projects'), href: "#projects", icon: FolderGit2 },
+    { label: t('nav.academic'), href: "#publications", icon: FileText },
   ];
 
   const handleNavClick = (e, href) => {
@@ -111,54 +112,74 @@ export default function Navbar({ hasBanner = false }) {
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-2">
-          {/* Show nav links only on home page */}
-          {isHomePage && navLinks.map((link) => {
-            const Icon = link.icon;
-            const isActive = activeSection === link.href;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg group ${
-                  isActive 
-                    ? 'text-accent' 
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                <span className="flex items-center gap-2">
-                  <Icon size={16} className={isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-foreground'} />
-                  {link.label}
-                </span>
-                {isActive && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            );
-          })}
-          
-          {/* Show "Back to Home" on other pages */}
-          {!isHomePage && (
-            <a
-              href="/"
-              className="px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300 rounded-lg flex items-center gap-2"
-            >
-              ← {t('nav.backToHome')}
-            </a>
+          {/* Show custom content if provided (e.g., search bar on Projects page) */}
+          {customContent ? (
+            <>
+              {customContent}
+              <div className="w-px h-6 bg-border mx-2" />
+            </>
+          ) : (
+            <>
+              {/* Show nav links only on home page */}
+              {isHomePage && navLinks.map((link) => {
+                const Icon = link.icon;
+                const isActive = activeSection === link.href;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                      isActive 
+                        ? 'text-accent' 
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Icon size={16} className={isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-foreground'} />
+                      {link.label}
+                    </span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                );
+              })}
+              
+              {/* Show "Back to Home" on other pages */}
+              {!isHomePage && (
+                <a
+                  href="/"
+                  className="px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300 rounded-lg flex items-center gap-2"
+                >
+                  ← {t('nav.backToHome')}
+                </a>
+              )}
+              
+              {isHomePage && <div className="w-px h-6 bg-border mx-2" />}
+            </>
           )}
-          
-          {isHomePage && <div className="w-px h-6 bg-border mx-2" />}
           <LiteModeToggle liteMode={liteMode} setLiteMode={setLiteMode} />
           <LanguageSwitcher />
           <ThemeToggle />
           
-          {/* Hide "Get in Touch" button on contact page */}
-          {!isContactPage && (
+          {/* Show GitHub button on projects page, otherwise show Get in Touch */}
+          {showGithubButton ? (
+            <a
+              href="https://github.com/AppleBoiy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 text-sm font-medium px-6 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+            >
+              <Github size={16} />
+              {t('projects.visitGithub')}
+            </a>
+          ) : !isContactPage && (
             <a
               href="/contact"
               className="ml-2 text-sm font-medium px-6 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center"
@@ -210,6 +231,13 @@ export default function Navbar({ hasBanner = false }) {
               aria-label="Mobile navigation"
             >
               <div className="px-6 py-6 flex flex-col gap-2">
+                {/* Show custom content in mobile menu if provided - but hide on small screens */}
+                {customContent && (
+                  <div className="mb-4 hidden sm:block">
+                    {customContent}
+                  </div>
+                )}
+                
                 {/* Show nav links only on home page */}
                 {isHomePage && navLinks.map((link) => {
                   const Icon = link.icon;
@@ -244,8 +272,19 @@ export default function Navbar({ hasBanner = false }) {
                   </a>
                 )}
                 
-                {/* Hide "Get in Touch" button on contact page */}
-                {!isContactPage && (
+                {/* Show GitHub button on projects page, otherwise show Get in Touch */}
+                {showGithubButton ? (
+                  <a
+                    href="https://github.com/AppleBoiy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className="mt-2 flex items-center justify-center gap-2 text-sm font-medium px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  >
+                    <Github size={16} />
+                    {t('projects.visitGithub')}
+                  </a>
+                ) : !isContactPage && (
                   <a
                     href="/contact"
                     onClick={() => setMobileOpen(false)}

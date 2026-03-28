@@ -7,6 +7,7 @@ import { SkeletonSection } from './components/SkeletonLoader';
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Projects = lazy(() => import('./pages/Projects'));
 const ProjectPreview = lazy(() => import('./pages/ProjectPreview'));
 const PublicationPreview = lazy(() => import('./pages/PublicationPreview'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -19,7 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/project/:projectId" element={<ProjectPreview />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:projectId" element={<ProjectPreview />} />
           <Route path="/publication/:publicationId" element={<PublicationPreview />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

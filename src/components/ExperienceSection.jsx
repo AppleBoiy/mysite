@@ -131,9 +131,21 @@ export default function ExperienceSection() {
 
                   {/* Summary - Visible when collapsed */}
                   {expandedIndex !== i && (
-                    <p className="text-muted-foreground leading-relaxed mb-4">
-                      {exp.summary}
-                    </p>
+                    <div className="mb-4">
+                      <p className="text-muted-foreground leading-relaxed">
+                        {exp.summary.split(/(\d+%|\d+\+|\d+ days?|\d+ students?)/g).map((part, idx) => {
+                          // Highlight numbers and metrics
+                          if (/(\d+%|\d+\+|\d+ days?|\d+ students?)/.test(part)) {
+                            return (
+                              <span key={idx} className="inline-flex items-center px-2 py-0.5 mx-1 bg-accent/10 text-accent font-semibold rounded">
+                                {part}
+                              </span>
+                            );
+                          }
+                          return part;
+                        })}
+                      </p>
+                    </div>
                   )}
 
                   {/* Full Details - Visible when expanded */}
@@ -146,7 +158,17 @@ export default function ExperienceSection() {
                       className="mb-4"
                     >
                       <p className="text-muted-foreground leading-relaxed">
-                        {exp.description}
+                        {exp.description.split(/(\d+%|\d+\+|\d+ days?|\d+ students?)/g).map((part, idx) => {
+                          // Highlight numbers and metrics
+                          if (/(\d+%|\d+\+|\d+ days?|\d+ students?)/.test(part)) {
+                            return (
+                              <span key={idx} className="inline-flex items-center px-2 py-0.5 mx-1 bg-accent/10 text-accent font-semibold rounded">
+                                {part}
+                              </span>
+                            );
+                          }
+                          return part;
+                        })}
                       </p>
                     </motion.div>
                   )}

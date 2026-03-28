@@ -16,6 +16,7 @@ import { toast } from "sonner";
 
 // Lazy load below-the-fold sections
 const ExperienceSection = lazy(() => import("../components/ExperienceSection"));
+const SkillsSection = lazy(() => import("../components/SkillsSection"));
 const ProjectsSection = lazy(() => import("../components/ProjectsSection"));
 const AcademicContributions = lazy(() => import("../components/AcademicContributions"));
 
@@ -35,6 +36,36 @@ function ExperienceSkeleton() {
         <div className="space-y-8 stagger-children">
           {[1, 2, 3].map((i) => (
             <SkeletonExperience key={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Content-aware skeleton for Skills section
+function SkillsSkeleton() {
+  return (
+    <section className="py-24 lg:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16 animate-slide-up">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="h-px w-10 bg-accent/30"></div>
+            <div className="h-3 bg-accent/30 rounded w-24"></div>
+            <div className="h-px w-10 bg-accent/30"></div>
+          </div>
+          <div className="h-8 bg-muted rounded w-64 mx-auto"></div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-8 stagger-children">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="h-[240px] bg-card border border-border rounded-2xl p-6 animate-pulse">
+              <div className="h-6 bg-muted rounded w-32 mb-4"></div>
+              <div className="flex flex-wrap gap-2">
+                {[1, 2, 3, 4].map((j) => (
+                  <div key={j} className="h-8 bg-muted rounded-full w-20"></div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -113,11 +144,14 @@ export default function Home() {
               <Suspense fallback={<ExperienceSkeleton />}>
                 <ExperienceSection />
               </Suspense>
-              <Suspense fallback={<AcademicSkeleton />}>
-                <AcademicContributions />
+              <Suspense fallback={<SkillsSkeleton />}>
+                <SkillsSection />
               </Suspense>
               <Suspense fallback={<ProjectsSkeleton />}>
                 <ProjectsSection />
+              </Suspense>
+              <Suspense fallback={<AcademicSkeleton />}>
+                <AcademicContributions />
               </Suspense>
             </main>
             <Footer />

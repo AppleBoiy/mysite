@@ -78,19 +78,12 @@ export default function HeroSection() {
               <a
                 href="/contact"
                 onClick={() => haptic.light()}
-                className="px-8 py-4 bg-accent text-accent-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 select-none"
+                className="px-8 py-4 bg-accent text-accent-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 select-none items-center justify-center"
               >
                 {t('hero.contactMe')} →
               </a>
               
-              {/* Secondary CTAs - Less prominent */}
-              <a
-                href="#experience"
-                onClick={() => haptic.light()}
-                className="px-6 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-muted transition-colors select-none"
-              >
-                {t('hero.viewWork')}
-              </a>
+              {/* Secondary CTA - CV Download (prominent for recruiters) */}
               <a
                 href="/contact?request=cv"
                 onClick={(e) => {
@@ -98,11 +91,13 @@ export default function HeroSection() {
                   haptic.medium();
                   window.location.href = '/contact?request=cv';
                 }}
-                className="px-6 py-3 bg-accent/10 border border-accent/30 rounded-full text-sm font-medium text-accent hover:bg-accent/20 hover:border-accent/50 transition-all flex items-center gap-2 justify-center select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-full text-base font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg flex items-center gap-2 justify-center select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
-                <Download size={16} />
-                {t('hero.requestCV')}
+                <Download size={18} />
+                {t('hero.downloadCV')}
               </a>
+              
+            
             </div>
           </motion.div>
 

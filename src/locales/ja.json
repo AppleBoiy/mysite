@@ -17,10 +17,20 @@
     "viewWork": "実績を見る",
     "contactMe": "お問い合わせ",
     "requestCV": "履歴書を請求",
+    "downloadCV": "履歴書をダウンロード",
     "metrics": {
       "studentsMentored": "指導した学生数",
       "yearsTA": "TA経験年数"
     }
+  },
+  "quickSummary": {
+    "experience": "経験年数",
+    "specialization": "専門分野",
+    "achievement": "主な実績",
+    "availability": "稼働状況",
+    "availableNow": "即日対応可",
+    "keySkills": "主要スキル",
+    "downloadCV": "履歴書をダウンロード"
   },
   "about": {
     "title": "私について",
@@ -29,7 +39,12 @@
     "paragraph1": "Chiang Mai Universityでコンピュータサイエンスを専攻している最終学年の学生です。LLMシステム、RAGパイプライン、バックエンドエンジニアリングの実践的な経験があります。学内で本番環境向けシステムを構築し、日本のJAIST（北陸先端科学技術大学院大学）での最先端の研究にも貢献しました。",
     "paragraph2": "大規模言語モデル（LLM）とナレッジグラフの融合に焦点を当てており、特に複雑な非構造化データを理解・処理できるインテリジェントシステムの構築に取り組んでいます。実社会の問題を解決する実用的なAIソリューションの開発に情熱を注いでいます。",
     "paragraph3": "現在、応用LLMエンジニアとして成長できるアーリーステージのチームを探しています。革新的なAI製品の開発に貢献しながら、継続的にスキルを磨いていきたいと考えています。",
-    "certifications": "認定資格"
+    "certifications": "認定資格",
+    "certificationsAndHonors": "認定資格・受賞歴",
+    "viewCertificate": "証明書を表示",
+    "hoverToFlip": "ホバーして詳細を表示",
+    "skillsCovered": "カバーするスキル",
+    "verifyCertificate": "証明書を確認"
   },
   "skills": {
     "title": "専門知識",
@@ -91,6 +106,8 @@
     "headingItalic": "プロジェクト",
     "description": "GitHubで公開しているオープンソースプロジェクトや実験的な取り組みの選集。",
     "viewAllGithub": "GitHubですべて見る",
+    "viewAllProjects": "すべてのプロジェクトを見る",
+    "visitGithub": "GitHubで私を訪ねる",
     "code": "ソースコード",
     "privateRepo": "プライベートリポジトリ",
     "liveDemo": "ライブデモ",

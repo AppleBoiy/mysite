@@ -17,10 +17,20 @@
     "viewWork": "ดูผลงาน",
     "contactMe": "ติดต่อสอบถาม",
     "requestCV": "ขอ CV",
+    "downloadCV": "ดาวน์โหลด CV",
     "metrics": {
       "studentsMentored": "นักศึกษาที่ให้คำปรึกษา",
       "yearsTA": "ปีในตำแหน่ง TA"
     }
+  },
+  "quickSummary": {
+    "experience": "ประสบการณ์",
+    "specialization": "ความเชี่ยวชาญ",
+    "achievement": "ผลงานเด่น",
+    "availability": "สถานะ",
+    "availableNow": "พร้อมเริ่มงาน",
+    "keySkills": "ทักษะหลัก",
+    "downloadCV": "ดาวน์โหลด CV"
   },
   "about": {
     "title": "เกี่ยวกับฉัน",
@@ -29,7 +39,12 @@
     "paragraph1": "นักศึกษาวิทยาการคอมพิวเตอร์ชั้นปีสุดท้าย มหาวิทยาลัยเชียงใหม่ ผู้มีความเชี่ยวชาญด้านระบบ LLM, RAG pipelines และ Backend engineering ผมมีประสบการณ์พัฒนาระบบที่ใช้งานจริง (Production) ใน มช. และร่วมผลักดันงานวิจัยระดับสากลที่ JAIST ประเทศญี่ปุ่น",
     "paragraph2": "งานของผมมุ่งเน้นไปที่การผสานพลังระหว่าง Large Language Models และ Knowledge Graphs เพื่อสร้างระบบอัจฉริยะที่สามารถวิเคราะห์ข้อมูลที่ไม่มีโครงสร้าง (Unstructured data) ที่มีความซับซ้อน ผมหลงใหลในการเปลี่ยนทฤษฎี AI ให้เป็นโซลูชันที่ใช้งานได้จริง",
     "paragraph3": "ปัจจุบันผมกำลังมองหาโอกาสร่วมงานในบทบาท Applied LLM Engineer กับทีมที่พร้อมสร้างนวัตกรรมใหม่ๆ เพื่อนำทักษะและประสบการณ์ที่มีมาสร้างผลลัพธ์ที่เป็นรูปธรรมและเติบโตไปพร้อมกับองค์กร",
-    "certifications": "ใบรับรองและวุฒิบัตร"
+    "certifications": "ใบรับรองและวุฒิบัตร",
+    "certificationsAndHonors": "ใบรับรองและรางวัล",
+    "viewCertificate": "ดูใบรับรอง",
+    "hoverToFlip": "วางเมาส์เพื่อดูรายละเอียด",
+    "skillsCovered": "ทักษะที่ครอบคลุม",
+    "verifyCertificate": "ตรวจสอบใบรับรอง"
   },
   "skills": {
     "title": "ความเชี่ยวชาญ",
@@ -91,6 +106,8 @@
     "headingItalic": "ที่น่าสนใจ",
     "description": "รวบรวมโปรเจกต์ Open-source และการทดลองต่างๆ บน GitHub ของผม",
     "viewAllGithub": "ดูทั้งหมดบน GitHub",
+    "viewAllProjects": "ดูโปรเจกต์ทั้งหมด",
+    "visitGithub": "เยี่ยมชม GitHub ของผม",
     "code": "ซอร์สโค้ด",
     "privateRepo": "Private Repo",
     "liveDemo": "ดูเดโม",

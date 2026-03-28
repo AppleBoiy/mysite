@@ -17,10 +17,20 @@
     "viewWork": "View My Work",
     "contactMe": "Contact Me",
     "requestCV": "Request CV",
+    "downloadCV": "Download CV",
     "metrics": {
       "studentsMentored": "Students Mentored",
       "yearsTA": "Years as TA"
     }
+  },
+  "quickSummary": {
+    "experience": "Experience",
+    "specialization": "Specialization",
+    "achievement": "Key Achievement",
+    "availability": "Availability",
+    "availableNow": "Available Now",
+    "keySkills": "Key Skills",
+    "downloadCV": "Download CV"
   },
   "about": {
     "title": "About Me",
@@ -29,7 +39,12 @@
     "paragraph1": "Final-year Computer Science student at Chiang Mai University with hands-on experience in LLM systems, RAG pipelines, and backend engineering. I've built production systems at CMU and contributed to cutting-edge research at JAIST in Japan.",
     "paragraph2": "My work focuses on the intersection of Large Language Models and Knowledge Graphs, particularly in building intelligent systems that can understand and process complex unstructured data. I'm passionate about creating practical AI solutions that solve real-world problems.",
     "paragraph3": "Looking to grow as an Applied LLM Engineer on an early-stage team where I can contribute to building innovative AI products while continuing to learn and develop my skills.",
-    "certifications": "Certifications"
+    "certifications": "Certifications",
+    "certificationsAndHonors": "Certifications & Honors",
+    "viewCertificate": "View Certificate",
+    "hoverToFlip": "Hover to see details",
+    "skillsCovered": "Skills Covered",
+    "verifyCertificate": "Verify Certificate"
   },
   "skills": {
     "title": "Expertise",
@@ -91,6 +106,8 @@
     "headingItalic": "Projects",
     "description": "A selection of open-source projects and experiments from my GitHub.",
     "viewAllGithub": "View all on GitHub",
+    "viewAllProjects": "View All Projects",
+    "visitGithub": "Visit me on GitHub",
     "code": "Code",
     "privateRepo": "Private Repo",
     "liveDemo": "Live Demo",
