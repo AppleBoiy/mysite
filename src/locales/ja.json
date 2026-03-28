@@ -146,7 +146,38 @@
     "copyEmail": "メールアドレスをコピー",
     "emailCopied": "メールアドレスをコピーしました！",
     "emailCopyFailed": "コピーに失敗しました",
-    "keyboardHint": "⌘/Ctrl + Enter で送信"
+    "keyboardHint": "⌘/Ctrl + Enter で送信",
+    "categoryLabel": "お問い合わせ内容",
+    "categoryPlaceholder": "お問い合わせの理由を選択してください...",
+    "categories": {
+      "hiring": {
+        "label": "採用 / 求人機会",
+        "subject": "求人機会のお問い合わせ",
+        "message": "こんにちは！求人機会についてご連絡しました。一緒に働くことについて詳しく知りたいです。また、私のスキルがチームにどのように貢献できるかについてもお話しできればと思います。"
+      },
+      "collaboration": {
+        "label": "コラボレーション / パートナーシップ",
+        "subject": "コラボレーションのご提案",
+        "message": "こんにちは！プロジェクトでのコラボレーションに興味があります。一緒に働く機会について話し合い、素晴らしいものを作りたいです。"
+      },
+      "question": {
+        "label": "質問 / 相談",
+        "subject": "質問",
+        "message": "こんにちは！あなたの仕事について質問があります。このトピックについてご意見と専門知識をいただければ幸いです。"
+      },
+      "other": {
+        "label": "その他",
+        "subject": "一般的なお問い合わせ"
+      }
+    },
+    "successState": {
+      "title": "メッセージが送信されました！",
+      "description": "24時間以内に返信いたします。ソーシャルメディアでもお気軽にご連絡ください:"
+    },
+    "socialTooltip": {
+      "clickToCopy": "クリックしてコピー",
+      "openInNewTab": "新しいタブで開く"
+    }
   },
   "contactPage": {
     "hero": {
@@ -207,7 +238,12 @@
     "tooltipActive": "ライトモード有効 - 高速読み込み、アニメーション削減",
     "tooltipRecommended": "ライトモードを有効にする - 接続環境に推奨",
     "tooltipEnable": "ライトモードを有効にする - 低速接続に最適化",
-    "offline": "オフライン"
+    "offline": "オフライン",
+    "connectionDetails": "接続の詳細",
+    "type": "タイプ",
+    "status": "ステータス",
+    "slow": "低速",
+    "fast": "高速"
   },
   "language": {
     "selectLanguage": "言語を選択",

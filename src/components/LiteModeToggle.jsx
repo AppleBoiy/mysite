@@ -9,6 +9,7 @@ export default function LiteModeToggle({ liteMode, setLiteMode }) {
   const { isOnline, isSlowConnection, effectiveType } = useNetworkStatus();
   const [hasShownToast, setHasShownToast] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showConnectionTooltip, setShowConnectionTooltip] = useState(false);
 
   // Auto-enable lite mode on slow connections
   useEffect(() => {
@@ -35,8 +36,12 @@ export default function LiteModeToggle({ liteMode, setLiteMode }) {
 
   return (
     <div className="flex items-center gap-2">
-      {/* Connection indicator */}
-      <div className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground">
+      {/* Connection indicator with tooltip */}
+      <div 
+        className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground relative"
+        onMouseEnter={() => setShowConnectionTooltip(true)}
+        onMouseLeave={() => setShowConnectionTooltip(false)}
+      >
         {isOnline ? (
           <>
             <Wifi size={14} className={isSlowConnection ? 'text-orange-500' : 'text-green-500'} />
@@ -47,6 +52,26 @@ export default function LiteModeToggle({ liteMode, setLiteMode }) {
             <WifiOff size={14} className="text-red-500" />
             <span>{t('liteMode.offline')}</span>
           </>
+        )}
+        
+        {/* Connection tooltip */}
+        {showConnectionTooltip && isOnline && (
+          <div className="absolute top-full mt-2 left-0 z-50 px-3 py-2 bg-popover text-popover-foreground text-xs rounded-lg shadow-lg border border-border whitespace-nowrap animate-fade-in">
+            <div className="space-y-1">
+              <div className="font-semibold">{t('liteMode.connectionDetails')}</div>
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">{t('liteMode.type')}:</span>
+                <span className="capitalize font-medium">{effectiveType}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">{t('liteMode.status')}:</span>
+                <span className={`font-medium ${isSlowConnection ? 'text-orange-500' : 'text-green-500'}`}>
+                  {isSlowConnection ? t('liteMode.slow') : t('liteMode.fast')}
+                </span>
+              </div>
+            </div>
+            <div className="absolute -top-1 left-3 w-2 h-2 bg-popover border-l border-t border-border rotate-45" />
+          </div>
         )}
       </div>
 

@@ -146,7 +146,38 @@
     "copyEmail": "Copy email address",
     "emailCopied": "Email copied to clipboard!",
     "emailCopyFailed": "Failed to copy email",
-    "keyboardHint": "⌘/Ctrl + Enter to send"
+    "keyboardHint": "⌘/Ctrl + Enter to send",
+    "categoryLabel": "What's this about?",
+    "categoryPlaceholder": "Select a reason for contacting...",
+    "categories": {
+      "hiring": {
+        "label": "Hiring / Job Opportunity",
+        "subject": "Job Opportunity Inquiry",
+        "message": "Hello! I'm reaching out regarding potential job opportunities. I'm interested in learning more about working with you and how my skills could contribute to your team."
+      },
+      "collaboration": {
+        "label": "Collaboration / Partnership",
+        "subject": "Collaboration Proposal",
+        "message": "Hi! I'm interested in collaborating on a project. I'd love to discuss potential opportunities to work together and create something amazing."
+      },
+      "question": {
+        "label": "Question / Consultation",
+        "subject": "Question",
+        "message": "Hi! I have a question about your work. I'd appreciate your insights and expertise on this topic."
+      },
+      "other": {
+        "label": "Other",
+        "subject": "General Inquiry"
+      }
+    },
+    "successState": {
+      "title": "Message sent successfully!",
+      "description": "I'll reply within 24 hours. Feel free to reach out on social media too:"
+    },
+    "socialTooltip": {
+      "clickToCopy": "Click to copy",
+      "openInNewTab": "Open in new tab"
+    }
   },
   "contactPage": {
     "hero": {
@@ -208,7 +239,12 @@
     "tooltipActive": "Lite mode active - Faster loading, reduced animations",
     "tooltipRecommended": "Enable lite mode - Recommended for your connection",
     "tooltipEnable": "Enable lite mode - Optimized for slow connections",
-    "offline": "Offline"
+    "offline": "Offline",
+    "connectionDetails": "Connection Details",
+    "type": "Type",
+    "status": "Status",
+    "slow": "Slow",
+    "fast": "Fast"
   },
   "language": {
     "selectLanguage": "Select language",

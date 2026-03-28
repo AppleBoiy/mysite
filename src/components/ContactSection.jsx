@@ -42,8 +42,38 @@ export default function ContactSection({ isCVRequest = false }) {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [errors, setErrors] = useState({});
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [hoveredSocial, setHoveredSocial] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('');
   
   const MAX_MESSAGE_LENGTH = 500;
+
+  // Contact categories with templates
+  const contactCategories = [
+    { 
+      id: 'hiring', 
+      label: t('contact.categories.hiring.label'), 
+      message: t('contact.categories.hiring.message'),
+      subject: t('contact.categories.hiring.subject')
+    },
+    { 
+      id: 'collaboration', 
+      label: t('contact.categories.collaboration.label'), 
+      message: t('contact.categories.collaboration.message'),
+      subject: t('contact.categories.collaboration.subject')
+    },
+    { 
+      id: 'question', 
+      label: t('contact.categories.question.label'), 
+      message: t('contact.categories.question.message'),
+      subject: t('contact.categories.question.subject')
+    },
+    { 
+      id: 'other', 
+      label: t('contact.categories.other.label'), 
+      message: '',
+      subject: t('contact.categories.other.subject')
+    },
+  ];
 
   // Autofocus name field when CV request
   useEffect(() => {
@@ -54,7 +84,21 @@ export default function ContactSection({ isCVRequest = false }) {
     }
   }, [isCVRequest]);
 
-  // Copy email handler
+  // Handle template selection
+  const handleTemplateSelect = (template) => {
+    haptic.light();
+    setFormData({ ...formData, message: template.message });
+  };
+
+  // Handle category selection
+  const handleCategoryChange = (categoryId) => {
+    haptic.light();
+    setSelectedCategory(categoryId);
+    const category = contactCategories.find(c => c.id === categoryId);
+    if (category && category.message) {
+      setFormData({ ...formData, message: category.message });
+    }
+  };
   const handleCopyEmail = async (email) => {
     haptic.light();
     try {
@@ -134,7 +178,9 @@ export default function ContactSection({ isCVRequest = false }) {
           message: formData.message,
           subject: isCVRequest 
             ? `CV Request from ${formData.name}` 
-            : `New Contact Form Submission from ${formData.name}`,
+            : selectedCategory 
+              ? `${contactCategories.find(c => c.id === selectedCategory)?.subject} - ${formData.name}`
+              : `New Contact Form Submission from ${formData.name}`,
         }),
       });
 
@@ -147,8 +193,8 @@ export default function ContactSection({ isCVRequest = false }) {
         });
         setFormData({ name: "", email: "", message: "" });
         
-        // Reset success state after 3 seconds
-        setTimeout(() => setSubmitStatus(null), 3000);
+        // Keep success state visible longer to show next steps
+        setTimeout(() => setSubmitStatus(null), 8000); // Increased from 3 to 8 seconds
       } else {
         throw new Error(result.message || "Failed to send message");
       }
@@ -204,7 +250,12 @@ export default function ContactSection({ isCVRequest = false }) {
               {t('contact.findMeOnline')}
             </h3>
             {socials.map((s) => (
-              <div key={s.label} className="relative group">
+              <div 
+                key={s.label} 
+                className="relative"
+                onMouseEnter={() => setHoveredSocial(s.label)}
+                onMouseLeave={() => setHoveredSocial(null)}
+              >
                 <a
                   href={s.href}
                   target={s.label === "Email" ? "_self" : "_blank"}
@@ -235,6 +286,14 @@ export default function ContactSection({ isCVRequest = false }) {
                     </button>
                   )}
                 </a>
+                
+                {/* Tooltip for social links */}
+                {hoveredSocial === s.label && (
+                  <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-50 px-3 py-2 bg-popover text-popover-foreground text-xs rounded-lg shadow-lg border border-border whitespace-nowrap animate-fade-in">
+                    {s.label === "Email" ? t('contact.socialTooltip.clickToCopy') : t('contact.socialTooltip.openInNewTab')}
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-popover border-l border-t border-border rotate-45" />
+                  </div>
+                )}
               </div>
             ))}
           </motion.div>
@@ -256,6 +315,42 @@ export default function ContactSection({ isCVRequest = false }) {
                 </p>
               </div>
             )}
+            
+            {/* Success state with next steps */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-4 p-6 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-xl"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <CheckCircle2 size={24} className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-1">
+                      {t('contact.successState.title')}
+                    </h4>
+                    <p className="text-sm text-green-700 dark:text-green-300">
+                      {t('contact.successState.description')}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {socials.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target={s.label === "Email" ? "_self" : "_blank"}
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 border border-green-200 dark:border-green-800 rounded-lg text-xs font-medium text-green-900 dark:text-green-100 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                    >
+                      <s.icon size={14} />
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form" onKeyDown={(e) => {
               // Keyboard shortcut: Cmd/Ctrl + Enter to submit
               if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
@@ -265,6 +360,28 @@ export default function ContactSection({ isCVRequest = false }) {
                 }
               }
             }}>
+              {/* Contact reason dropdown */}
+              {!isCVRequest && submitStatus !== 'success' && (
+                <div className="space-y-2">
+                  <label htmlFor="category" className="text-sm font-medium text-foreground">
+                    {t('contact.categoryLabel')}
+                  </label>
+                  <select
+                    id="category"
+                    value={selectedCategory}
+                    onChange={(e) => handleCategoryChange(e.target.value)}
+                    className="w-full h-12 px-4 bg-card border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                  >
+                    <option value="">{t('contact.categoryPlaceholder')}</option>
+                    {contactCategories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              
               <div className="relative">
                 <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 <Input
