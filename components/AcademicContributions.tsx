@@ -126,23 +126,25 @@ export default function AcademicContributions() {
                 </div>
                 <div className="flex-1 min-w-0">
                   {/* Title and Year */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
-                      {pub.hasPreview ? (
-                        <Link href={`/publication/${pub.id}`} className="hover:underline">
-                          {pub.title}
-                        </Link>
-                      ) : (
-                        pub.title
-                      )}
-                    </h3>
-                    <span className="shrink-0 px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
-                      {pub.year}
-                    </span>
+                  <div className="mb-2">
+                    <div className="flex flex-wrap items-start gap-2 mb-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-foreground/80 transition-colors leading-snug flex-1">
+                        {pub.hasPreview ? (
+                          <Link href={`/publication/${pub.id}`} className="hover:underline">
+                            {pub.title}
+                          </Link>
+                        ) : (
+                          pub.title
+                        )}
+                      </h3>
+                      <span className="inline-flex items-center px-2.5 py-1 text-xs font-semibold bg-accent/10 text-accent rounded-md">
+                        {pub.year}
+                      </span>
+                    </div>
+                    
+                    {/* Journal/Institution */}
+                    <p className="text-accent text-sm font-medium mb-3">{pub.journal}</p>
                   </div>
-                  
-                  {/* Journal/Institution */}
-                  <p className="text-accent text-sm font-medium mb-3">{pub.journal}</p>
                   
                   {/* TL;DR */}
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">
@@ -160,7 +162,7 @@ export default function AcademicContributions() {
                     {/* Domain Tags */}
                     <div className="flex flex-wrap gap-2">
                       {pub.tags.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full">
+                        <span key={tag} className="px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground rounded-full">
                           {tag}
                         </span>
                       ))}

@@ -158,9 +158,9 @@
     }
   },
   "publications": {
-    "title": "ผลงานทางวิชาการ",
-    "heading": "ผลงานตีพิมพ์ &",
-    "headingItalic": "ผลงานวิชาการ",
+    "title": "วิชาการ",
+    "heading": "งานวิจัย &",
+    "headingItalic": "ผลงาน",
     "download": "ดาวน์โหลด",
     "viewRepo": "ดู Repo",
     "downloadPDF": "ดาวน์โหลด PDF",

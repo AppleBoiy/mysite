@@ -158,9 +158,9 @@
     }
   },
   "publications": {
-    "title": "Academic Contributions",
-    "heading": "Publications &",
-    "headingItalic": "Contributions",
+    "title": "Academic",
+    "heading": "Research &",
+    "headingItalic": "Publications",
     "download": "Download",
     "viewRepo": "View Repo",
     "downloadPDF": "Download PDF",

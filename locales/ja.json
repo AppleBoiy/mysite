@@ -158,9 +158,9 @@
     }
   },
   "publications": {
-    "title": "学術活動",
-    "heading": "論文と",
-    "headingItalic": "発表",
+    "title": "学術",
+    "heading": "研究 &",
+    "headingItalic": "論文",
     "download": "ダウンロード",
     "viewRepo": "リポジトリを見る",
     "downloadPDF": "PDFをダウンロード",
