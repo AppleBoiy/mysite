@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import Navbar from './Navbar';
 import { Locale } from '@/lib/i18n/settings';
 import { initClientI18n } from '@/lib/i18n/client';
@@ -17,9 +16,8 @@ export default function ClientNavbar({
   translations,
   ...props 
 }: ClientNavbarProps) {
-  useEffect(() => {
-    initClientI18n(locale, translations);
-  }, [locale, translations]);
+  // Initialize translations synchronously before render to prevent hydration mismatch
+  initClientI18n(locale, translations);
 
   return <Navbar locale={locale} {...props} />;
 }

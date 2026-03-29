@@ -2,61 +2,55 @@
 
 import i18next from 'i18next';
 import { initReactI18next, useTranslation as useTranslationBase } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import { Locale, defaultLocale, locales } from './settings';
 
-// Track initialization state
-let isInitialized = false;
+// Keep a single instance for the browser to avoid re-initializing
+let clientInstance: any = null;
 const loadedLanguages = new Set<string>();
 
-// Initialize i18next for client-side
+// Initialize i18next for both server and client
 export function initClientI18n(locale: Locale, translations: any) {
-  if (typeof window === 'undefined') return;
-
-  if (isInitialized && loadedLanguages.has(locale)) {
-    // Already initialized with this locale
-    if (i18next.language !== locale) {
-      i18next.changeLanguage(locale);
+  // 1. If we are in the browser and already initialized, reuse the instance
+  if (typeof window !== 'undefined' && clientInstance) {
+    if (clientInstance.language !== locale) {
+      clientInstance.changeLanguage(locale);
     }
-    return;
+    return clientInstance;
   }
 
-  if (!isInitialized) {
-    i18next
-      .use(LanguageDetector)
-      .use(initReactI18next)
-      .init({
-        lng: locale,
-        fallbackLng: defaultLocale,
-        resources: {
-          [locale]: { translation: translations }
-        },
-        interpolation: {
-          escapeValue: false
-        },
-        detection: {
-          order: ['cookie', 'localStorage', 'navigator'],
-          caches: ['cookie', 'localStorage'],
-          cookieOptions: { path: '/', sameSite: 'strict' }
-        },
-        react: {
-          useSuspense: false
-        }
-      });
-    
-    isInitialized = true;
-    loadedLanguages.add(locale);
-  } else {
-    // Add new language resources
-    i18next.addResourceBundle(locale, 'translation', translations, true, true);
-    loadedLanguages.add(locale);
-    i18next.changeLanguage(locale);
+  // 2. Create a fresh instance. 
+  // (Crucial for SSR so different users' requests don't leak languages!)
+  const newInstance = i18next.createInstance();
+
+  newInstance
+    .use(initReactI18next)
+    .init({
+      lng: locale, 
+      fallbackLng: defaultLocale,
+      resources: {
+        [locale]: { translation: translations }
+      },
+      interpolation: {
+        escapeValue: false
+      },
+      // 3. CRITICAL FOR HYDRATION: Force synchronous initialization
+      initImmediate: false, 
+    });
+  
+  loadedLanguages.add(locale);
+
+  // 4. Save the instance globally for the browser so lazy loading works
+  if (typeof window !== 'undefined') {
+    clientInstance = newInstance;
   }
+
+  return newInstance;
 }
 
 // Lazy load translations for client-side language switching
 export async function loadLanguage(lng: Locale): Promise<boolean> {
   const langCode = lng.split('-')[0] as Locale;
+  const instance = clientInstance || i18next;
   
   if (!locales.includes(langCode)) {
     console.warn(`Unsupported locale: ${langCode}`);
@@ -64,15 +58,15 @@ export async function loadLanguage(lng: Locale): Promise<boolean> {
   }
 
   if (loadedLanguages.has(langCode)) {
-    await i18next.changeLanguage(langCode);
+    await instance.changeLanguage(langCode);
     return true;
   }
   
   try {
     const translation = await import(`@/locales/${langCode}.json`);
-    i18next.addResourceBundle(langCode, 'translation', translation.default, true, true);
+    instance.addResourceBundle(langCode, 'translation', translation.default, true, true);
     loadedLanguages.add(langCode);
-    await i18next.changeLanguage(langCode);
+    await instance.changeLanguage(langCode);
     return true;
   } catch (error) {
     console.error(`Failed to load language: ${langCode}`, error);
@@ -87,7 +81,8 @@ export function useTranslation() {
 
 // Get current language
 export function getCurrentLanguage(): Locale {
-  return (i18next.language?.split('-')[0] || defaultLocale) as Locale;
+  const instance = clientInstance || i18next;
+  return (instance.language?.split('-')[0] || defaultLocale) as Locale;
 }
 
 // Change language

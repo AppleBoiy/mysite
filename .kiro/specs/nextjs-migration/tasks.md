@@ -14,7 +14,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
   - Create folder structure following App Router conventions
   - _Requirements: 13.1, 13.2, 13.3_
 
-- [~] 2. Implement internationalization system
+- [ ] 2. Implement internationalization system
   - [x] 2.1 Create i18n configuration and middleware
     - Create lib/i18n/settings.ts with locale configuration
     - Create middleware.ts for locale detection and routing
@@ -43,7 +43,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 6: Language changes without page reload**
     - **Validates: Requirements 2.6**
 
-- [~] 3. Set up theme management with SSR support
+- [ ] 3. Set up theme management with SSR support
   - [x] 3.1 Implement theme provider and detection
     - Create app/[locale]/layout.tsx with theme detection from cookies
     - Integrate next-themes ThemeProvider with SSR support
@@ -63,7 +63,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 9: Server-rendered theme class matches preference**
     - **Validates: Requirements 3.5**
 
-- [~] 4. Configure PWA with next-pwa
+- [ ] 4. Configure PWA with next-pwa
   - [x] 4.1 Set up PWA configuration and service worker
     - Install and configure next-pwa in next.config.js
     - Configure Workbox runtime caching strategies
@@ -78,7 +78,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
 - [x] 5. Checkpoint - Verify core infrastructure
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 6. Create root layout and page structure
+- [ ] 6. Create root layout and page structure
   - [x] 6.1 Implement root and locale layouts
     - Create app/[locale]/layout.tsx with HTML structure and providers
     - Integrate Analytics and SpeedInsights components
@@ -95,7 +95,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Test structured data (JSON-LD) generation
     - _Requirements: 1.2, 1.3_
 
-- [~] 7. Migrate layout components
+- [ ] 7. Migrate layout components
   - [x] 7.1 Convert Navbar to Next.js with Link components
     - Migrate Navbar component, mark as 'use client'
     - Replace React Router Link with next/link
@@ -113,7 +113,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Migrate ScrollProgress, ScrollToTop with 'use client'
     - _Requirements: 7.1, 11.2_
 
-- [~] 8. Migrate page components
+- [ ] 8. Migrate page components
   - [x] 8.1 Create Home page with SSG
     - Create app/[locale]/page.tsx for home route
     - Migrate HeroSection, AboutSection, QuickSummary
@@ -133,7 +133,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Configure metadata for projects page
     - _Requirements: 5.1_
 
-- [~] 9. Implement dynamic routes
+- [ ] 9. Implement dynamic routes
   - [x] 9.1 Create project detail dynamic route
     - Create app/[locale]/projects/[projectId]/page.tsx
     - Implement generateStaticParams for all projects
@@ -167,7 +167,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
 - [x] 10. Checkpoint - Verify routing and pages
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 11. Migrate content section components
+- [ ] 11. Migrate content section components
   - [x] 11.1 Migrate experience and skills sections
     - Migrate ExperienceSection, SkillsSection with dynamic imports
     - Implement skeleton loaders for lazy-loaded sections
@@ -185,7 +185,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Mark all as Client Components
     - _Requirements: 7.1_
 
-- [~] 12. Convert images to Next.js Image component
+- [ ] 12. Convert images to Next.js Image component
   - [x] 12.1 Replace OptimizedImage with next/image
     - Replace all OptimizedImage usages with next/image
     - Configure image sizes and formats in next.config.js
@@ -209,7 +209,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 18: Blur placeholders present for configured images**
     - **Validates: Requirements 6.5**
 
-- [~] 13. Migrate custom hooks and utilities
+- [ ] 13. Migrate custom hooks and utilities
   - [x] 13.1 Migrate custom hooks to Next.js environment
     - Migrate useNetworkStatus, useLazyLoad, useHaptic, usePullToRefresh
     - Ensure hooks work with Client Components
@@ -225,7 +225,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Migrate downloadHelper and other utilities
     - _Requirements: 7.1_
 
-- [~] 14. Implement error handling
+- [ ] 14. Implement error handling
   - [x] 14.1 Create error boundaries
     - Create app/error.tsx for root error boundary
     - Migrate SectionErrorBoundary component
@@ -253,7 +253,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 31: Lazy-loaded component fallback on failure**
     - **Validates: Requirements 12.6**
 
-- [~] 15. Migrate context providers
+- [ ] 15. Migrate context providers
   - [x] 15.1 Migrate LiteModeContext
     - Migrate LiteModeContext and provider as Client Component
     - Ensure lite mode disables animations correctly
@@ -264,10 +264,10 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 22: Lite mode disables animations**
     - **Validates: Requirements 9.7**
 
-- [~] 16. Checkpoint - Verify component migration
+- [ ] 16. Checkpoint - Verify component migration
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 17. Implement analytics tracking
+- [ ] 17. Implement analytics tracking
   - [x] 17.1 Integrate Vercel Analytics and Speed Insights
     - Add Analytics and SpeedInsights to root layout
     - Configure privacy settings and GDPR compliance
@@ -278,7 +278,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 21: Analytics tracking on all navigation types**
     - **Validates: Requirements 8.3**
 
-- [~] 18. Configure security headers and CSP
+- [ ] 18. Configure security headers and CSP
   - [x] 18.1 Implement security headers in next.config.js
     - Configure Content-Security-Policy header
     - Add X-Content-Type-Options, X-Frame-Options headers
@@ -302,7 +302,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 33: External resources use HTTPS**
     - **Validates: Requirements 14.3**
 
-- [~] 19. Configure caching and performance optimization
+- [ ] 19. Configure caching and performance optimization
   - [x] 19.1 Set up cache headers and optimization
     - Configure cache-control headers for static assets
     - Set up image optimization in next.config.js
@@ -314,7 +314,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 24: Cache headers present on static assets**
     - **Validates: Requirements 10.3**
 
-- [~] 20. Implement accessibility features
+- [ ] 20. Implement accessibility features
   - [x] 20.1 Ensure ARIA labels and keyboard navigation
     - Verify all interactive elements have ARIA labels
     - Test keyboard navigation for all features
@@ -337,7 +337,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - **Property 28: Route changes announced to screen readers**
     - **Validates: Requirements 11.7**
 
-- [~] 21. Generate sitemap and robots.txt
+- [ ] 21. Generate sitemap and robots.txt
   - [x] 21.1 Create sitemap generation
     - Implement sitemap.xml generation with all routes
     - Include all static and dynamic routes with locales
@@ -349,7 +349,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Allow all search engines to crawl
     - _Requirements: 1.6_
 
-- [~] 22. Configure Vercel deployment
+- [ ] 22. Configure Vercel deployment
   - [x] 22.1 Set up Vercel configuration
     - Create or update vercel.json with deployment settings
     - Configure environment variables
@@ -362,7 +362,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Ensure all required variables are present at build time
     - _Requirements: 14.5_
 
-- [~] 23. Ensure backward compatibility
+- [ ] 23. Ensure backward compatibility
   - [x] 23.1 Verify URL route preservation
     - Test all legacy URLs work without redirects
     - Ensure bookmarks and external links remain valid
@@ -382,7 +382,7 @@ This plan outlines the migration from React/Vite to Next.js 14+ with App Router,
     - Test asset URLs remain unchanged
     - _Requirements: 15.3_
 
-- [~] 24. Final checkpoint and validation
+- [ ] 24. Final checkpoint and validation
   - Run all unit tests and property tests
   - Perform Lighthouse audit (target score 90+)
   - Validate PWA functionality with offline testing

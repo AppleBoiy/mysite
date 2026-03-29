@@ -15,7 +15,9 @@
     "build:vite": "vite build",
     "test": "vitest --run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "test:seo": "vitest --run tests/seo-validation.test.ts",
+    "check-seo": "node scripts/check-seo.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",
@@ -77,6 +79,7 @@
     "@eslint/js": "^9.19.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
+    "@types/jsdom": "^28.0.1",
     "@types/node": "^22.13.5",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
