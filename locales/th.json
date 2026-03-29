@@ -21,7 +21,10 @@
     "downloadCV": "ดาวน์โหลด CV",
     "metrics": {
       "studentsMentored": "จำนวนนักศึกษาที่ให้คำปรึกษา",
-      "yearsTA": "ปีแห่งประสบการณ์เป็น TA"
+      "yearsTA": "ปีแห่งประสบการณ์เป็น TA",
+      "ragPipelines": "จำนวนไปป์ไลน์ RAG ที่สร้าง",
+  "kgNodes": "จำนวนโหนด KG ที่แมปแล้ว",
+  "adsScenarios": "จำนวนสถานการณ์จำลอง ADS ที่สร้าง"
     }
   },
   "quickSummary": {

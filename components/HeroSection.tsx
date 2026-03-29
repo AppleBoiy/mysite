@@ -40,14 +40,18 @@ export default function HeroSection() {
             </p>
 
             {/* Impact Metrics */}
-            <div className="flex gap-8 mb-8">
+            <div className="flex gap-6 mb-8">
               <div>
-                <div className="text-3xl font-bold text-accent">250+</div>
-                <div className="text-sm text-muted-foreground">{t('hero.metrics.studentsMentored')}</div>
+                <div className="text-3xl font-bold text-accent">5+</div>
+                <div className="text-sm text-muted-foreground">{t('hero.metrics.ragPipelines')}</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-accent">3+</div>
-                <div className="text-sm text-muted-foreground">{t('hero.metrics.yearsTA')}</div>
+                <div className="text-3xl font-bold text-accent">800+</div>
+                <div className="text-sm text-muted-foreground">{t('hero.metrics.kgNodes')}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-accent">10k+</div>
+                <div className="text-sm text-muted-foreground">{t('hero.metrics.adsScenarios')}</div>
               </div>
             </div>
 

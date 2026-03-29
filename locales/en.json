@@ -21,7 +21,10 @@
     "downloadCV": "Download CV",
     "metrics": {
       "studentsMentored": "Students Mentored",
-      "yearsTA": "Years as TA"
+      "yearsTA": "Years as TA",
+      "ragPipelines": "RAG Pipelines Built",
+      "kgNodes": "KG Nodes Mapped",
+      "adsScenarios": "ADS Scenarios Generated"
     }
   },
   "quickSummary": {

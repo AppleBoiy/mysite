@@ -21,7 +21,10 @@
     "downloadCV": "履歴書をダウンロード",
     "metrics": {
       "studentsMentored": "指導した学生数",
-      "yearsTA": "TA経験年数"
+      "yearsTA": "TA経験年数",
+      "ragPipelines": "RAGパイプライン構築数",
+  "kgNodes": "KGノードマッピング数",
+  "adsScenarios": "ADSシナリオ生成数"
     }
   },
   "quickSummary": {

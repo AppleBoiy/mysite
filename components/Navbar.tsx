@@ -120,7 +120,7 @@ export default function Navbar({
     >
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         <Link href={`/${locale}`} className="font-serif text-2xl font-bold text-foreground tracking-tight hover:text-accent transition-colors">
-          Portfolio<span className="text-accent">.</span>
+          CJ<span className="text-accent">.</span>
         </Link>
 
         {/* Desktop */}
@@ -177,7 +177,7 @@ export default function Navbar({
           <LanguageSwitcher />
           <ThemeToggle />
           
-          {/* Show GitHub button on projects page, otherwise show Resume */}
+          {/* Show GitHub button on projects page, Resume button only on non-home pages */}
           {showGithubButton ? (
             <a
               href="https://github.com/AppleBoiy"
@@ -188,7 +188,7 @@ export default function Navbar({
               <Github size={16} />
               {t('projects.visitGithub')}
             </a>
-          ) : !isContactPage && (
+          ) : !isContactPage && !isHomePage && (
             <a
               href="/cv.pdf"
               target="_blank"
@@ -281,7 +281,7 @@ export default function Navbar({
                   </Link>
                 )}
                 
-                {/* Show GitHub button on projects page, otherwise show Resume */}
+                {/* Show GitHub button on projects page, Resume button only on non-home pages */}
                 {showGithubButton ? (
                   <a
                     href="https://github.com/AppleBoiy"
@@ -293,7 +293,7 @@ export default function Navbar({
                     <Github size={16} />
                     {t('projects.visitGithub')}
                   </a>
-                ) : !isContactPage && (
+                ) : !isContactPage && !isHomePage && (
                   <a
                     href="/cv.pdf"
                     target="_blank"
