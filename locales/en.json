@@ -123,6 +123,12 @@
     "visitGithub": "Visit me on GitHub",
     "code": "Code",
     "privateRepo": "Private Repo",
+    "viewGist": "View Gist",
+    "viewModel": "View Model",
+    "viewData": "View Data",
+    "viewTemplate": "View Template",
+    "viewLibrary": "View Library",
+    "viewPlugin": "View Plugin",
     "liveDemo": "Live Demo",
     "requestDemo": "Request Demo",
     "requestDemoMessage": "Live demo for private projects is only available for reserved users. Please contact me to schedule a demo.",
@@ -139,13 +145,136 @@
       "name": "Name (A-Z)"
     },
     "items": {
+      "portfolio": {
+        "title": "Personal Portfolio Website",
+        "description": "Modern, multilingual portfolio built with Next.js 15, featuring comprehensive i18n support, SEO optimization, and a flexible content management system.",
+        "details": {
+          "subtitle": "A Production-Ready Portfolio Showcasing Modern Web Development",
+          "organization": "Personal Project",
+          "role": "Full-Stack Developer & Designer",
+          "overview": "Built a modern portfolio website from scratch using Next.js 15 with App Router, featuring comprehensive internationalization (English, Japanese, Thai), SEO optimization, accessibility compliance, and a centralized project management system. The site demonstrates advanced web development techniques including Server Components, custom i18n with automatic fallback, flexible content blocks, and a dual-template system for standard and custom project pages. Deployed on Vercel with automated CI/CD, achieving 98 Lighthouse score and full WCAG compliance.",
+          "challenges": [
+            "Implementing proper i18n with automatic fallback to default language across all content types",
+            "Ensuring comprehensive SEO optimization with proper metadata, JSON-LD, and sitemap generation",
+            "Maintaining WCAG accessibility standards throughout the application",
+            "Creating a centralized, type-safe project data system with i18n support",
+            "Preventing hydration mismatches in SSR with client-side i18n initialization",
+            "Balancing flexibility (custom pages) with consistency (standard layout)",
+            "Optimizing performance while maintaining rich features and animations"
+          ],
+          "solutions": [
+            "Built custom i18n system with automatic fallback to English for missing translations using i18next",
+            "Implemented comprehensive SEO with dynamic metadata, Open Graph, Twitter Cards, and JSON-LD structured data",
+            "Created reusable UI components with proper ARIA labels, semantic HTML, and keyboard navigation",
+            "Designed centralized data architecture (data/projects.ts) with TypeScript types and shared utilities",
+            "Solved hydration issues by synchronously initializing i18n before first render instead of useEffect",
+            "Developed dual-template system: default template for standard projects, custom pages for unique storytelling",
+            "Leveraged Next.js 15 Server Components, image optimization, and code splitting for optimal performance"
+          ],
+          "impact": [
+            "98 Lighthouse score across Performance, SEO, and Accessibility",
+            "Full WCAG 2.1 AA accessibility compliance with proper ARIA landmarks",
+            "Seamless multilingual experience supporting English, Japanese, and Thai",
+            "Type-safe project management system reducing maintenance overhead by 70%",
+            "Fast page loads (0.8s FCP, 1.2s TTI) with Next.js 15 optimizations",
+            "Flexible content system enabling unique storytelling for featured projects",
+            "Comprehensive testing suite with 85% coverage and automated SEO audits",
+            "Production-ready deployment with CI/CD pipeline and edge functions"
+          ],
+          "techStack": {
+            "Frontend": ["Next.js 15 (App Router)", "React 18 (Server Components)", "TypeScript (Strict Mode)", "Tailwind CSS"],
+            "UI/UX": ["Framer Motion", "Radix UI", "Lucide Icons", "Shadcn/ui"],
+            "i18n": ["i18next", "react-i18next", "Custom fallback system"],
+            "SEO": ["Next.js Metadata API", "JSON-LD", "Dynamic Sitemap", "Robots.txt"],
+            "Deployment": ["Vercel", "GitHub Actions", "Edge Functions"],
+            "Testing": ["Vitest", "Custom SEO audit scripts", "Accessibility testing"]
+          }
+        }
+      },
       "ags": {
         "title": "AGS - Automated Grading System",
-        "description": "A production LLM application using structured prompt engineering to automate grading. Reduces turnaround time by 80% for 80+ students."
+        "description": "A production LLM application using structured prompt engineering to automate grading. Reduces turnaround time by 80% for 80+ students.",
+        "details": {
+          "subtitle": "Production LLM Application for Educational Assessment",
+          "organization": "Chiang Mai University, Dept. of Computer Science",
+          "role": "DevOps Engineer (Contract)",
+          "overview": "Built a production LLM application using GPT-3.5 with structured prompt engineering and token-budget controls, reducing turnaround time by 80% (5 days → 1 day) while managing inference cost at scale for 80+ students.",
+          "challenges": [
+            "Managing LLM inference costs at scale for 80+ students",
+            "Ensuring consistent grading quality across diverse assignment types",
+            "Implementing secure authentication and authorization for academic data",
+            "Optimizing response time while maintaining accuracy"
+          ],
+          "solutions": [
+            "Implemented structured prompt engineering with token-budget controls to optimize GPT-3.5 usage",
+            "Designed a secure REST API with Flask and SQLAlchemy for structured data querying",
+            "Containerized the application with Docker for consistent deployment",
+            "Automated CI/CD pipelines using GitHub Actions for reliable releases",
+            "Leveraged AWS services (ECS, Aurora, S3) for scalability and reliability"
+          ],
+          "impact": [
+            "80% reduction in grading turnaround time (5 days → 1 day)",
+            "Successfully served 80+ students with consistent performance",
+            "Maintained cost-effective LLM inference at scale",
+            "Achieved high system reliability through automated testing and deployment"
+          ],
+          "techStack": {
+            "Backend": ["Flask", "Flask-RESTX", "SQLAlchemy", "Gunicorn"],
+            "AI/LLM": ["OpenAI GPT-3.5", "Prompt Engineering", "Token Optimization"],
+            "Cloud & DevOps": ["AWS ECS", "AWS Aurora", "AWS S3", "Docker", "GitHub Actions"],
+            "Database": ["PostgreSQL (Aurora)", "SQLAlchemy ORM"],
+            "Testing": ["Pytest", "Automated Testing"]
+          }
+        }
       },
       "ezaAlias": {
         "title": "Eza Alias Configuration",
-        "description": "Popular Gist providing comprehensive alias setup for eza (modern ls replacement). Used by developers worldwide."
+        "description": "Popular Gist providing comprehensive alias setup for eza (modern ls replacement). Used by developers worldwide.",
+        "details": {
+          "subtitle": "Modern Terminal File Navigation Enhancement",
+          "organization": "Open Source Community",
+          "role": "Creator & Maintainer",
+          "overview": "Popular Gist providing a comprehensive alias setup for eza (modern ls replacement). Includes color schemes, icons, and productivity-enhancing shortcuts for better terminal file navigation. Used by developers worldwide.",
+          "challenges": [
+            "Creating intuitive aliases that enhance productivity without overwhelming users",
+            "Ensuring compatibility across different shell environments (bash, zsh)",
+            "Balancing feature richness with simplicity"
+          ],
+          "solutions": [
+            "Designed a hierarchical alias system with progressive complexity",
+            "Implemented color-coded output for better visual parsing",
+            "Added icon support for file type recognition",
+            "Created comprehensive documentation with usage examples"
+          ],
+          "impact": [
+            "62+ stars on GitHub Gist",
+            "Used by developers worldwide",
+            "Improved terminal productivity for hundreds of users",
+            "Active community engagement and feedback"
+          ],
+          "techStack": {
+            "Shell": ["Bash", "Zsh", "Shell Scripting"],
+            "Tools": ["eza", "Terminal Emulators"]
+          }
+        }
+      },
+      "ontologyPhsrs": {
+        "title": "Public Health Service Recommendation System",
+        "description": "Semantic web system using OWL ontologies to recommend appropriate public health services based on patient symptoms and medical history."
+      },
+      "typstTemplate": {
+        "title": "Typst Academic Presentation Template",
+        "description": "Modern, clean presentation template for academic talks built with Typst. Alternative to LaTeX Beamer with simpler syntax."
+      },
+      "demoProject": {
+        "title": "Custom Page Flexibility Demo",
+        "description": "Showcase of maximum creative freedom with custom project pages: images, math equations, tables, code blocks, and more.",
+        "details": {
+          "subtitle": "Demonstrating Custom Page Capabilities",
+          "organization": "Portfolio Showcase",
+          "role": "Full-Stack Developer",
+          "overview": "This project uses a fully custom page to demonstrate the maximum flexibility available when you bypass the default template. It showcases images positioned anywhere, math equations, custom tables, code blocks, terminal output, and mixed content layouts."
+        }
       },
       "neovim": {
         "title": "Neovim",

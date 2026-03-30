@@ -1,225 +1,365 @@
 {
   "nav": {
-    "about": "プロフィール",
+    "about": "概要",
     "experience": "経歴",
-    "academic": "学術活動",
+    "academic": "研究・学術",
     "projects": "プロジェクト",
     "skills": "スキル",
-    "contact": "お問い合わせ",
-    "getInTouch": "連絡する",
+    "contact": "コンタクト",
+    "getInTouch": "お問い合わせ",
     "backToHome": "ホームへ戻る",
     "resume": "履歴書"
   },
   "hero": {
-    "subtitle": "情報科学専攻 ＆ 応用LLMエンジニア",
-    "description": "LLMシステム、RAGパイプライン、バックエンド開発において研究および実務経験を持つ、情報科学専攻の最終学年生。チェンマイ大学（CMU）でプロダクションレベルのシステムを構築し、北陸先端科学技術大学院大学（JAIST）との共同研究に貢献。",
-    "university": "チェンマイ大学",
+    "subtitle": "CS専攻の学生 兼 Applied LLM Engineer",
+    "description": "LLMシステム、RAGパイプライン、バックエンド開発における研究および実務経験を持つ、計算機科学（CS）専攻の最終学年。Chiang Mai Universityでの実運用システムの構築や、JAISTでの共同研究に貢献しています。",
+    "university": "Chiang Mai University",
     "location": "タイ、チェンマイ",
     "viewWork": "実績を見る",
     "contactMe": "お問い合わせ",
     "requestCV": "履歴書をリクエスト",
     "downloadCV": "履歴書をダウンロード",
     "metrics": {
-      "studentsMentored": "指導した学生数",
-      "yearsTA": "TA経験年数",
-      "ragPipelines": "RAGパイプライン構築数",
-  "kgNodes": "KGノードマッピング数",
-  "adsScenarios": "ADSシナリオ生成数"
+      "studentsMentored": "メンターを担当した学生数",
+      "yearsTA": "TA歴（年）",
+      "ragPipelines": "構築したRAGパイプライン",
+      "kgNodes": "マッピングしたKGノード",
+      "adsScenarios": "生成したADSシナリオ"
     }
   },
   "quickSummary": {
     "experience": "経験",
     "specialization": "専門分野",
     "achievement": "主な実績",
-    "availability": "就業状況",
-    "availableNow": "就業可能",
+    "availability": "現在の状況",
+    "availableNow": "稼働可能",
     "keySkills": "主要スキル",
     "downloadCV": "履歴書をダウンロード"
   },
   "about": {
-    "title": "プロフィール",
-    "heading": "非構造化データのためのインテリジェントシステムの構築",
-    "paragraph1": "大規模言語モデル（LLM）とナレッジグラフの融合領域を専門とし、無秩序で非構造化されたデータから意味を抽出するシステムの構築に注力しています。単なるAPIラッパーにとどまらず、実際のビジネス上の課題を解決するAIソリューションを開発することを目指しています。",
-    "paragraph2": "応用LLMエンジニアとして初期ステージのチームで成長し、自身のスキルを学び発展させながら、革新的なAI製品の構築に貢献したいと考えています。",
+    "title": "私について",
+    "heading": "非構造化データから価値を生み出す、インテリジェントシステムの構築",
+    "paragraph1": "Large Language Models（LLM）とKnowledge Graphsの交差点に専門性を持ち、混沌とした非構造化データから意味を抽出するシステムの構築に注力しています。単なるAPIラッパーにとどまらず、実際のビジネスロジックや課題を解決するためのAIソリューションをエンジニアリングすることが私の目標です。",
+    "paragraph2": "現在は、アーリーステージのチームでApplied LLM Engineerとして成長できる環境を探しています。革新的なAIプロダクトの開発に貢献しながら、自身のスキルを継続的に磨いていきたいと考えています。",
     "certifications": "資格",
     "certificationsAndHonors": "資格・受賞歴",
     "viewCertificate": "証明書を見る",
-    "hoverToFlip": "ホバーして詳細を表示",
+    "hoverToFlip": "ホバーして詳細を見る",
     "skillsCovered": "習得スキル",
-    "verifyCertificate": "証明書を検証"
+    "verifyCertificate": "証明書を確認する"
   },
   "skills": {
-    "title": "専門知識",
-    "heading": "スキルと",
+    "title": "専門性",
+    "heading": "スキル &",
     "headingItalic": "コンピテンシー"
   },
   "experience": {
     "title": "経歴",
-    "heading": "職歴と",
-    "headingItalic": "研究実績",
-    "work": "職歴",
+    "heading": "実務・",
+    "headingItalic": "研究経験",
+    "work": "実務",
     "research": "研究",
     "showMore": "詳細を表示",
-    "showLess": "閉じる",
-  "items": {
-    "jaist": {
-      "title": "AI/ML リサーチインターン",
-      "organization": "JAIST KnOWLab",
-      "location": "石川県能美市",
-      "period": "2025年4月 — 2025年9月",
-      "bullets": [
-        "LLMベースの情報抽出のためのプロンプトエンジニアリングパイプライン（DoC）を構築し、従来の手法より68%の精度向上を実現",
-        "大規模なLLM出力のテストとデバッグを実施し、ドメイン制約を適用して不自然な回答をフィルタリング",
-        "非構造化ドキュメントからの構造化データの自動生成において、100%の精度を達成"
-      ]
-    },
-    "french": {
-      "title": "バックエンド開発者（業務委託）",
-      "organization": "チェンマイ大学 西洋言語学科（フランス語）",
-      "location": "タイ、チェンマイ",
-      "period": "2024年4月 — 2025年3月",
-      "bullets": [
-        "インタラクティブなレッスンと個別指導を統合したフランス語学習プラットフォームを開発",
-        "データベース管理、APIエンドポイント、サーバー構成を含むバックエンドインフラストラクチャを構築"
-      ]
-    },
-    "ags": {
-      "title": "DevOpsエンジニア（業務委託）",
-      "organization": "チェンマイ大学 情報科学科",
-      "location": "タイ、チェンマイ",
-      "period": "2024年6月 — 2024年12月",
-      "bullets": [
-        "構造化プロンプトエンジニアリングを備えたGPT-3.5を使用して、プロダクションレベルのLLMアプリケーションを構築",
-        "推論コストを管理しつつ、80名以上の学生の採点ターンアラウンドタイムを80%削減（5日 → 1日）",
-        "FlaskとSQLAlchemyでセキュアなREST APIを設計・デプロイし、Dockerでコンテナ化",
-        "AWS（ECS、Aurora、S3）上でGitHub ActionsによるCI/CDデプロイメントを自動化"
-      ]
-    },
-    "ta": {
-      "title": "ティーチングアシスタント (TA)",
-      "organization": "チェンマイ大学",
-      "location": "タイ、チェンマイ",
-      "period": "2022年8月 — 2025年3月",
-      "bullets": [
-        "50名以上の学部生に対し、Pythonプログラミングのコアコンセプトとベストプラクティスを指導",
-        "開発ツールへのスムーズなアクセスを確保するため、包括的なソフトウェアセットアップガイドを作成"
-      ]
-    },
-    "cmu": {
-      "title": "情報科学 学士",
-      "organization": "チェンマイ大学",
-      "location": "タイ、チェンマイ",
-      "period": "2021年 — 2025年"
+    "showLess": "詳細を隠す",
+    "items": {
+      "jaist": {
+        "title": "AI/ML Research Intern",
+        "organization": "KnOWLab Research Lab, 北陸先端科学技術大学院大学",
+        "location": "石川県能美市、日本",
+        "period": "2025年4月 — 2025年9月",
+        "bullets": [
+          "LLMベースの情報抽出に向けたプロンプトエンジニアリングパイプライン（DoC）を構築し、最先端（State-of-the-art）モデルと比較して68%の精度向上を達成",
+          "大規模なLLM出力のテストとデバッグを実施。ドメイン制約を適用し、非現実的な応答をフィルタリング",
+          "非構造化ドキュメントから構造化データへの自動変換システムにおいて、100%の精度を実現"
+        ]
+      },
+      "french": {
+        "title": "Backend Developer (Contract)",
+        "organization": "Chiang Mai University, Dept. of Western Languages (French)",
+        "location": "タイ、チェンマイ",
+        "period": "2024年4月 — 2025年3月",
+        "bullets": [
+          "インタラクティブなレッスンとパーソナライズされた指導を統合した、フランス語学習プラットフォームを開発",
+          "データベース管理、APIエンドポイント、サーバー構成を含むバックエンドインフラストラクチャの構築"
+        ]
+      },
+      "ags": {
+        "title": "DevOps (Contract)",
+        "organization": "Chiang Mai University, Dept. of Computer Science",
+        "location": "タイ、チェンマイ",
+        "period": "2024年6月 — 2024年12月",
+        "bullets": [
+          "構造化されたプロンプトエンジニアリングを活用し、GPT-3.5を用いたプロダクションレベルのLLMアプリケーションを構築",
+          "推論コストを管理しつつ、80名以上の学生の採点作業にかかる時間を80%削減（5日から1日に短縮）",
+          "FlaskとSQLAlchemyを使用して安全なREST APIを設計・デプロイし、Dockerでコンテナ化を実施",
+          "AWS（ECS、Aurora、S3）上でGitHub Actionsを用いたCI/CDによる自動デプロイ環境を構築"
+        ]
+      },
+      "ta": {
+        "title": "Teaching Assistant",
+        "organization": "Chiang Mai University",
+        "location": "タイ、チェンマイ",
+        "period": "2022年8月 — 2025年3月",
+        "bullets": [
+          "50名以上の学部生に対し、Pythonプログラミングのコアコンセプトやベストプラクティスを指導",
+          "開発ツールへのスムーズなアクセスを確保するため、包括的なソフトウェアセットアップガイドを執筆"
+        ]
+      },
+      "cmu": {
+        "title": "B.Sc. Computer Science",
+        "organization": "Chiang Mai University",
+        "location": "タイ、チェンマイ",
+        "period": "2021年 — 2025年"
+      }
     }
-  }
   },
   "projects": {
     "title": "プロジェクト",
-    "heading": "ピックアップ",
+    "heading": "注目の",
     "headingItalic": "プロジェクト",
-    "description": "GitHubのオープンソースプロジェクトや実験的な開発のセレクション。",
-    "viewAllGithub": "GitHubですべて見る",
+    "description": "GitHubから厳選したオープンソースプロジェクトや実験的な取り組みをご紹介します。",
+    "viewAllGithub": "GitHubで全て見る",
     "viewAllProjects": "すべてのプロジェクトを見る",
-    "visitGithub": "GitHubを見る",
+    "visitGithub": "GitHubへアクセス",
     "code": "コード",
-    "privateRepo": "プライベートリポジトリ",
+    "privateRepo": "非公開リポジトリ",
+    "viewGist": "Gistを見る",
+    "viewModel": "モデルを見る",
+    "viewData": "データを見る",
+    "viewTemplate": "テンプレートを見る",
+    "viewLibrary": "ライブラリを見る",
+    "viewPlugin": "プラグインを見る",
     "liveDemo": "ライブデモ",
     "requestDemo": "デモをリクエスト",
-    "requestDemoMessage": "プライベートプロジェクトのライブデモは、承認されたユーザーのみ利用可能です。デモの日程調整についてはお問い合わせください。",
+    "requestDemoMessage": "プライベートプロジェクトのライブデモは、ご予約いただいた方のみご案内しております。スケジュール調整のためご連絡ください。",
     "search": "プロジェクトを検索...",
-    "noResults": "プロジェクトが見つかりません",
-    "noResultsDescription": "検索条件を変更するか、すべてのプロジェクトをご覧ください。",
-    "emptyState": "プロジェクトがまだありません",
-    "emptyStateDescription": "新しいプロジェクトは近日公開予定です。",
-    "activeFilters": "適用中のフィルター",
+    "noResults": "プロジェクトが見つかりませんでした",
+    "noResultsDescription": "検索キーワードを変更するか、すべてのプロジェクトをご覧ください",
+    "emptyState": "プロジェクトがありません",
+    "emptyStateDescription": "新しいプロジェクトやコントリビューションが間もなく追加されます",
+    "activeFilters": "有効なフィルター",
     "clearAll": "すべてクリア",
     "sort": {
-      "recent": "新着順",
-      "stars": "スター順",
-      "name": "名前 (A-Z)"
+      "recent": "最新順",
+      "stars": "スター数順",
+      "name": "名前順 (A-Z)"
     },
     "items": {
+      "portfolio": {
+        "title": "Personal Portfolio Website",
+        "description": "Next.js 15で構築された多言語対応のモダンなポートフォリオ。包括的なi18nサポート、SEO最適化、柔軟なコンテンツ管理システムを備えています。",
+        "details": {
+          "subtitle": "モダンなWeb開発の技術を結集したプロダクションレベルのポートフォリオ",
+          "organization": "Personal Project",
+          "role": "Full-Stack Developer & Designer",
+          "overview": "Next.js 15とApp Routerを使用し、モダンなポートフォリオサイトをゼロから構築しました。完全な多言語対応（英語、日本語、タイ語）、SEO最適化、アクセシビリティ（WCAG）準拠、そして一元化されたプロジェクトデータ管理システムを備えています。Server Components、自動フォールバック付きのカスタムi18n、柔軟なコンテンツブロック、そして標準・カスタム用のデュアルテンプレートシステムなど、高度なWeb開発手法を採用しています。Vercel上でCI/CDを自動化してデプロイし、Lighthouseで98点を獲得しています。",
+          "challenges": [
+            "すべてのコンテンツタイプにおいて、デフォルト言語への自動フォールバックを備えた適切なi18nの実装",
+            "メタデータ、JSON-LD、サイトマップの動的生成による包括的なSEO最適化の実現",
+            "アプリケーション全体でのWCAGアクセシビリティ基準の維持",
+            "i18nをサポートする、型安全かつ一元化されたプロジェクトデータシステムの構築",
+            "SSR時のHydrationエラーを防ぐための、クライアントサイドでのi18n初期化処理",
+            "柔軟性（カスタムページ）と一貫性（標準レイアウト）のバランスの確保",
+            "リッチな機能とアニメーションを維持しながらのパフォーマンス最適化"
+          ],
+          "solutions": [
+            "i18nextを使用し、翻訳が欠落している場合に自動的に英語にフォールバックするカスタムi18nシステムを構築",
+            "動的メタデータ、Open Graph、Twitter Cards、JSON-LD構造化データによる徹底的なSEO対策",
+            "適切なARIAラベル、セマンティックHTML、キーボードナビゲーションを備えた再利用可能なUIコンポーネントの作成",
+            "TypeScriptの型定義と共有ユーティリティを用いた、一元化されたデータアーキテクチャ（data/projects.ts）の設計",
+            "useEffectの代わりに初回レンダリング前にi18nを同期的に初期化することで、Hydrationの問題を解決",
+            "一般的なプロジェクト向けの標準テンプレートと、独自の見せ方ができるカスタムページのデュアルテンプレートシステムを開発",
+            "Next.js 15のServer Components、画像最適化、コード分割を活用し、パフォーマンスを最大化"
+          ],
+          "impact": [
+            "パフォーマンス、SEO、アクセシビリティの各項目でLighthouseスコア98を達成",
+            "適切なARIAランドマークにより、WCAG 2.1 AAアクセシビリティ基準に完全準拠",
+            "英語、日本語、タイ語をサポートするシームレスな多言語体験の提供",
+            "型安全なプロジェクト管理システムにより、保守作業の負担を70%削減",
+            "Next.js 15の最適化による高速なページ読み込み（0.8秒のFCP、1.2秒のTTI）",
+            "注目のプロジェクトを独自に表現できる柔軟なコンテンツシステムの実現",
+            "85%のテストカバレッジと自動化されたSEO監査を備えた包括的なテストスイート",
+            "CI/CDパイプラインとEdge Functionsを活用した本番環境へのデプロイ"
+          ],
+          "techStack": {
+            "Frontend": ["Next.js 15 (App Router)", "React 18 (Server Components)", "TypeScript (Strict Mode)", "Tailwind CSS"],
+            "UI/UX": ["Framer Motion", "Radix UI", "Lucide Icons", "Shadcn/ui"],
+            "i18n": ["i18next", "react-i18next", "Custom fallback system"],
+            "SEO": ["Next.js Metadata API", "JSON-LD", "Dynamic Sitemap", "Robots.txt"],
+            "Deployment": ["Vercel", "GitHub Actions", "Edge Functions"],
+            "Testing": ["Vitest", "Custom SEO audit scripts", "Accessibility testing"]
+          }
+        }
+      },
       "ags": {
-        "title": "AGS - 自動採点システム",
-        "description": "構造化プロンプトエンジニアリングを使用して採点を自動化するプロダクションLLMアプリケーション。80名以上の学生のターンアラウンドタイムを80%短縮。"
+        "title": "AGS - Automated Grading System",
+        "description": "構造化プロンプトエンジニアリングを活用して採点を自動化する、プロダクションレベルのLLMアプリケーション。80名以上の学生に対する採点時間を80%削減。",
+        "details": {
+          "subtitle": "教育評価のためのプロダクションレベルLLMアプリケーション",
+          "organization": "Chiang Mai University, Dept. of Computer Science",
+          "role": "DevOps Engineer (Contract)",
+          "overview": "GPT-3.5と構造化プロンプトエンジニアリング、およびトークン予算制御を用いた実運用LLMアプリケーションを構築しました。80名以上の学生に対する推論コストを適切に管理しながら、採点にかかるターンアラウンドタイムを80%（5日から1日へ）短縮することに成功しました。",
+          "challenges": [
+            "80名以上の学生に対応するためのLLM推論コストの管理",
+            "多様な課題形式においても一貫した採点品質を確保すること",
+            "学術データを扱うための安全な認証・認可基盤の実装",
+            "高い精度を維持したまま応答速度を最適化すること"
+          ],
+          "solutions": [
+            "トークン予算制御を備えた構造化プロンプトエンジニアリングを実装し、GPT-3.5の利用を最適化",
+            "構造化データのクエリを処理するため、FlaskとSQLAlchemyによるセキュアなREST APIを設計",
+            "一貫性のあるデプロイメントを実現するため、Dockerでアプリケーションをコンテナ化",
+            "GitHub Actionsを用いたCI/CDパイプラインにより、信頼性の高いリリースを自動化",
+            "スケーラビリティと可用性を確保するため、AWSサービス（ECS、Aurora、S3）を活用"
+          ],
+          "impact": [
+            "採点のターンアラウンドタイムを80%削減（5日から1日へ）",
+            "80名以上の学生に対し、一貫したパフォーマンスで安定的にサービスを提供",
+            "大規模環境下においてもコスト効率の高いLLM推論を維持",
+            "自動テストとデプロイメントにより、高いシステムの信頼性を実現"
+          ],
+          "techStack": {
+            "Backend": ["Flask", "Flask-RESTX", "SQLAlchemy", "Gunicorn"],
+            "AI/LLM": ["OpenAI GPT-3.5", "Prompt Engineering", "Token Optimization"],
+            "Cloud & DevOps": ["AWS ECS", "AWS Aurora", "AWS S3", "Docker", "GitHub Actions"],
+            "Database": ["PostgreSQL (Aurora)", "SQLAlchemy ORM"],
+            "Testing": ["Pytest", "Automated Testing"]
+          }
+        }
       },
       "ezaAlias": {
-        "title": "Eza エイリアス設定",
-        "description": "eza（次世代lsコマンド）の包括的なエイリアス設定を提供する人気のGist。世界中の開発者に利用されています。"
+        "title": "Eza Alias Configuration",
+        "description": "eza（モダンなlsの代替ツール）の包括的なエイリアス設定を提供する人気のGist。世界中の開発者に利用されています。",
+        "details": {
+          "subtitle": "モダンなターミナルファイルナビゲーションの強化",
+          "organization": "Open Source Community",
+          "role": "Creator & Maintainer",
+          "overview": "eza（モダンなls代替）のための包括的なエイリアス設定を提供する人気のGistです。ターミナルでのファイル操作を向上させるためのカラースキーム、アイコン、生産性を高めるショートカットが含まれており、世界中の開発者に活用されています。",
+          "challenges": [
+            "ユーザーを混乱させることなく生産性を向上させる、直感的なエイリアスの作成",
+            "異なるシェル環境（bash、zsh）間の互換性の確保",
+            "豊富な機能とシンプルさのバランスの調整"
+          ],
+          "solutions": [
+            "段階的な複雑さを持つ階層的なエイリアスシステムを設計",
+            "視覚的な判読性を高めるための色分け出力の実装",
+            "ファイルタイプを認識しやすくするためのアイコンサポートの追加",
+            "使用例を含む包括的なドキュメントの作成"
+          ],
+          "impact": [
+            "GitHub Gistで62以上のスターを獲得",
+            "世界中の開発者によって使用されている実績",
+            "何百人ものユーザーのターミナルにおける生産性を向上",
+            "コミュニティからの活発なフィードバックとエンゲージメントの創出"
+          ],
+          "techStack": {
+            "Shell": ["Bash", "Zsh", "Shell Scripting"],
+            "Tools": ["eza", "Terminal Emulators"]
+          }
+        }
+      },
+      "ontologyPhsrs": {
+        "title": "Public Health Service Recommendation System",
+        "description": "患者の症状と病歴に基づいて適切な公衆衛生サービスを推奨する、OWLオントロジーを用いたセマンティックWebシステム。"
+      },
+      "typstTemplate": {
+        "title": "Typst Academic Presentation Template",
+        "description": "Typstで構築された、学術講演向けのクリーンでモダンなプレゼンテーション用テンプレート。LaTeX Beamerよりもシンプルな構文で記述できる代替ツールです。"
+      },
+      "demoProject": {
+        "title": "Custom Page Flexibility Demo",
+        "description": "画像、数式、テーブル、コードブロックなどを活用した、カスタムプロジェクトページの最大限の自由度を示すデモ。",
+        "details": {
+          "subtitle": "カスタムページの機能デモンストレーション",
+          "organization": "Portfolio Showcase",
+          "role": "Full-Stack Developer",
+          "overview": "このプロジェクトは、デフォルトのテンプレートを使用せずに完全なカスタムページを用いることで、いかに自由な表現が可能かを示すデモです。任意の位置に配置された画像、数式、カスタムテーブル、コードブロック、ターミナル出力、および複合的なコンテンツレイアウトを披露しています。"
+        }
       },
       "neovim": {
         "title": "Neovim",
-        "description": "Neovim（拡張性とユーザビリティに焦点を当てた最新機能を持つVimフォーク）のコントリビューター。"
+        "description": "Neovimのコントリビューター。モダンな機能を備え、拡張性と使いやすさに焦点を当てたVimのフォークプロジェクト。"
       },
       "flaskSecurity": {
         "title": "Flask-Security",
-        "description": "Flask-Security（Flaskアプリケーションのセキュリティを迅速かつ簡単に構築するライブラリ）のコントリビューター。"
+        "description": "Flask-Securityのコントリビューター。Flaskアプリケーションに対して、一般的で迅速かつシンプルなセキュリティパターンを提供。"
       }
     }
   },
   "publications": {
-    "title": "学術",
+    "title": "学術活動",
     "heading": "研究 &",
     "headingItalic": "論文",
     "download": "ダウンロード",
     "viewRepo": "リポジトリを見る",
     "downloadPDF": "PDFをダウンロード",
-    "draftAvailable": "要望に応じてドラフト提供可能",
-    "emptyState": "出版物がまだありません",
-    "emptyStateDescription": "学術的な貢献が公開され次第、ここに掲載されます。",
+    "draftAvailable": "ドラフト版の提供が可能",
+    "emptyState": "まだ論文はありません",
+    "emptyStateDescription": "発表された学術論文や研究成果は、順次こちらに掲載されます",
     "languages": {
       "Thai": "タイ語",
       "English": "英語",
       "Japanese": "日本語"
+    },
+    "items": {
+      "kg-rag-jaist": {
+        "tldr": "Knowledge Graphsとオントロジーを活用し、自動運転システム（ADS）の重要な安全性評価シナリオを自動生成。"
+      },
+      "ontology-phsrs": {
+        "tldr": "患者の症状と病歴に基づいて適切な公衆衛生サービスを推奨する、OWLオントロジーを用いたセマンティックWebシステムを構築。"
+      },
+      "cs-setup-guide": {
+        "tldr": "250名以上のCS専攻学生の開発環境構築を支援する包括的なドキュメントを作成し、セットアップにかかる時間を数日から数時間に短縮。"
+      }
     }
   },
   "contact": {
-    "title": "お問い合わせ",
-    "heading": "連絡を",
-    "headingItalic": "取りましょう",
-    "description": "コラボレーションに興味がある、または質問がありますか？ぜひご連絡ください。",
-    "findMeOnline": "オンラインで見つける",
+    "title": "コンタクト",
+    "heading": "ぜひ",
+    "headingItalic": "お話ししましょう",
+    "description": "協業のご提案やご質問など、いつでもお気軽にご連絡ください。",
+    "findMeOnline": "その他のオンラインリンク",
     "sendMessage": "メッセージを送信",
     "cvRequestForm": "履歴書リクエストフォーム",
-    "cvRequestTemplate": "こんにちは。あなたの履歴書（CV）をリクエストします。ご都合の良い時に共有していただけますと幸いです。",
-    "cvRequestNote": "以下の詳細をご記入ください。24時間以内にメールで直接履歴書をお送りします。",
+    "cvRequestTemplate": "はじめまして。履歴書（CV）を拝見したく、ご連絡いたしました。ご都合の良い時にご共有いただけますと幸いです。",
+    "cvRequestNote": "以下の詳細をご記入ください。24時間以内にEメールで直接履歴書をお送りします。",
     "yourName": "お名前",
     "yourEmail": "メールアドレス",
     "yourMessage": "メッセージ",
     "sending": "送信中...",
-    "sendMessageBtn": "メッセージを送信",
-    "messageSent": "メッセージを送信しました！折り返しご連絡いたします。",
-    "messageFailed": "メッセージの送信に失敗しました。もう一度お試しいただくか、直接メールでご連絡ください。",
+    "sendMessageBtn": "送信",
+    "messageSent": "メッセージが送信されました！折り返しご連絡いたします。",
+    "messageFailed": "メッセージの送信に失敗しました。もう一度お試しいただくか、直接メールでお問い合わせください。",
     "copyEmail": "メールアドレスをコピー",
-    "emailCopied": "メールアドレスをクリップボードにコピーしました！",
-    "emailCopyFailed": "メールのコピーに失敗しました",
+    "emailCopied": "クリップボードにコピーしました！",
+    "emailCopyFailed": "コピーに失敗しました",
     "keyboardHint": "⌘/Ctrl + Enter で送信",
-    "categoryLabel": "お問い合わせ内容",
-    "categoryPlaceholder": "お問い合わせの理由を選択してください...",
+    "categoryLabel": "お問い合わせの種類",
+    "categoryPlaceholder": "目的を選択してください...",
     "categories": {
       "hiring": {
         "label": "採用 / 求人について",
         "subject": "採用に関するお問い合わせ",
-        "message": "こんにちは。採用の機会についてご連絡いたしました。あなたと一緒に働くことや、あなたのスキルが私たちのチームにどのように貢献できるかについて詳しくお話を伺いたいです。"
+        "message": "はじめまして。採用ポジションについてご連絡いたしました。貴社での業務内容や、私のスキルがチームにどのように貢献できるかについて、ぜひ詳しくお話を伺えればと存じます。"
       },
       "collaboration": {
-        "label": "コラボレーション / 提携",
-        "subject": "コラボレーションの提案",
-        "message": "こんにちは。プロジェクトでのコラボレーションに興味があります。一緒に素晴らしいものを作る機会について、ぜひお話ししたいです。"
+        "label": "協業 / パートナーシップ",
+        "subject": "協業のご提案",
+        "message": "はじめまして。プロジェクトでの協業に関心がありご連絡いたしました。素晴らしいものを共に創り上げる機会について、ぜひお話しできれば幸いです。"
       },
       "question": {
-        "label": "質問 / 相談",
-        "subject": "質問・ご相談",
-        "message": "こんにちは。あなたの取り組みについて質問があります。このトピックに関するあなたの知見や専門知識をお伺いしたいです。"
+        "label": "ご質問 / 相談",
+        "subject": "ご質問",
+        "message": "はじめまして。あなたのプロジェクトや実績についてご質問があります。この分野における知見や専門的なアドバイスをいただければ幸いです。"
       },
       "other": {
         "label": "その他",
-        "subject": "一般的なお問い合わせ"
+        "subject": "その他のお問い合わせ"
       }
     },
     "successState": {
-      "title": "メッセージが正常に送信されました！",
-      "description": "24時間以内に返信いたします。"
+      "title": "メッセージが送信されました！",
+      "description": "24時間以内にご返信いたします。"
     },
     "socialTooltip": {
       "clickToCopy": "クリックしてコピー",
@@ -228,39 +368,39 @@
   },
   "contactPage": {
     "hero": {
-      "title": "一緒にお仕事をしましょう",
-      "description": "プロジェクトの構想がある方、コラボレーションをご希望の方、あるいは単にご挨拶など、新しい機会や対話をいつでも歓迎しています。"
+      "title": "Let's Work Together",
+      "description": "新しいプロジェクトのアイデアがある方、協業をご希望の方、あるいは単に挨拶を交わしたい方など、いつでも新しい機会や対話を歓迎しています。"
     },
     "cvRequest": {
       "title": "履歴書をリクエスト",
-      "description": "私の詳細な履歴書にご興味をお持ちですか？下記からメッセージをお送りいただければ、直接履歴書を共有いたします。",
+      "description": "詳細な履歴書にご関心がありますか？ 以下のフォームからご連絡いただければ、直接CVを共有させていただきます。",
       "badge": "履歴書リクエスト",
       "button": "リクエストフォームへ"
     },
     "responseTime": {
-      "title": "返信時間",
+      "title": "返答時間の目安",
       "value": "24時間以内"
     },
     "location": {
-      "title": "所在地",
-      "value": "タイ、チェンマイ (GMT+7)"
+      "title": "拠点",
+      "value": "タイ、チェンマイ（GMT+7）"
     }
   },
   "availability": {
-    "banner": "現在、就業機会を探しています！応用LLMエンジニアのポジションを希望。",
-    "bannerShort": "就業可能です！応用LLMエンジニアのポジションを探しています。",
-    "badge": "就業可能",
-    "badgeShort": "就業可能",
-    "available": "就業可能",
-    "tooltip": "新しい機会を受け付けています"
+    "banner": "現在、新しい機会を積極的に探しています！Applied LLM Engineerとしてのポジションを希望しています。",
+    "bannerShort": "稼働可能です！Applied LLM Engineerのポジションを探しています。",
+    "badge": "新しいオファーを歓迎",
+    "badgeShort": "稼働可能",
+    "available": "Available",
+    "tooltip": "新しい機会を探しています"
   },
   "footer": {
     "rights": "無断転載を禁じます。",
-    "builtWith": "React & Tailwind CSS で構築"
+    "builtWith": "React と Tailwind CSS で構築されています"
   },
   "notFound": {
     "title": "ページが見つかりません",
-    "description": "お探しのページは存在しないか、移動した可能性があります。元の場所に戻りましょう。",
+    "description": "お探しのページは存在しないか、移動した可能性があります。ホームに戻ってやり直しましょう。",
     "goHome": "ホームページへ戻る",
     "goBack": "前に戻る",
     "quickLinks": "クイックリンク"
@@ -268,11 +408,11 @@
   "breadcrumbs": {
     "home": "ホーム",
     "projects": "プロジェクト",
-    "publications": "学術活動"
+    "publications": "学術論文"
   },
   "share": {
-    "share": "共有",
-    "shared": "共有しました！",
+    "share": "シェア",
+    "shared": "シェアに成功しました！",
     "copyLink": "リンクをコピー",
     "copied": "コピーしました！",
     "linkCopied": "リンクをコピーしました！",
@@ -292,7 +432,7 @@
     "switchToDark": "ダークモードに切り替え"
   },
   "accessibility": {
-    "navigatedTo": "{{page}}に移動しました",
+    "navigatedTo": "{{page}} へ移動しました",
     "skipToContent": "メインコンテンツへスキップ",
     "mainContent": "メインコンテンツ"
   }

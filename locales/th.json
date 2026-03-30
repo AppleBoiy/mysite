@@ -1,236 +1,365 @@
 {
   "nav": {
-    "about": "เกี่ยวกับฉัน",
+    "about": "เกี่ยวกับ",
     "experience": "ประสบการณ์",
     "academic": "วิชาการ",
     "projects": "โปรเจกต์",
     "skills": "ทักษะ",
     "contact": "ติดต่อ",
     "getInTouch": "ติดต่อฉัน",
-    "backToHome": "กลับหน้าแรก",
+    "backToHome": "กลับหน้าหลัก",
     "resume": "เรซูเม่"
   },
   "hero": {
     "subtitle": "นักศึกษา CS & Applied LLM Engineer",
-    "description": "นักศึกษาวิทยาการคอมพิวเตอร์ชั้นปีสุดท้ายที่มีประสบการณ์ทั้งด้านงานวิจัยและอุตสาหกรรมในการพัฒนาระบบ LLM, RAG pipelines และวิศวกรรม Backend สร้างระบบ Production ที่ มช. (CMU) และมีส่วนร่วมในงานวิจัยร่วมกับ JAIST",
-    "university": "มหาวิทยาลัยเชียงใหม่",
+    "description": "นักศึกษาปีสุดท้ายสาขาวิทยาการคอมพิวเตอร์ (CS) มีประสบการณ์ด้านการวิจัยและอุตสาหกรรมในระบบ LLM, RAG pipelines และ Backend Engineering พัฒนาระบบที่ใช้งานจริงที่ Chiang Mai University และร่วมวิจัยที่ JAIST",
+    "university": "Chiang Mai University",
     "location": "เชียงใหม่, ประเทศไทย",
     "viewWork": "ดูผลงานของฉัน",
     "contactMe": "ติดต่อฉัน",
     "requestCV": "ขอ CV",
     "downloadCV": "ดาวน์โหลด CV",
     "metrics": {
-      "studentsMentored": "จำนวนนักศึกษาที่ให้คำปรึกษา",
-      "yearsTA": "ปีแห่งประสบการณ์เป็น TA",
-      "ragPipelines": "จำนวนไปป์ไลน์ RAG ที่สร้าง",
-  "kgNodes": "จำนวนโหนด KG ที่แมปแล้ว",
-  "adsScenarios": "จำนวนสถานการณ์จำลอง ADS ที่สร้าง"
+      "studentsMentored": "นักศึกษาที่ให้คำปรึกษา",
+      "yearsTA": "ปีที่เป็นผู้ช่วยสอน (TA)",
+      "ragPipelines": "RAG Pipelines ที่พัฒนา",
+      "kgNodes": "KG Nodes ที่ทำแผนที่",
+      "adsScenarios": "ADS Scenarios ที่สร้าง"
     }
   },
   "quickSummary": {
     "experience": "ประสบการณ์",
     "specialization": "ความเชี่ยวชาญ",
-    "achievement": "ความสำเร็จที่สำคัญ",
+    "achievement": "ผลงานเด่น",
     "availability": "สถานะการทำงาน",
-    "availableNow": "พร้อมเริ่มงาน",
+    "availableNow": "พร้อมเริ่มงานทันที",
     "keySkills": "ทักษะสำคัญ",
     "downloadCV": "ดาวน์โหลด CV"
   },
   "about": {
     "title": "เกี่ยวกับฉัน",
-    "heading": "สร้างระบบอัจฉริยะสำหรับข้อมูลที่ไม่มีโครงสร้าง (Unstructured Data)",
-    "paragraph1": "ผมเชี่ยวชาญในการผสมผสานระหว่าง Large Language Models และ Knowledge Graphs โดยมุ่งเน้นที่การสร้างระบบที่สามารถสกัดความหมายจากข้อมูลที่ไม่มีโครงสร้างและซับซ้อนได้ เป้าหมายของผมคือก้าวข้ามการเป็นแค่ API Wrapper และพัฒนาระบบ AI ที่สามารถแก้ปัญหาตรรกะทางธุรกิจได้จริง",
-    "paragraph2": "ผมกำลังมองหาโอกาสในการเติบโตในฐานะ Applied LLM Engineer ในทีม Early-stage ที่ผมจะได้มีส่วนร่วมในการสร้างผลิตภัณฑ์ AI นวัตกรรมใหม่ ๆ พร้อมทั้งเรียนรู้และพัฒนาทักษะของตัวเองอย่างต่อเนื่อง",
+    "heading": "วิศวกรรมระบบอัจฉริยะสำหรับข้อมูลที่ไม่มีโครงสร้าง (Unstructured Data)",
+    "paragraph1": "ฉันเชี่ยวชาญการผสมผสานระหว่าง Large Language Models และ Knowledge Graphs โดยมุ่งเน้นการสร้างระบบที่สกัดความหมายจากข้อมูลที่ไม่มีโครงสร้างและซับซ้อน เป้าหมายของฉันคือก้าวข้ามการเป็นแค่ API wrapper และสร้างสรรค์โซลูชัน AI ทางวิศวกรรมที่สามารถแก้ปัญหาตรรกะทางธุรกิจได้จริง",
+    "paragraph2": "กำลังมองหาโอกาสเติบโตในตำแหน่ง Applied LLM Engineer ในทีมที่เพิ่งเริ่มต้น (Early-stage team) เพื่อร่วมสร้างโปรดักต์ AI นวัตกรรมใหม่ พร้อมกับเรียนรู้และพัฒนาทักษะอย่างต่อเนื่อง",
     "certifications": "ใบรับรอง",
-    "certificationsAndHonors": "ใบรับรองและเกียรติประวัติ",
+    "certificationsAndHonors": "ใบรับรองและรางวัลเกียรติยศ",
     "viewCertificate": "ดูใบรับรอง",
     "hoverToFlip": "เลื่อนเมาส์เพื่อดูรายละเอียด",
     "skillsCovered": "ทักษะที่ครอบคลุม",
-    "verifyCertificate": "ยืนยันใบรับรอง"
+    "verifyCertificate": "ตรวจสอบใบรับรอง"
   },
   "skills": {
     "title": "ความเชี่ยวชาญ",
     "heading": "ทักษะ &",
-    "headingItalic": "ความสามารถ"
+    "headingItalic": "สมรรถนะ"
   },
   "experience": {
     "title": "ประสบการณ์",
     "heading": "ประสบการณ์",
-    "headingItalic": "การทำงานและงานวิจัย",
-    "work": "การทำงาน",
-    "research": "งานวิจัย",
+    "headingItalic": "ทำงานและวิจัย",
+    "work": "ทำงาน",
+    "research": "วิจัย",
     "showMore": "แสดงรายละเอียดเพิ่มเติม",
-    "showLess": "แสดงน้อยลง",
-  "items": {
-    "jaist": {
-      "title": "AI/ML Research Intern",
-      "organization": "KnOWLab Research Lab, JAIST",
-      "location": "Nomi, Ishikawa, Japan",
-      "period": "เม.ย. 2025 — ก.ย. 2025",
-      "bullets": [
-        "สร้างไปป์ไลน์ Prompt Engineering (DoC) สำหรับดึงข้อมูลด้วย LLM เพิ่มประสิทธิภาพกว่าวิธี State-of-the-art ถึง 68%",
-        "ทดสอบและ Debug ผลลัพธ์ของ LLM ในสเกลขนาดใหญ่ พร้อมประยุกต์ใช้เงื่อนไขของโดเมนเพื่อคัดกรองคำตอบที่ไม่สมเหตุสมผล",
-        "ทำความแม่นยำได้ 100% ในการจัดเรียงข้อมูลแบบมีโครงสร้างอัตโนมัติจากเอกสารที่ไม่มีโครงสร้าง"
-      ]
-    },
-    "french": {
-      "title": "Backend Developer (Contract)",
-      "organization": "ภาควิชาภาษาตะวันตก (ภาษาฝรั่งเศส), มหาวิทยาลัยเชียงใหม่",
-      "location": "เชียงใหม่, ประเทศไทย",
-      "period": "เม.ย. 2024 — มี.ค. 2025",
-      "bullets": [
-        "พัฒนาแพลตฟอร์มบูรณาการการเรียนภาษาฝรั่งเศสเข้ากับบทเรียนแบบอินเทอร์แอคทีฟและคำแนะนำเฉพาะบุคคล",
-        "สร้างโครงสร้างพื้นฐาน Backend ครอบคลุมการจัดการฐานข้อมูล, API Endpoints และการตั้งค่าเซิร์ฟเวอร์"
-      ]
-    },
-    "ags": {
-      "title": "DevOps (Contract)",
-      "organization": "ภาควิชาวิทยาการคอมพิวเตอร์, มหาวิทยาลัยเชียงใหม่",
-      "location": "เชียงใหม่, ประเทศไทย",
-      "period": "มิ.ย. 2024 — ธ.ค. 2024",
-      "bullets": [
-        "สร้างแอปพลิเคชัน LLM ระดับ Production ด้วย GPT-3.5 โดยใช้ Structured Prompt Engineering",
-        "ลดเวลาการตรวจงานลง 80% (จาก 5 วัน → 1 วัน) สำหรับนักศึกษากว่า 80 คน พร้อมทั้งบริหารจัดการต้นทุน Inference",
-        "ออกแบบและ Deploy ระบบ Secure REST API ด้วย Flask และ SQLAlchemy และทำ Containerized ด้วย Docker",
-        "วางระบบ Deploy อัตโนมัติผ่าน GitHub Actions (CI/CD) บน AWS (ECS, Aurora, S3)"
-      ]
-    },
-    "ta": {
-      "title": "ผู้ช่วยสอน (Teaching Assistant)",
-      "organization": "มหาวิทยาลัยเชียงใหม่",
-      "location": "เชียงใหม่, ประเทศไทย",
-      "period": "ส.ค. 2022 — มี.ค. 2025",
-      "bullets": [
-        "ให้คำปรึกษานักศึกษาปริญญาตรีกว่า 50 คนในการเขียนโปรแกรม Python โดยเน้นที่แนวคิดหลักและ Best Practices",
-        "จัดทำคู่มือการติดตั้งซอฟต์แวร์ที่ครอบคลุม เพื่อให้นักศึกษาสามารถเข้าถึงเครื่องมือพัฒนาโปรแกรมได้อย่างราบรื่น"
-      ]
-    },
-    "cmu": {
-      "title": "วท.บ. วิทยาการคอมพิวเตอร์",
-      "organization": "มหาวิทยาลัยเชียงใหม่",
-      "location": "เชียงใหม่, ประเทศไทย",
-      "period": "2021 — 2025"
+    "showLess": "ย่อรายละเอียด",
+    "items": {
+      "jaist": {
+        "title": "AI/ML Research Intern",
+        "organization": "KnOWLab Research Lab, JAIST",
+        "location": "โนมิ, อิชิคาวะ, ญี่ปุ่น",
+        "period": "เม.ย. 2025 — ก.ย. 2025",
+        "bullets": [
+          "สร้าง Prompt Engineering pipeline (DoC) สำหรับการสกัดข้อมูลด้วย LLM ซึ่งเพิ่มประสิทธิภาพได้ถึง 68% เมื่อเทียบกับเทคโนโลยีที่ดีที่สุดในปัจจุบัน (State-of-the-art)",
+          "ทดสอบและแก้ไขข้อบกพร่อง (Debug) ผลลัพธ์ของ LLM ในสเกลขนาดใหญ่ โดยใช้ Domain constraints เพื่อกรองคำตอบที่ไม่สมเหตุสมผล",
+          "บรรลุความแม่นยำ 100% ในระบบอัตโนมัติสำหรับจัดเก็บข้อมูลแบบมีโครงสร้าง (Structured data) จากเอกสารที่ไม่มีโครงสร้าง"
+        ]
+      },
+      "french": {
+        "title": "Backend Developer (Contract)",
+        "organization": "Chiang Mai University, Dept. of Western Languages (French)",
+        "location": "เชียงใหม่, ประเทศไทย",
+        "period": "เม.ย. 2024 — มี.ค. 2025",
+        "bullets": [
+          "พัฒนาแพลตฟอร์มบูรณาการการเรียนภาษาฝรั่งเศสด้วยบทเรียนแบบอินเทอร์แอกทีฟและคำแนะนำเฉพาะบุคคล",
+          "สร้างโครงสร้างพื้นฐานระบบ Backend รวมถึงการจัดการฐานข้อมูล, API endpoints และการตั้งค่าเซิร์ฟเวอร์"
+        ]
+      },
+      "ags": {
+        "title": "DevOps (Contract)",
+        "organization": "Chiang Mai University, Dept. of Computer Science",
+        "location": "เชียงใหม่, ประเทศไทย",
+        "period": "มิ.ย. 2024 — ธ.ค. 2024",
+        "bullets": [
+          "สร้างแอปพลิเคชัน LLM ระดับ Production โดยใช้ GPT-3.5 ร่วมกับ Structured Prompt Engineering",
+          "ลดระยะเวลาการตรวจข้อสอบได้ 80% (จาก 5 วัน เหลือ 1 วัน) สำหรับนักศึกษากว่า 80 คน พร้อมบริหารจัดการต้นทุน Inference",
+          "ออกแบบและติดตั้ง REST API ที่มีความปลอดภัยด้วย Flask และ SQLAlchemy พร้อมทำ Containerize ด้วย Docker",
+          "ทำระบบ Deployment อัตโนมัติผ่าน GitHub Actions CI/CD บน AWS (ECS, Aurora, S3)"
+        ]
+      },
+      "ta": {
+        "title": "Teaching Assistant",
+        "organization": "Chiang Mai University",
+        "location": "เชียงใหม่, ประเทศไทย",
+        "period": "ส.ค. 2022 — มี.ค. 2025",
+        "bullets": [
+          "ให้คำปรึกษาและสอนนักศึกษาปริญญาตรีกว่า 50 คน ในวิชาการเขียนโปรแกรม Python โดยเน้นคอนเซปต์หลักและแนวทางปฏิบัติที่ดีที่สุด (Best practices)",
+          "เขียนคู่มือการติดตั้งซอฟต์แวร์แบบละเอียด เพื่อให้นักศึกษาสามารถเข้าถึงเครื่องมือพัฒนาโปรแกรมได้อย่างราบรื่น"
+        ]
+      },
+      "cmu": {
+        "title": "B.Sc. Computer Science",
+        "organization": "Chiang Mai University",
+        "location": "เชียงใหม่, ประเทศไทย",
+        "period": "2021 — 2025"
+      }
     }
-  }
   },
   "projects": {
     "title": "โปรเจกต์",
     "heading": "โปรเจกต์",
-    "headingItalic": "เด่น",
-    "description": "รวมโปรเจกต์ Open-source และการทดลองต่าง ๆ จาก GitHub ของผม",
+    "headingItalic": "แนะนำ",
+    "description": "ผลงาน Open-source และโปรเจกต์ทดลองต่างๆ จาก GitHub ของฉัน",
     "viewAllGithub": "ดูทั้งหมดบน GitHub",
     "viewAllProjects": "ดูโปรเจกต์ทั้งหมด",
-    "visitGithub": "ไปที่ GitHub ของฉัน",
+    "visitGithub": "เยี่ยมชม GitHub ของฉัน",
     "code": "ซอร์สโค้ด",
     "privateRepo": "Private Repo",
+    "viewGist": "ดู Gist",
+    "viewModel": "ดูโมเดล",
+    "viewData": "ดูข้อมูล",
+    "viewTemplate": "ดูเทมเพลต",
+    "viewLibrary": "ดูไลบรารี",
+    "viewPlugin": "ดูปลั๊กอิน",
     "liveDemo": "Live Demo",
-    "requestDemo": "ขอ Demo",
-    "requestDemoMessage": "Live demo สำหรับโปรเจกต์ส่วนตัวสงวนไว้สำหรับผู้ใช้ที่ได้รับสิทธิ์เท่านั้น โปรดติดต่อฉันเพื่อนัดหมายดู Demo",
+    "requestDemo": "ขอ Live Demo",
+    "requestDemoMessage": "Live Demo สำหรับ Private Projects มีไว้สำหรับผู้ใช้ที่ได้รับการจองสิทธิ์เท่านั้น กรุณาติดต่อฉันเพื่อจัดตารางดูเดโม่",
     "search": "ค้นหาโปรเจกต์...",
     "noResults": "ไม่พบโปรเจกต์",
-    "noResultsDescription": "ลองปรับเปลี่ยนคำค้นหาหรือดูโปรเจกต์ทั้งหมด",
+    "noResultsDescription": "ลองปรับคำค้นหาของคุณ หรือเลือกดูโปรเจกต์ทั้งหมด",
     "emptyState": "ยังไม่มีโปรเจกต์",
-    "emptyStateDescription": "แวะมาดูโปรเจกต์และผลงานใหม่ ๆ ได้เร็ว ๆ นี้",
+    "emptyStateDescription": "โปรดกลับมาตรวจสอบโปรเจกต์และผลงานใหม่ๆ เร็วๆ นี้",
     "activeFilters": "ตัวกรองที่ใช้งาน",
     "clearAll": "ล้างทั้งหมด",
     "sort": {
       "recent": "ล่าสุด",
-      "stars": "ดาวมากสุด",
+      "stars": "ดาวสูงสุด",
       "name": "ชื่อ (A-Z)"
     },
     "items": {
+      "portfolio": {
+        "title": "Personal Portfolio Website",
+        "description": "เว็บไซต์พอร์ตโฟลิโอสมัยใหม่ รองรับหลายภาษา พัฒนาด้วย Next.js 15 มาพร้อมระบบ i18n ที่สมบูรณ์แบบ, การปรับแต่ง SEO และระบบจัดการเนื้อหาที่ยืดหยุ่น",
+        "details": {
+          "subtitle": "พอร์ตโฟลิโอระดับ Production ที่โชว์ศักยภาพ Modern Web Development",
+          "organization": "Personal Project",
+          "role": "Full-Stack Developer & Designer",
+          "overview": "สร้างเว็บไซต์พอร์ตโฟลิโอสมัยใหม่ตั้งแต่ต้นโดยใช้ Next.js 15 พร้อม App Router รองรับระบบหลายภาษาอย่างเต็มรูปแบบ (อังกฤษ, ญี่ปุ่น, ไทย), ปรับแต่ง SEO, เป็นไปตามมาตรฐานการเข้าถึง (Accessibility) และมีระบบจัดการข้อมูลโปรเจกต์แบบรวมศูนย์ เว็บไซต์นี้แสดงให้เห็นถึงเทคนิคการพัฒนาเว็บขั้นสูง เช่น Server Components, ระบบ i18n แบบกำหนดเองพร้อมระบบ Fallback อัตโนมัติ, บล็อกเนื้อหาที่ยืดหยุ่น และระบบเทมเพลตคู่สำหรับหน้าโปรเจกต์แบบมาตรฐานและแบบปรับแต่งเอง เปิดใช้งานบน Vercel พร้อมระบบ CI/CD อัตโนมัติ ได้คะแนน Lighthouse 98 และผ่านเกณฑ์ WCAG อย่างครบถ้วน",
+          "challenges": [
+            "การติดตั้งระบบ i18n ที่เหมาะสม พร้อมการ Fallback ไปเป็นภาษาเริ่มต้น (Default) อัตโนมัติในทุกประเภทเนื้อหา",
+            "การรับรองการปรับแต่ง SEO อย่างครอบคลุมด้วย Metadata, JSON-LD และการสร้าง Sitemap ที่ถูกต้อง",
+            "การรักษามาตรฐานการเข้าถึง WCAG ตลอดทั้งแอปพลิเคชัน",
+            "การสร้างระบบข้อมูลโปรเจกต์แบบรวมศูนย์ที่มี Type-safe และรองรับ i18n",
+            "การป้องกันปัญหา Hydration mismatch ใน SSR ด้วยการเริ่มต้น i18n ฝั่งไคลเอนต์",
+            "การสร้างสมดุลระหว่างความยืดหยุ่น (หน้า Custom) และความสม่ำเสมอ (เลย์เอาต์มาตรฐาน)",
+            "การเพิ่มประสิทธิภาพการทำงาน (Performance) พร้อมกับการรักษาฟีเจอร์และแอนิเมชันที่สวยงาม"
+          ],
+          "solutions": [
+            "สร้างระบบ i18n เฉพาะตัวพร้อมฟังก์ชัน Fallback เป็นภาษาอังกฤษอัตโนมัติสำหรับคำแปลที่ขาดหายไป โดยใช้ i18next",
+            "ทำ SEO อย่างครอบคลุมด้วย Dynamic Metadata, Open Graph, Twitter Cards และ JSON-LD Structured Data",
+            "สร้าง UI Components ที่นำกลับมาใช้ใหม่ได้ พร้อมป้ายกำกับ ARIA, Semantic HTML และการนำทางด้วยคีย์บอร์ดที่ถูกต้อง",
+            "ออกแบบสถาปัตยกรรมข้อมูลแบบรวมศูนย์ (data/projects.ts) ด้วย TypeScript Types และ Utilities ที่ใช้ร่วมกัน",
+            "แก้ปัญหา Hydration โดยเริ่มต้นระบบ i18n แบบ Synchronous ก่อนการ Render ครั้งแรก แทนที่จะใช้ useEffect",
+            "พัฒนาระบบเทมเพลตคู่: เทมเพลตเริ่มต้นสำหรับโปรเจกต์ทั่วไป และหน้า Custom สำหรับการเล่าเรื่องเฉพาะตัว",
+            "ใช้ประโยชน์จาก Server Components ของ Next.js 15, การปรับแต่งรูปภาพ (Image Optimization) และการแยกโค้ด (Code Splitting) เพื่อประสิทธิภาพสูงสุด"
+          ],
+          "impact": [
+            "ได้คะแนน Lighthouse 98 ทั้งในด้าน Performance, SEO และ Accessibility",
+            "ผ่านเกณฑ์มาตรฐานการเข้าถึง WCAG 2.1 AA อย่างครบถ้วน พร้อม ARIA landmarks ที่ถูกต้อง",
+            "ประสบการณ์การใช้งานหลายภาษาที่ราบรื่น รองรับภาษาอังกฤษ ญี่ปุ่น และไทย",
+            "ระบบจัดการโปรเจกต์แบบ Type-safe ช่วยลดภาระการบำรุงรักษาได้ถึง 70%",
+            "โหลดหน้าเว็บรวดเร็ว (0.8s FCP, 1.2s TTI) ด้วยการปรับแต่งของ Next.js 15",
+            "ระบบเนื้อหาที่ยืดหยุ่นเปิดโอกาสให้เล่าเรื่องราวของโปรเจกต์เด่นได้อย่างมีเอกลักษณ์",
+            "ชุดทดสอบที่ครอบคลุมถึง 85% พร้อมการตรวจสอบ SEO อัตโนมัติ",
+            "การใช้งานระดับ Production พร้อมไปป์ไลน์ CI/CD และ Edge Functions"
+          ],
+          "techStack": {
+            "Frontend": ["Next.js 15 (App Router)", "React 18 (Server Components)", "TypeScript (Strict Mode)", "Tailwind CSS"],
+            "UI/UX": ["Framer Motion", "Radix UI", "Lucide Icons", "Shadcn/ui"],
+            "i18n": ["i18next", "react-i18next", "Custom fallback system"],
+            "SEO": ["Next.js Metadata API", "JSON-LD", "Dynamic Sitemap", "Robots.txt"],
+            "Deployment": ["Vercel", "GitHub Actions", "Edge Functions"],
+            "Testing": ["Vitest", "Custom SEO audit scripts", "Accessibility testing"]
+          }
+        }
+      },
       "ags": {
         "title": "AGS - Automated Grading System",
-        "description": "แอปพลิเคชัน LLM ระดับ Production ที่ใช้ Structured Prompt Engineering เพื่อตรวจงานอัตโนมัติ ลดเวลาการตรวจลง 80% สำหรับนักศึกษากว่า 80 คน"
+        "description": "แอปพลิเคชัน LLM ระดับ Production ที่ใช้ Structured Prompt Engineering เพื่ออัตโนมัติการตรวจข้อสอบ ลดเวลาการทำงานได้ 80% สำหรับนักศึกษากว่า 80 คน",
+        "details": {
+          "subtitle": "แอปพลิเคชัน LLM ระดับ Production สำหรับประเมินผลการศึกษา",
+          "organization": "Chiang Mai University, Dept. of Computer Science",
+          "role": "DevOps Engineer (Contract)",
+          "overview": "สร้างแอปพลิเคชัน LLM ระดับ Production โดยใช้ GPT-3.5 ร่วมกับ Structured Prompt Engineering และการควบคุมงบประมาณ Token ซึ่งช่วยลดระยะเวลาการตรวจข้อสอบลง 80% (จาก 5 วัน เหลือ 1 วัน) พร้อมบริหารจัดการต้นทุน Inference สำหรับนักศึกษากว่า 80 คน",
+          "challenges": [
+            "การบริหารจัดการต้นทุน LLM Inference สำหรับนักศึกษากว่า 80 คน",
+            "การรับรองคุณภาพการตรวจข้อสอบที่สม่ำเสมอในรูปแบบงานที่หลากหลาย",
+            "การติดตั้งระบบตรวจสอบสิทธิ์ (Authentication) และการอนุญาต (Authorization) ที่ปลอดภัยสำหรับข้อมูลวิชาการ",
+            "การปรับความเร็วในการตอบสนองโดยที่ยังคงรักษาความแม่นยำไว้"
+          ],
+          "solutions": [
+            "ใช้งาน Structured Prompt Engineering พร้อมระบบควบคุมงบประมาณ Token เพื่อใช้งาน GPT-3.5 อย่างคุ้มค่าที่สุด",
+            "ออกแบบ REST API ที่ปลอดภัยด้วย Flask และ SQLAlchemy สำหรับการคิวรีข้อมูลแบบมีโครงสร้าง",
+            "ทำ Containerize แอปพลิเคชันด้วย Docker เพื่อการนำไปปรับใช้ (Deployment) ที่สม่ำเสมอ",
+            "สร้าง CI/CD pipelines อัตโนมัติด้วย GitHub Actions สำหรับการปล่อยเวอร์ชันที่เชื่อถือได้",
+            "ใช้บริการของ AWS (ECS, Aurora, S3) เพื่อให้ระบบรองรับการขยายตัว (Scalability) และมีความเสถียร"
+          ],
+          "impact": [
+            "ลดระยะเวลาการตรวจข้อสอบได้ 80% (จาก 5 วัน เหลือ 1 วัน)",
+            "รองรับการใช้งานของนักศึกษากว่า 80 คนได้อย่างเสถียร",
+            "ควบคุมต้นทุนของ LLM Inference ได้อย่างมีประสิทธิภาพในระดับสเกล",
+            "บรรลุความน่าเชื่อถือของระบบในระดับสูงผ่านการทดสอบและการ Deployment แบบอัตโนมัติ"
+          ],
+          "techStack": {
+            "Backend": ["Flask", "Flask-RESTX", "SQLAlchemy", "Gunicorn"],
+            "AI/LLM": ["OpenAI GPT-3.5", "Prompt Engineering", "Token Optimization"],
+            "Cloud & DevOps": ["AWS ECS", "AWS Aurora", "AWS S3", "Docker", "GitHub Actions"],
+            "Database": ["PostgreSQL (Aurora)", "SQLAlchemy ORM"],
+            "Testing": ["Pytest", "Automated Testing"]
+          }
+        }
       },
       "ezaAlias": {
         "title": "Eza Alias Configuration",
-        "description": "Gist ยอดนิยมที่รวบรวมการตั้งค่า Alias สำหรับ eza (ตัวแทน ls ยุคใหม่) อย่างครบถ้วน ถูกนำไปใช้โดยนักพัฒนาทั่วโลก"
+        "description": "Gist ยอดนิยมที่จัดเตรียมการตั้งค่า Alias ที่ครอบคลุมสำหรับ eza (ตัวแทนของคำสั่ง ls สมัยใหม่) ถูกนำไปใช้งานโดยนักพัฒนาทั่วโลก",
+        "details": {
+          "subtitle": "การยกระดับการจัดการไฟล์บน Terminal สไตล์โมเดิร์น",
+          "organization": "Open Source Community",
+          "role": "Creator & Maintainer",
+          "overview": "Gist ยอดนิยมที่รวบรวมการตั้งค่า Alias ที่ครอบคลุมสำหรับ eza (ตัวแทนคำสั่ง ls ในปัจจุบัน) รวมถึงการกำหนดโทนสี ไอคอน และทางลัดเพื่อเพิ่มประสิทธิภาพการนำทางไฟล์ใน Terminal ให้ดียิ่งขึ้น ใช้งานโดยนักพัฒนาทั่วโลก",
+          "challenges": [
+            "การสร้าง Alias ที่ใช้งานง่ายซึ่งช่วยเพิ่มประสิทธิผล โดยไม่ทำให้ผู้ใช้รู้สึกซับซ้อนเกินไป",
+            "การตรวจสอบความเข้ากันได้ข้ามสภาพแวดล้อม Shell แบบต่างๆ (bash, zsh)",
+            "การสร้างสมดุลระหว่างฟีเจอร์ที่ครบครันกับความเรียบง่าย"
+          ],
+          "solutions": [
+            "ออกแบบระบบ Alias แบบลำดับชั้นที่ค่อยๆ เพิ่มความซับซ้อน",
+            "ใส่ระบบสี (Color-coded) เพื่อให้แยกแยะข้อมูลด้วยสายตาได้ง่ายขึ้น",
+            "เพิ่มการรองรับไอคอนสำหรับระบุประเภทไฟล์",
+            "เขียนคู่มือ (Documentation) อย่างครอบคลุมพร้อมตัวอย่างการใช้งาน"
+          ],
+          "impact": [
+            "ได้ดาว 62+ ดวงบน GitHub Gist",
+            "ใช้งานโดยนักพัฒนาทั่วโลก",
+            "เพิ่มประสิทธิภาพในการใช้งาน Terminal ให้กับผู้ใช้หลายร้อยคน",
+            "ได้รับความสนใจและข้อเสนอแนะจาก Community อย่างต่อเนื่อง"
+          ],
+          "techStack": {
+            "Shell": ["Bash", "Zsh", "Shell Scripting"],
+            "Tools": ["eza", "Terminal Emulators"]
+          }
+        }
+      },
+      "ontologyPhsrs": {
+        "title": "Public Health Service Recommendation System",
+        "description": "ระบบ Semantic Web ที่ใช้ OWL Ontologies เพื่อแนะนำบริการสาธารณสุขที่เหมาะสมโดยอิงจากอาการและประวัติทางการแพทย์ของผู้ป่วย"
+      },
+      "typstTemplate": {
+        "title": "Typst Academic Presentation Template",
+        "description": "เทมเพลตนำเสนองานวิชาการที่ดูสะอาดและทันสมัย สร้างด้วย Typst เป็นทางเลือกแทน LaTeX Beamer ด้วย Syntax ที่ใช้งานง่ายกว่า"
+      },
+      "demoProject": {
+        "title": "Custom Page Flexibility Demo",
+        "description": "แสดงศักยภาพความยืดหยุ่นสูงสุดด้วยหน้าโปรเจกต์แบบปรับแต่งเอง: ใส่รูปภาพ, สมการคณิตศาสตร์, ตาราง, บล็อกโค้ด และอื่นๆ",
+        "details": {
+          "subtitle": "สาธิตความสามารถของ Custom Page",
+          "organization": "Portfolio Showcase",
+          "role": "Full-Stack Developer",
+          "overview": "โปรเจกต์นี้ใช้หน้าเว็บแบบ Custom เต็มรูปแบบ เพื่อสาธิตความยืดหยุ่นสูงสุดที่คุณจะได้รับเมื่อก้าวข้ามเทมเพลตเริ่มต้น โชว์การจัดวางตำแหน่งรูปภาพอิสระ, สมการทางคณิตศาสตร์, ตารางที่ปรับแต่งเอง, บล็อกโค้ด, ผลลัพธ์จาก Terminal และการจัดเลย์เอาต์เนื้อหาแบบผสม"
+        }
       },
       "neovim": {
         "title": "Neovim",
-        "description": "ผู้ร่วมพัฒนา (Contributor) ใน Neovim - Vim-fork ที่เน้นด้านความสามารถในการขยายระบบและการใช้งานพร้อมฟีเจอร์ที่ทันสมัย"
+        "description": "ผู้ร่วมสมทบ (Contributor) ให้กับ Neovim - โปรแกรมแยกจาก Vim (Vim-fork) ที่เน้นความสามารถในการขยาย (Extensibility) และใช้งานง่ายด้วยฟีเจอร์สมัยใหม่"
       },
       "flaskSecurity": {
         "title": "Flask-Security",
-        "description": "ผู้ร่วมพัฒนา (Contributor) ใน Flask-Security - ระบบรักษาความปลอดภัยที่รวดเร็วและเรียบง่ายสำหรับแอปพลิเคชัน Flask พร้อมรูปแบบการใช้งานทั่วไป"
+        "description": "ผู้ร่วมสมทบ (Contributor) ให้กับ Flask-Security - ไลบรารีความปลอดภัยที่รวดเร็วและเรียบง่ายสำหรับแอปพลิเคชัน Flask พร้อมด้วยแพตเทิร์นการใช้งานทั่วไป"
       }
     }
   },
   "publications": {
     "title": "วิชาการ",
     "heading": "งานวิจัย &",
-    "headingItalic": "ผลงาน",
+    "headingItalic": "สิ่งพิมพ์เผยแพร่",
     "download": "ดาวน์โหลด",
     "viewRepo": "ดู Repo",
     "downloadPDF": "ดาวน์โหลด PDF",
-    "draftAvailable": "สามารถขอ Draft ได้",
+    "draftAvailable": "มีดราฟต์ให้บริการเมื่อร้องขอ",
     "emptyState": "ยังไม่มีผลงานตีพิมพ์",
-    "emptyStateDescription": "ผลงานวิชาการจะถูกนำมาแสดงที่นี่เมื่อพร้อม",
+    "emptyStateDescription": "ผลงานวิชาการจะถูกรวบรวมไว้ที่นี่เมื่อมีการเผยแพร่",
     "languages": {
-      "Thai": "ไทย",
-      "English": "อังกฤษ",
-      "Japanese": "ญี่ปุ่น"
+      "Thai": "ภาษาไทย",
+      "English": "ภาษาอังกฤษ",
+      "Japanese": "ภาษาญี่ปุ่น"
     },
     "items": {
       "kg-rag-jaist": {
-        "tldr": "ใช้ Knowledge Graphs และ Ontologies เพื่อสร้างสถานการณ์ทดสอบความปลอดภัยสำหรับระบบขับขี่อัตโนมัติ (ADS) โดยอัตโนมัติ"
+        "tldr": "ใช้ประโยชน์จาก Knowledge Graphs และ Ontologies ในการสร้างสถานการณ์เพื่อประเมินความปลอดภัย (Safety evaluation scenarios) แบบอัตโนมัติ สำหรับระบบขับขี่อัตโนมัติ (Autonomous Driving Systems - ADS)"
       },
       "ontology-phsrs": {
-        "tldr": "พัฒนาระบบ Semantic Web โดยใช้ OWL Ontologies เพื่อแนะนำบริการสาธารณสุขที่เหมาะสมตามอาการและประวัติการรักษาของผู้ป่วย"
+        "tldr": "สร้างระบบ Semantic Web โดยใช้ OWL Ontologies เพื่อแนะนำบริการสาธารณสุขที่เหมาะสมโดยอิงจากอาการและประวัติทางการแพทย์ของผู้ป่วย"
       },
       "cs-setup-guide": {
-        "tldr": "สร้างเอกสารคู่มือที่ครอบคลุมเพื่อช่วยนักศึกษา CS กว่า 250 คนในการติดตั้งสภาพแวดล้อมการพัฒนา ลดเวลาการติดตั้งจากหลายวันเหลือเพียงไม่กี่ชั่วโมง"
+        "tldr": "เขียนเอกสารแนะนำอย่างครอบคลุมเพื่อช่วยนักศึกษา CS กว่า 250 คน ในการตั้งค่าสภาพแวดล้อมสำหรับการพัฒนาโปรแกรม ซึ่งลดเวลาการตั้งค่าจากหลายวันเหลือเพียงไม่กี่ชั่วโมง"
       }
     }
   },
   "contact": {
     "title": "ติดต่อ",
-    "heading": "มาเชื่อมต่อ",
-    "headingItalic": "กัน",
-    "description": "สนใจร่วมงานหรือมีคำถามใด ๆ? ผมยินดีที่ได้พูดคุยด้วยครับ",
-    "findMeOnline": "ช่องทางออนไลน์",
+    "heading": "มาพูดคุย",
+    "headingItalic": "กันเถอะ",
+    "description": "สนใจร่วมงานกันหรือมีคำถาม? ฉันยินดีที่จะพูดคุยกับคุณ",
+    "findMeOnline": "ช่องทางออนไลน์อื่นๆ",
     "sendMessage": "ส่งข้อความ",
-    "cvRequestForm": "ฟอร์มขอ CV",
-    "cvRequestTemplate": "สวัสดีครับ! ผมต้องการขอ CV ของคุณ โปรดส่งให้ผมเมื่อคุณสะดวกนะครับ",
-    "cvRequestNote": "กรอกรายละเอียดของคุณด้านล่าง แล้วผมจะส่ง CV ให้ทางอีเมลโดยตรงภายใน 24 ชั่วโมงครับ",
+    "cvRequestForm": "แบบฟอร์มขอ CV",
+    "cvRequestTemplate": "สวัสดี! ฉันต้องการขอ CV ของคุณ กรุณาส่งให้ฉันเมื่อคุณสะดวก",
+    "cvRequestNote": "กรอกข้อมูลของคุณด้านล่าง แล้วฉันจะส่ง CV ทางอีเมลโดยตรงภายใน 24 ชั่วโมง",
     "yourName": "ชื่อของคุณ",
     "yourEmail": "อีเมลของคุณ",
     "yourMessage": "ข้อความของคุณ",
     "sending": "กำลังส่ง...",
     "sendMessageBtn": "ส่งข้อความ",
-    "messageSent": "ส่งข้อความแล้ว! ผมจะติดต่อกลับไปเร็ว ๆ นี้ครับ",
-    "messageFailed": "ไม่สามารถส่งข้อความได้ โปรดลองอีกครั้งหรือส่งอีเมลถึงผมโดยตรงครับ",
-    "copyEmail": "คัดลอกที่อยู่อีเมล",
+    "messageSent": "ส่งข้อความเรียบร้อย! ฉันจะติดต่อกลับโดยเร็วที่สุด",
+    "messageFailed": "ส่งข้อความไม่สำเร็จ กรุณาลองอีกครั้งหรือส่งอีเมลหาฉันโดยตรง",
+    "copyEmail": "คัดลอกอีเมล",
     "emailCopied": "คัดลอกอีเมลลงคลิปบอร์ดแล้ว!",
-    "emailCopyFailed": "การคัดลอกอีเมลล้มเหลว",
+    "emailCopyFailed": "คัดลอกอีเมลไม่สำเร็จ",
     "keyboardHint": "กด ⌘/Ctrl + Enter เพื่อส่ง",
-    "categoryLabel": "หัวข้อที่ต้องการติดต่อ?",
+    "categoryLabel": "คุณต้องการติดต่อเรื่องอะไร?",
     "categoryPlaceholder": "เลือกเหตุผลในการติดต่อ...",
     "categories": {
       "hiring": {
-        "label": "เสนองาน / โอกาสในการทำงาน",
-        "subject": "สอบถามเกี่ยวกับโอกาสในการทำงาน",
-        "message": "สวัสดีครับ! ผมติดต่อมาเกี่ยวกับโอกาสในการทำงานที่น่าสนใจ ผมอยากทราบรายละเอียดเพิ่มเติมเกี่ยวกับการร่วมงานกับคุณ และทักษะของคุณจะช่วยส่งเสริมทีมเราได้อย่างไรบ้าง"
+        "label": "จ้างงาน / โอกาสในการทำงาน",
+        "subject": "สอบถามเรื่องโอกาสในการทำงาน",
+        "message": "สวัสดี! ฉันติดต่อมาเรื่องโอกาสในการทำงานที่อาจเกิดขึ้น ฉันสนใจที่จะเรียนรู้เพิ่มเติมเกี่ยวกับการร่วมงานกับคุณ และวิธีที่ทักษะของฉันจะช่วยส่งเสริมทีมของคุณได้"
       },
       "collaboration": {
         "label": "ร่วมงาน / พาร์ทเนอร์",
         "subject": "ข้อเสนอการร่วมงาน",
-        "message": "สวัสดีครับ! ผมสนใจที่จะร่วมโปรเจกต์ด้วย ผมอยากจะหารือเกี่ยวกับโอกาสที่เราจะได้ร่วมงานและสร้างสรรค์สิ่งที่น่าทึ่งไปด้วยกัน"
+        "message": "สวัสดี! ฉันสนใจที่จะร่วมโปรเจกต์ด้วย ฉันอยากพูดคุยถึงโอกาสที่เราจะทำงานร่วมกันและสร้างสรรค์สิ่งที่ยอดเยี่ยม"
       },
       "question": {
-        "label": "สอบถาม / ขอคำปรึกษา",
-        "subject": "สอบถามข้อมูล",
-        "message": "สวัสดีครับ! ผมมีคำถามเกี่ยวกับผลงานของคุณ ผมอยากขอข้อมูลเชิงลึกและความเชี่ยวชาญของคุณในหัวข้อนี้ครับ"
+        "label": "คำถาม / ปรึกษา",
+        "subject": "คำถาม",
+        "message": "สวัสดี! ฉันมีคำถามเกี่ยวกับผลงานของคุณ ฉันอยากขอรับคำแนะนำและความเชี่ยวชาญของคุณในหัวข้อนี้"
       },
       "other": {
-        "label": "อื่น ๆ",
-        "subject": "ติดต่อสอบถามทั่วไป"
+        "label": "อื่นๆ",
+        "subject": "สอบถามทั่วไป"
       }
     },
     "successState": {
       "title": "ส่งข้อความสำเร็จแล้ว!",
-      "description": "ผมจะตอบกลับภายใน 24 ชั่วโมง"
+      "description": "ฉันจะตอบกลับภายใน 24 ชั่วโมง"
     },
     "socialTooltip": {
       "clickToCopy": "คลิกเพื่อคัดลอก",
@@ -240,56 +369,56 @@
   "contactPage": {
     "hero": {
       "title": "มาร่วมงานกัน",
-      "description": "ไม่ว่าคุณจะมีโปรเจกต์ในใจ ต้องการร่วมงาน หรือแค่ทักทาย ผมเปิดรับโอกาสและบทสนทนาใหม่ ๆ เสมอครับ"
+      "description": "ไม่ว่าคุณจะมีโปรเจกต์ในใจ, ต้องการร่วมงานด้วย, หรือแค่แวะมาทักทาย ฉันเปิดรับโอกาสและบทสนทนาใหม่ๆ เสมอ"
     },
     "cvRequest": {
       "title": "ขอ CV ของฉัน",
-      "description": "หากสนใจเรซูเม่ฉบับเต็ม? ส่งข้อความพร้อมรายละเอียดของคุณด้านล่าง แล้วผมจะส่ง CV ให้คุณโดยตรงครับ",
+      "description": "สนใจดูเรซูเม่ฉบับเต็มของฉันไหม? ส่งข้อความพร้อมรายละเอียดของคุณด้านล่าง แล้วฉันจะส่ง CV ให้คุณโดยตรง",
       "badge": "ขอ CV",
-      "button": "ไปที่ฟอร์มคำขอ"
+      "button": "ไปที่ฟอร์มขอ CV"
     },
     "responseTime": {
       "title": "เวลาตอบกลับ",
       "value": "ภายใน 24 ชั่วโมง"
     },
     "location": {
-      "title": "สถานที่",
+      "title": "ที่อยู่",
       "value": "เชียงใหม่, ประเทศไทย (GMT+7)"
     }
   },
   "availability": {
-    "banner": "กำลังเปิดรับโอกาสในการทำงาน! มองหาตำแหน่ง Applied LLM Engineer",
-    "bannerShort": "พร้อมเริ่มงาน! มองหาตำแหน่ง Applied LLM Engineer",
+    "banner": "พร้อมเปิดรับโอกาสใหม่ๆ! กำลังมองหาตำแหน่ง Applied LLM Engineer",
+    "bannerShort": "พร้อมเริ่มงาน! กำลังมองหาตำแหน่ง Applied LLM Engineer",
     "badge": "เปิดรับโอกาสทำงาน",
     "badgeShort": "พร้อมเริ่มงาน",
-    "available": "พร้อมรับงาน",
-    "tooltip": "เปิดรับโอกาสใหม่"
+    "available": "Available",
+    "tooltip": "พร้อมพิจารณาโอกาสใหม่ๆ"
   },
   "footer": {
     "rights": "สงวนลิขสิทธิ์",
-    "builtWith": "สร้างด้วย React & Tailwind CSS"
+    "builtWith": "สร้างด้วย React และ Tailwind CSS"
   },
   "notFound": {
     "title": "ไม่พบหน้านี้",
-    "description": "หน้าที่คุณกำลังค้นหาไม่มีอยู่จริงหรือถูกย้ายไปแล้ว กลับไปตั้งหลักกันใหม่ดีกว่า",
-    "goHome": "กลับไปหน้าแรก",
+    "description": "หน้าที่คุณกำลังค้นหาไม่มีอยู่หรือถูกย้ายไปแล้ว กลับไปยังหน้าหลักกันเถอะ",
+    "goHome": "กลับสู่หน้าแรก",
     "goBack": "ย้อนกลับ",
     "quickLinks": "ลิงก์ด่วน"
   },
   "breadcrumbs": {
     "home": "หน้าแรก",
     "projects": "โปรเจกต์",
-    "publications": "ผลงานวิชาการ"
+    "publications": "วิชาการ"
   },
   "share": {
     "share": "แชร์",
-    "shared": "แชร์เรียบร้อยแล้ว!",
+    "shared": "แชร์สำเร็จ!",
     "copyLink": "คัดลอกลิงก์",
     "copied": "คัดลอกแล้ว!",
     "linkCopied": "คัดลอกลิงก์แล้ว!",
-    "linkCopiedDesc": "ลิงก์ถูกคัดลอกลงในคลิปบอร์ดของคุณแล้ว",
+    "linkCopiedDesc": "ลิงก์ถูกคัดลอกลงในคลิปบอร์ดของคุณเรียบร้อยแล้ว",
     "error": "เกิดข้อผิดพลาด",
-    "errorDesc": "ไม่สามารถคัดลอกลิงก์ได้ โปรดลองอีกครั้ง"
+    "errorDesc": "คัดลอกลิงก์ไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
   },
   "language": {
     "selectLanguage": "เลือกภาษา",
@@ -303,7 +432,7 @@
     "switchToDark": "เปลี่ยนเป็นโหมดมืด"
   },
   "accessibility": {
-    "navigatedTo": "นำทางไปยัง {{page}}",
+    "navigatedTo": "ไปยังหน้า {{page}}",
     "skipToContent": "ข้ามไปยังเนื้อหาหลัก",
     "mainContent": "เนื้อหาหลัก"
   }

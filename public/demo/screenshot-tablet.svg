@@ -1,0 +1,46 @@
+<svg width="768" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Tablet Frame -->
+  <rect width="768" height="1024" rx="20" fill="#1a202c"/>
+  
+  <!-- Screen -->
+  <rect x="15" y="15" width="738" height="994" rx="15" fill="url(#grad3)"/>
+  
+  <!-- Status Bar -->
+  <rect x="30" y="30" width="708" height="35" fill="#2d3748" opacity="0.8"/>
+  <text x="45" y="55" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">9:41 AM</text>
+  
+  <!-- Content -->
+  <rect x="30" y="75" width="708" height="919" rx="0 0 10 10" fill="#ffffff" opacity="0.95"/>
+  
+  <!-- Header -->
+  <rect x="50" y="100" width="180" height="30" rx="4" fill="#e2e8f0"/>
+  <rect x="600" y="100" width="118" height="30" rx="15" fill="#4facfe"/>
+  
+  <!-- Two Column Layout -->
+  <rect x="50" y="160" width="320" height="20" rx="4" fill="#cbd5e0"/>
+  <rect x="50" y="190" width="300" height="20" rx="4" fill="#cbd5e0"/>
+  
+  <rect x="50" y="240" width="320" height="250" rx="8" fill="#e2e8f0"/>
+  <rect x="398" y="240" width="320" height="250" rx="8" fill="#e2e8f0"/>
+  
+  <rect x="50" y="520" width="320" height="250" rx="8" fill="#e2e8f0"/>
+  <rect x="398" y="520" width="320" height="250" rx="8" fill="#e2e8f0"/>
+  
+  <!-- Footer -->
+  <rect x="50" y="800" width="668" height="80" rx="8" fill="#f7fafc"/>
+  
+  <!-- Text Label -->
+  <text x="384" y="500" font-family="Arial, sans-serif" font-size="42" fill="#2d3748" text-anchor="middle" opacity="0.3">
+    Tablet View
+  </text>
+  <text x="384" y="545" font-family="Arial, sans-serif" font-size="22" fill="#4a5568" text-anchor="middle" opacity="0.3">
+    768 × 1024
+  </text>
+</svg>
