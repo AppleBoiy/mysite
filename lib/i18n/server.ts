@@ -27,6 +27,7 @@ async function loadTranslation(locale: Locale) {
 export async function getServerTranslations(locale: Locale): Promise<I18nInstance> {
   const i18nInstance = createInstance();
   const translation = await loadTranslation(locale);
+  const defaultTranslation = locale !== defaultLocale ? await loadTranslation(defaultLocale) : translation;
 
   await i18nInstance
     .use(initReactI18next)
@@ -35,6 +36,9 @@ export async function getServerTranslations(locale: Locale): Promise<I18nInstanc
       resources: {
         [locale]: {
           translation
+        },
+        [defaultLocale]: {
+          translation: defaultTranslation
         }
       },
       fallbackLng: defaultLocale,

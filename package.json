@@ -1,7 +1,7 @@
 {
   "name": "chaipat-portfolio",
   "private": true,
-  "version": "2.0.2",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -17,7 +17,8 @@
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "test:seo": "vitest --run tests/seo-validation.test.ts",
-    "check-seo": "node scripts/check-seo.js"
+    "check-seo": "node scripts/check-seo.js",
+    "audit-seo": "node scripts/seo-audit.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",
@@ -48,6 +49,7 @@
     "@radix-ui/react-toggle": "^1.1.2",
     "@radix-ui/react-toggle-group": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
@@ -69,6 +71,8 @@
     "react-hot-toast": "^2.6.0",
     "react-i18next": "^17.0.0",
     "react-router-dom": "^6.26.0",
+    "react-syntax-highlighter": "^16.1.1",
+    "reactflow": "^11.11.4",
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",

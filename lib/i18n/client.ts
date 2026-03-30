@@ -22,22 +22,37 @@ export function initClientI18n(locale: Locale, translations: any) {
   // (Crucial for SSR so different users' requests don't leak languages!)
   const newInstance = i18next.createInstance();
 
+  const resources: any = {
+    [locale]: { translation: translations }
+  };
+
+  // Add default locale for fallback if different from current locale
+  if (locale !== defaultLocale) {
+    // Note: This assumes default locale translations are passed from server
+    // or will be loaded lazily when needed
+    resources[defaultLocale] = { translation: translations };
+  }
+
   newInstance
     .use(initReactI18next)
     .init({
       lng: locale, 
       fallbackLng: defaultLocale,
-      resources: {
-        [locale]: { translation: translations }
-      },
+      resources,
       interpolation: {
         escapeValue: false
       },
       // 3. CRITICAL FOR HYDRATION: Force synchronous initialization
-      initImmediate: false, 
+      initImmediate: false,
+      // Return key if translation is missing
+      returnNull: false,
+      returnEmptyString: false,
     });
   
   loadedLanguages.add(locale);
+  if (locale !== defaultLocale) {
+    loadedLanguages.add(defaultLocale);
+  }
 
   // 4. Save the instance globally for the browser so lazy loading works
   if (typeof window !== 'undefined') {
